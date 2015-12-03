@@ -1,6 +1,8 @@
 import 'babel-polyfill'
 import express from 'express'
 import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
+import getData from './util/hdb.js'
 
 const app = express()
 const dbUri = 'mongodb://' +
@@ -12,7 +14,7 @@ mongoose.connect(dbUri)
 const Flat = mongoose.model('Flat', {
   town: String,
   type: String,
-  averagePrices: Array
+  data: Array
 })
 
 app.use(bodyParser.json())
@@ -39,10 +41,20 @@ app.get('/flats', function (req, res) {
       console.log('town and flat type found')
       res.json(docs)
     } else {
-      // not found, call data.gov.sg for new data,
-      // then call POST method to create new document      
-      console.log('Not Found')
-      res.status(404).end('Not Found')
+      console.log('data not in existing database')
+      console.log('please wait while we fetch new data')
+      // not found, call funciton to fetch data.gov.sg for new data,
+      // fetch(data.gov.sg)
+          // .then(process data)
+          // .then(save into mongodb)
+          // .then(respond with new data)
+
+      const newTownFlat = new Flat(getData(req.query.town, req.query.flat))
+      newTownFlat.save(function (err) {
+        if (err) return console.error(err)
+        console.log('new data added')
+        res.status(201).json(newTownFlat)
+      })
     }
   })
 })
@@ -50,7 +62,7 @@ app.get('/flats', function (req, res) {
 // create new document for a specific town and flat type
 // document should be submitted in request body
 app.post('/flats', function (req, res) {
-  const newTownFlat = req.body
+  const newTownFlat = new Flat(req.body)
   newTownFlat.save(function (err) {
     if (err) return console.error(err)
     console.log('new town added')
