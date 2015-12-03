@@ -2,7 +2,7 @@ import _ from 'lodash'
 import fetch from 'node-fetch'
 
 export default function getData (town, flatType) {
-  const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=8d2112ca-726e-4394-9b50-3cdf5404e790&limit=&q={"town": "' + town + '", "flat_type":"' + flatType + '"}'
+  const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=8d2112ca-726e-4394-9b50-3cdf5404e790&q={"town": "' + town + '", "flat_type":"' + flatType + '"}'
 
   return fetch(dataURL).then(data => data.json())
     .then(json => {
