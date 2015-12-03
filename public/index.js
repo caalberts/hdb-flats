@@ -14,7 +14,7 @@ function createForm () {
 function fetchFromURL (town, type) {
   const url = '/flats?town=' + town + '&type=' + type
   console.log('Fetching: ' + url)
-  window.fetch(url)
+  fetch(url)
     .then((res) => res.json())
     .then((json) => {
       document.querySelector('#results').textContent = json

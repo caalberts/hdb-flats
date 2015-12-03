@@ -4,9 +4,9 @@
   "description": "mini hack to display HDB resale price",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && npm run build-http && npm run start-server",
+    "start": "npm run build && npm run build-index && npm run start-server",
     "start-server": "node dist/server.js",
-    "build-http": "cp views/index.html dist/index.html",
+    "build-index": "cp public/index.html dist/public/index.html && babel public --out-dir dist/public --presets es2015",
     "build": "babel src --out-dir dist --presets es2015",
     "babel-node": "babel-node --presets es2015 --ignore='foo|bar|baz'",
     "test": "standard"
