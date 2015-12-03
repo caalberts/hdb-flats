@@ -39,8 +39,11 @@ app.get('/flats', function (req, res) {
       console.log('town and flat type found')
       res.json(docs)
     } else {
-      // not found, call data.gov.sg for new data,
-      // then call POST method to create new document      
+      // not found, call funciton to fetch data.gov.sg for new data,
+      // fetch(data.gov.sg)
+          // .then(process data)
+          // .then(save into mongodb)
+          // .then(respond with new data)
       console.log('Not Found')
       res.status(404).end('Not Found')
     }
