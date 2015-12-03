@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/caalberts/wdi-mini-hack/issues"
   },
-  "homepage": "https://github.com/caalberts/wdi-mini-hack#readme"
+  "homepage": "https://github.com/caalberts/wdi-mini-hack#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.9"
+  }
 }
