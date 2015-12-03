@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import fetch from 'node-fetch'
 
 export default function getData (town, flatType) {
   fetch(/* data.gov.sg */).then((err, data) => {
