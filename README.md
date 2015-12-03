@@ -1,5 +1,8 @@
 # hdb-resale-data
 
+[![Travis Build Status](https://img.shields.io/travis/caalberts/hdb-resale-data.svg?style=flat-square)](https://travis-ci.org/caalberts/hdb-resale-data)
+[![Gemnasium Status](https://img.shields.io/gemnasium/caalberts/hdb-resale-data.svg?style=flat-square)](https://gemnasium.com/caalberts/hdb-resale-data)
+
 An application to display historical HDB resale price for a given town and flat type, created during a GA Web Development Immersive mini-hack.
 
 The application serves a single page application where user can enter the town name and the flat type and view the number of transactions and average resale price for each month.

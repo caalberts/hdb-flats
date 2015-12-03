@@ -1,5 +1,5 @@
 {
-  "name":"HDB Resale",
+  "name":"hdb-resale-data",
   "description":"Mini hack to display HDB resale price",
   "scripts":{},
   "env":{},
