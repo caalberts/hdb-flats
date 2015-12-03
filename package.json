@@ -1,5 +1,5 @@
 {
-  "name": "wdi-mini-hack",
+  "name": "hdb-resale-data",
   "version": "1.0.0",
   "description": "mini hack to display HDB resale price",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caalberts/wdi-mini-hack.git"
+    "url": "git+https://github.com/caalberts/hdb-resale-data.git"
   },
   "author": "Yong Jun, Jared, Albert",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/caalberts/wdi-mini-hack/issues"
+    "url": "https://github.com/caalberts/hdb-resale-data/issues"
   },
-  "homepage": "https://github.com/caalberts/wdi-mini-hack#readme",
+  "homepage": "https://github.com/caalberts/hdb-resale-data#readme",
   "dependencies": {
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
