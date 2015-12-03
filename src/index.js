@@ -12,13 +12,13 @@ function createForm () {
 }
 
 function fetchFromURL (town, type) {
-  const url = '/flats?town=' + town + '&flat=' + type
+  const url = '/flats?town=' + town + '&type=' + type
   console.log('Fetching: ' + url)
-  fetch(url)
-    .then((res) => res.blob())
-    .then((res) => JSON.stringify(res))
-    .then((res) => console.log(res))
-    .then((res) => document.querySelector('#results').textContent = res)
+  window.fetch(url)
+    .then((res) => res.json())
+    .then((json) => {
+      document.querySelector('#results').textContent = json
+    })
 }
 
 createForm()

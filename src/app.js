@@ -7,6 +7,7 @@ import getData from './util/hdb.js'
 const app = express()
 
 app.use(express.static('dist'))
+app.use(express.static('public'))
 
 
 // const dbUri = 'mongodb://' +
