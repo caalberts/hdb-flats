@@ -24,13 +24,13 @@ app.get('/', function (req, res) {
 })
 
 // get flat by town and flat type
-// eg. /flats?town=tampines&flat=2 room
+// eg. /flats?town=tampines&type=2 room
 app.get('/flats', function (req, res) {
   let query
-  if (req.query.town && req.query.flat) {
+  if (req.query.town && req.query.type) {
     query = {
       town: { $regex: req.query.town, $options: 'i' },
-      flat: { $regex: req.query.flat, $options: 'i' }
+      flat: { $regex: req.query.type, $options: 'i' }
     }
   } else {
     query = {}
@@ -49,12 +49,16 @@ app.get('/flats', function (req, res) {
           // .then(save into mongodb)
           // .then(respond with new data)
 
-      const newTownFlat = new Flat(getData(req.query.town, req.query.flat))
-      newTownFlat.save(function (err) {
-        if (err) return console.error(err)
-        console.log('new data added')
-        res.status(201).json(newTownFlat)
-      })
+      getData(req.query.town, req.query.type)
+        .then(data => {
+          console.log(data)
+          const newTownFlat = new Flat(data)
+          newTownFlat.save(function (err) {
+            if (err) return console.error(err)
+            console.log('new data added')
+            res.status(201).json(newTownFlat)
+          })
+        })
     }
   })
 })
