@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+import getData from './util/hdb.js'
 
 const app = express()
 const dbUri = 'mongodb://' +
@@ -47,8 +48,8 @@ app.get('/flats', function (req, res) {
           // .then(process data)
           // .then(save into mongodb)
           // .then(respond with new data)
-      //const newData = fetch(...).then()
-      const newTownFlat = new Flat(newData)
+
+      const newTownFlat = new Flat(getData(req.query.town, req.query.flat))
       newTownFlat.save(function (err) {
         if (err) return console.error(err)
         console.log('new data added')
