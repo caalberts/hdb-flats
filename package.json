@@ -1,0 +1,19 @@
+{
+  "name": "wdi-mini-hack",
+  "version": "1.0.0",
+  "description": "mini hack to display HDB resale price",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caalberts/wdi-mini-hack.git"
+  },
+  "author": "Yong Jun, Jared, Albert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caalberts/wdi-mini-hack/issues"
+  },
+  "homepage": "https://github.com/caalberts/wdi-mini-hack#readme"
+}

@@ -1,2 +1,3 @@
-# wdi-project-02
-WDI Project 2
+# wdi-mini-hack
+
+Mini hack to display HDB resale price
