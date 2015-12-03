@@ -1,0 +1,7 @@
+{
+  "name":"HDB Resale",
+  "description":"Mini hack to display HDB resale price",
+  "scripts":{},
+  "env":{},
+  "addons":[]
+}
