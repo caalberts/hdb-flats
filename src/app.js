@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import getData from './util/hdb.js'
 
 const app = express()
+
 const dbUri = 'mongodb://' +
   process.env.HDBRESALE_MONGODB_USER + ':' +
   process.env.HDBRESALE_MONGODB_PASSWORD +

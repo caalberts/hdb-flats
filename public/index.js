@@ -1,3 +1,5 @@
+/* global fetch */
+
 'use strict'
 
 function createForm () {
@@ -5,18 +7,19 @@ function createForm () {
   const townList = form.elements['town']
   const town = townList.options[townList.selectedIndex].text
   const roomList = form.elements['roomtype']
-  const type = parseInt(roomList.options[roomList.selectedIndex].text, 10)
+  const type = roomList.options[roomList.selectedIndex].text
+  const submitBtn = document.querySelector('#submitBtn')
 
-  form.addEventListener('submit', (event) => {
-    fetchFromURL(town, type)
+  submitBtn.addEventListener('click', (event) => {
     event.preventDefault()
+    fetchFromURL(town, type)
   })
 }
 
 function fetchFromURL (town, type) {
   const url = '/flats?town=' + town + '&type=' + type
   console.log('Fetching: ' + url)
-  window.fetch(url)
+  fetch(url)
     .then((res) => res.json())
     .then((json) => {
       document.querySelector('#results').textContent = json
