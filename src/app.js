@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import getData from './util/hdb.js'
 
 const app = express()
+
 const dbUri = 'mongodb://' +
   process.env.HDBRESALE_MONGODB_USER + ':' +
   process.env.HDBRESALE_MONGODB_PASSWORD +
@@ -19,8 +20,10 @@ const Flat = mongoose.model('Flat', {
 
 app.use(bodyParser.json())
 
+app.use(express.static('public'))
+
 app.get('/', function (req, res) {
-  res.send('Home page for user to enter the town and flat type')
+  res.sendFile('index.html')
 })
 
 // get flat by town and flat type
