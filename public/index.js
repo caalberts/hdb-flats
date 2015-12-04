@@ -18,8 +18,7 @@ function createForm () {
 
 function fetchFromURL (town, type) {
   function getBaseURL () {
-   return location.protocol + "//" + location.hostname +
-      (location.port && ":" + location.port) + "/";
+    return window.location.protocol + '//' + window.location.hostname + (window.location.port && ':' + window.location.port) + '/'
   }
 
   const url = getBaseURL() + 'flats?town=' + town + '&type=' + type
@@ -30,7 +29,5 @@ function fetchFromURL (town, type) {
       document.querySelector('#results').textContent = json
     })
 }
-
-
 
 createForm()
