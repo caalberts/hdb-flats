@@ -1,7 +1,7 @@
-# hdb-resale-data
+# hdb-flats
 
-[![Travis Build Status](https://img.shields.io/travis/caalberts/hdb-resale-data.svg?style=flat-square)](https://travis-ci.org/caalberts/hdb-resale-data)
-[![Gemnasium Status](https://img.shields.io/gemnasium/caalberts/hdb-resale-data.svg?style=flat-square)](https://gemnasium.com/caalberts/hdb-resale-data)
+[![Travis Build Status](https://img.shields.io/travis/caalberts/hdb-flats.svg?style=flat-square)](https://travis-ci.org/caalberts/hdb-flats)
+[![Gemnasium Status](https://img.shields.io/gemnasium/caalberts/hdb-flats.svg?style=flat-square)](https://gemnasium.com/caalberts/hdb-flats)
 
 An application to display historical HDB resale price for a given town and flat type, created during a GA Web Development Immersive mini-hack.
 
