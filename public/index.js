@@ -17,16 +17,21 @@ function createForm () {
 }
 
 function fetchFromURL (town, type) {
-  function getBaseURL () {
-    return window.location.protocol + '//' + window.location.hostname + (window.location.port && ':' + window.location.port) + '/'
-  }
-
-  const url = getBaseURL() + 'flats?town=' + town + '&type=' + type
+  // function getBaseURL () {
+  //   return window.location.protocol + '//' + window.location.hostname + (window.location.port && ':' + window.location.port) + '/'
+  // }
+  //
+  // const url = getBaseURL() + 'flats?town=' + town + '&type=' + type
+  const url = '/flats?town=' + town + '&type=' + type
   console.log('Fetching: ' + url)
   fetch(url)
     .then((res) => res.json())
-    .then((json) => {
-      document.querySelector('#results').textContent = json
+    .then((data) => {
+      var searchResult = JSON.parse(JSON.stringify(data))
+      searchResult.forEach((elem) => {
+        document.querySelector('#results').textContent = elem
+        console.log(elem)
+      })
     })
 }
 
