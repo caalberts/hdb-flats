@@ -3,3 +3,4 @@ dist/
 public/
 config.js
 *.log
+*.log.*
