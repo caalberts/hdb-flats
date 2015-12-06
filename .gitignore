@@ -1,3 +1,5 @@
 coverage/
 dist/
+public/
 config.js
+*.log

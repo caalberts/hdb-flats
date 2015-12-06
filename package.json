@@ -6,25 +6,37 @@
   "scripts": {
     "start": "npm run build && npm run start-server",
     "start-server": "node dist/server.js",
-    "build": "babel src --out-dir dist --presets es2015",
-    "babel-node": "babel-node --presets es2015 --ignore='foo|bar|baz'",
-    "test": "standard"
+    "build": "npm run clean && mkdir public && npm run build-src && npm run build-html && npm run build-js",
+    "build-src": "babel src --out-dir dist --presets es2015",
+    "build-html": "cp public_src/maps.html public/maps.html",
+    "build-css": "",
+    "build-js": "babel public_src/maps.js --out-file public/maps.js --presets es2015",
+    "clean": "rm -rf dist && rm -rf public",
+    "test": "standard",
+    "watch": "npm run build && npm run watch-js & npm run watch-html & npm run start-server",
+    "watch-html": "watch-spawn -p 'public_src/maps.html' npm run build-html",
+    "watch-css": "npm run build-css -- --watch",
+    "watch-js": "watch-spawn -p 'public_src/maps.js' npm run build-js",
+    "watch-test": "mocha --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/caalberts/hdb-resale-data.git"
   },
-  "author": "Yong Jun, Jared, Albert",
+  "author": "Yong Jun, Jared, Albert, Jeremy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/caalberts/hdb-resale-data/issues"
   },
   "homepage": "https://github.com/caalberts/hdb-resale-data#readme",
   "dependencies": {
-    "babel-cli": "^6.2.0",
+    "babel": "^6.3.13",
+    "babel-cli": "^6.3.13",
     "babel-core": "^6.2.1",
     "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
     "body-parser": "^1.14.1",
+    "browserify": "^12.0.1",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "mongoose": "^4.2.9",
@@ -33,6 +45,8 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
-    "standard": "^5.4.1"
+    "standard": "^5.4.1",
+    "watch-spawn": "^1.0.6",
+    "watchify": "^3.6.1"
   }
 }

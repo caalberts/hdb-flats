@@ -17,6 +17,7 @@ const Flat = mongoose.model('Flat', {
   data: Array
 })
 
+app.use(express.static('public'))
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
