@@ -15,6 +15,10 @@ const heatmapData = [
   {location: new google.maps.LatLng(1.379, 103.800), weight: 50}
 ]
 
+const data = [
+  {}
+]
+
 // var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523)
 const singapore = new google.maps.LatLng(1.320, 103.800)
 
@@ -28,3 +32,15 @@ var heatmap = new google.maps.visualization.HeatmapLayer({
   radius: 50
 })
 heatmap.setMap(map)
+
+function geocodeAddress (address) {
+  const geocoder = new google.maps.Geocoder()
+
+  geocoder.geocode({'address': address}, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      return results[0].geometry.location
+    } else {
+      console.error('Geocode was not successful for the following reason: ' + status)
+    }
+  })
+}
