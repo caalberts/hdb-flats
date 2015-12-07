@@ -53,6 +53,7 @@ function plotChart (town) {
     return d.avg_price
   }, yScale)
   plot.attr('stroke', function (d, i, dataset) { return dataset.metadata().name }, colorScale)
+  plot.interpolator('basis')
 
   const chart = new Plottable.Components.Table([
     [null, null, legend],
