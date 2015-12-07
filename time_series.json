@@ -88313,6 +88313,2346 @@
   "avg_price": 596588.2353,
   "std_dev": 60769.0904
 }, {
+  "town": "PUNGGOL",
+  "month": "2005-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 1,
+  "avg_price": 292800
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 1,
+  "avg_price": 245000
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 1,
+  "avg_price": 318000
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 1,
+  "avg_price": 255000
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 1,
+  "avg_price": 235000
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 1,
+  "avg_price": 302888
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 2,
+  "avg_price": 310000,
+  "std_dev": 7071.0678
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 3,
+  "avg_price": 295833.3333,
+  "std_dev": 11814.5391
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 2,
+  "avg_price": 260000,
+  "std_dev": 11313.7085
+}, {
+  "town": "PUNGGOL",
+  "month": "2005-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 2,
+  "avg_price": 296500,
+  "std_dev": 30405.5916
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 4,
+  "avg_price": 312500,
+  "std_dev": 15947.8316
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 1,
+  "avg_price": 318000
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 5,
+  "avg_price": 292800,
+  "std_dev": 8927.4856
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 4,
+  "avg_price": 295500,
+  "std_dev": 20808.652
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 1,
+  "avg_price": 253000
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 8,
+  "avg_price": 301687.5,
+  "std_dev": 8198.1596
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 4,
+  "avg_price": 305250,
+  "std_dev": 6238.3224
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 10,
+  "avg_price": 253500,
+  "std_dev": 12686.3882
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 19,
+  "avg_price": 302199.9474,
+  "std_dev": 13409.6947
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 249375,
+  "std_dev": 8765.8021
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 19,
+  "avg_price": 301294.7368,
+  "std_dev": 9568.5523
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 251647.0588,
+  "std_dev": 8936.8701
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 16,
+  "avg_price": 300611,
+  "std_dev": 12877.7326
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 345000
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 12,
+  "avg_price": 251766.6667,
+  "std_dev": 8669.6265
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 18,
+  "avg_price": 303666.6667,
+  "std_dev": 13903.0255
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 359000,
+  "std_dev": 12727.9221
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 24,
+  "avg_price": 252812.5,
+  "std_dev": 7755.5205
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 14,
+  "avg_price": 298857.1429,
+  "std_dev": 11674.1473
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 359666.6667,
+  "std_dev": 8326.664
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 243875,
+  "std_dev": 9448.1669
+}, {
+  "town": "PUNGGOL",
+  "month": "2006-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 302681.8182,
+  "std_dev": 11965.7701
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 21,
+  "avg_price": 251666.6667,
+  "std_dev": 8102.983
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 25,
+  "avg_price": 300272,
+  "std_dev": 12755.3753
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 256911.7647,
+  "std_dev": 10741.6178
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 17,
+  "avg_price": 304594.1176,
+  "std_dev": 11336.637
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 253159.0909,
+  "std_dev": 8708.7618
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 305577.0323,
+  "std_dev": 17543.8637
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 376666.6667,
+  "std_dev": 11150.4858
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 15,
+  "avg_price": 243045.8667,
+  "std_dev": 13932.7287
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 27,
+  "avg_price": 306350,
+  "std_dev": 20967.1859
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 28,
+  "avg_price": 252314.2857,
+  "std_dev": 9576.9288
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 304945.2973,
+  "std_dev": 12230.7227
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 358000
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 252673.6842,
+  "std_dev": 10291.3579
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 49,
+  "avg_price": 307581.6327,
+  "std_dev": 13671.2544
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 355000,
+  "std_dev": 0
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 33,
+  "avg_price": 251842.4242,
+  "std_dev": 10426.7094
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 48,
+  "avg_price": 307229.1667,
+  "std_dev": 14948.8341
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 365000
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 30,
+  "avg_price": 255453.3333,
+  "std_dev": 10099.8714
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 49,
+  "avg_price": 319546.9388,
+  "std_dev": 21325.0059
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 385472,
+  "std_dev": 7897.371
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 265190.3636,
+  "std_dev": 13594.0766
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 53,
+  "avg_price": 319871.3208,
+  "std_dev": 19406.7231
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 375044,
+  "std_dev": 21150.978
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 275726.7727,
+  "std_dev": 14026.0713
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 50,
+  "avg_price": 331407.76,
+  "std_dev": 18567.3167
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 405000
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 279968.75,
+  "std_dev": 20656.2894
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 44,
+  "avg_price": 336415.9091,
+  "std_dev": 18889.4451
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 416000,
+  "std_dev": 10019.98
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 289594.8571,
+  "std_dev": 11603.6785
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 27,
+  "avg_price": 356555.5556,
+  "std_dev": 22913.438
+}, {
+  "town": "PUNGGOL",
+  "month": "2007-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 387360.6667,
+  "std_dev": 24067.7843
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 294071.4286,
+  "std_dev": 12987.9488
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 35,
+  "avg_price": 356302.1714,
+  "std_dev": 26913.0699
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 297653.8462,
+  "std_dev": 16468.8906
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 363177.4194,
+  "std_dev": 24875.8747
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 416000,
+  "std_dev": 18165.9021
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 297034.8571,
+  "std_dev": 21396.8746
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 35,
+  "avg_price": 359536.7714,
+  "std_dev": 22279.3261
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 441500,
+  "std_dev": 19091.8831
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 307600,
+  "std_dev": 13369.324
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 365351.3514,
+  "std_dev": 25051.2987
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 428000
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 310973.6842,
+  "std_dev": 20862.2957
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 26,
+  "avg_price": 389776.4615,
+  "std_dev": 27513.6761
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 450000
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 311312.5,
+  "std_dev": 13494.2889
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 48,
+  "avg_price": 386589.5833,
+  "std_dev": 21942.1894
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 455750,
+  "std_dev": 11056.6722
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 320050,
+  "std_dev": 18466.1141
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 51,
+  "avg_price": 383392.1569,
+  "std_dev": 24446.1272
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 443333.3333,
+  "std_dev": 18929.6945
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 322135.2941,
+  "std_dev": 11970.7425
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 41,
+  "avg_price": 385890.2439,
+  "std_dev": 22523.1859
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 447833.3333,
+  "std_dev": 15904.9259
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 326400,
+  "std_dev": 18083.5779
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 56,
+  "avg_price": 395506.7143,
+  "std_dev": 25764.5347
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 442250,
+  "std_dev": 9032.3493
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 325015.1579,
+  "std_dev": 15875.5412
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 46,
+  "avg_price": 395594.6087,
+  "std_dev": 24396.4817
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 456428.5714,
+  "std_dev": 19713.423
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 338612.5,
+  "std_dev": 17543.1611
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 56,
+  "avg_price": 396405.1429,
+  "std_dev": 23150.3534
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 460666.6667,
+  "std_dev": 20033.3056
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 340058.8235,
+  "std_dev": 23865.4316
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 57,
+  "avg_price": 396092.9825,
+  "std_dev": 20676.2446
+}, {
+  "town": "PUNGGOL",
+  "month": "2008-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 448000,
+  "std_dev": 16046.8065
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 340956.2857,
+  "std_dev": 25108.2024
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 41,
+  "avg_price": 393111.3171,
+  "std_dev": 18538.4166
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 460750,
+  "std_dev": 10340.0516
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 329504.5455,
+  "std_dev": 13862.1265
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 34,
+  "avg_price": 386685.2941,
+  "std_dev": 21478.3349
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 450814.6667,
+  "std_dev": 13149.6498
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 330694.9091,
+  "std_dev": 18559.1769
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 48,
+  "avg_price": 397767.9792,
+  "std_dev": 20645.1008
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 462750,
+  "std_dev": 11586.6302
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 15,
+  "avg_price": 325266.6667,
+  "std_dev": 16091.1096
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 39,
+  "avg_price": 392202.2564,
+  "std_dev": 22992.3655
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 453750,
+  "std_dev": 13768.9264
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 331750,
+  "std_dev": 17149.1138
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 44,
+  "avg_price": 390500,
+  "std_dev": 24834.803
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 460000
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 10,
+  "avg_price": 337000,
+  "std_dev": 14605.9349
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 48,
+  "avg_price": 384194.8333,
+  "std_dev": 24349.2514
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 439000,
+  "std_dev": 11269.4277
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 327348.6667,
+  "std_dev": 14681.0139
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 62,
+  "avg_price": 386352.4516,
+  "std_dev": 23129.0872
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 465714.2857,
+  "std_dev": 7587.5838
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 337055.5556,
+  "std_dev": 15946.4996
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 78,
+  "avg_price": 386718.3077,
+  "std_dev": 20474.2458
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 452500,
+  "std_dev": 9574.2711
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 333611.1111,
+  "std_dev": 13373.1025
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 79,
+  "avg_price": 390499.5443,
+  "std_dev": 21849.0473
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 451148,
+  "std_dev": 9899.5063
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 23,
+  "avg_price": 342043.4783,
+  "std_dev": 17907.5359
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 101,
+  "avg_price": 392725.6238,
+  "std_dev": 22958.5463
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 9,
+  "avg_price": 455166.6667,
+  "std_dev": 18200.2747
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 338152,
+  "std_dev": 19613.0761
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 68,
+  "avg_price": 395393.4118,
+  "std_dev": 25850.7718
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 466800,
+  "std_dev": 9359.4872
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 7,
+  "avg_price": 363571.4286,
+  "std_dev": 30137.7789
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 70,
+  "avg_price": 410945.5429,
+  "std_dev": 23577.4748
+}, {
+  "town": "PUNGGOL",
+  "month": "2009-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 482000,
+  "std_dev": 16512.6214
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 353250,
+  "std_dev": 17276.1879
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 53,
+  "avg_price": 412081.1321,
+  "std_dev": 24964.1825
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 476600,
+  "std_dev": 14665.606
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 355777.7143,
+  "std_dev": 13006.4623
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 41,
+  "avg_price": 410668.2195,
+  "std_dev": 26156.3489
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 494472,
+  "std_dev": 6771.3467
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 362000,
+  "std_dev": 19392.755
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 52,
+  "avg_price": 422525.7308,
+  "std_dev": 26834.7429
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 485000,
+  "std_dev": 22166.0401
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 369055.5,
+  "std_dev": 23095.4703
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 53,
+  "avg_price": 429720.2264,
+  "std_dev": 23566.0754
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 8,
+  "avg_price": 498736,
+  "std_dev": 21396.8722
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 23,
+  "avg_price": 365565.2174,
+  "std_dev": 22280.9052
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 59,
+  "avg_price": 431825.2203,
+  "std_dev": 22098.9866
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 8,
+  "avg_price": 504375,
+  "std_dev": 17104.1975
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 386849.1429,
+  "std_dev": 14304.765
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 56,
+  "avg_price": 438690.6429,
+  "std_dev": 22045.429
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 509857.1429,
+  "std_dev": 21782.4744
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 381684.2105,
+  "std_dev": 17885.6014
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 54,
+  "avg_price": 455055.3333,
+  "std_dev": 26587.3318
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 475000
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 15,
+  "avg_price": 400433.3333,
+  "std_dev": 18414.7327
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 39,
+  "avg_price": 457508.359,
+  "std_dev": 27665.6356
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 536777.6,
+  "std_dev": 14831.6995
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 402692.3846,
+  "std_dev": 21218.6354
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 45,
+  "avg_price": 459908.6222,
+  "std_dev": 26840.0061
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 549857.1429,
+  "std_dev": 16097.9147
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 12,
+  "avg_price": 417250,
+  "std_dev": 12454.4625
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 53,
+  "avg_price": 474412.9811,
+  "std_dev": 21323.5444
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 10,
+  "avg_price": 542000,
+  "std_dev": 25982.9004
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 10,
+  "avg_price": 406000,
+  "std_dev": 28705.4002
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 28,
+  "avg_price": 475478.1429,
+  "std_dev": 29889.3101
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 550000
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 5,
+  "avg_price": 411400,
+  "std_dev": 24592.6818
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 474516.129,
+  "std_dev": 25326.0353
+}, {
+  "town": "PUNGGOL",
+  "month": "2010-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 538292,
+  "std_dev": 24154.6073
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 9,
+  "avg_price": 411777.7778,
+  "std_dev": 16269.4328
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 29,
+  "avg_price": 480841.3793,
+  "std_dev": 24980.4712
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 543833.3333,
+  "std_dev": 19030.677
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 415446.1538,
+  "std_dev": 18358.1324
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 28,
+  "avg_price": 491250,
+  "std_dev": 20377.2295
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 567300,
+  "std_dev": 15136.0497
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 23,
+  "avg_price": 431634.7826,
+  "std_dev": 24263.1522
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 491818.9677,
+  "std_dev": 27917.936
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 573200,
+  "std_dev": 25820.5345
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 424159.0909,
+  "std_dev": 29098.5134
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 39,
+  "avg_price": 492828.2308,
+  "std_dev": 23010.9129
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 560000,
+  "std_dev": 23184.0462
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 441129.8462,
+  "std_dev": 23885.8559
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 35,
+  "avg_price": 496671.0857,
+  "std_dev": 20457.7801
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 525000
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 448837.5385,
+  "std_dev": 26986.0542
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 40,
+  "avg_price": 505014.425,
+  "std_dev": 27363.2932
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 560500,
+  "std_dev": 48790.3679
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 456562.5263,
+  "std_dev": 22216.3667
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 34,
+  "avg_price": 510467.2941,
+  "std_dev": 29895.6424
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 585333.3333,
+  "std_dev": 13428.8247
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 6,
+  "avg_price": 462166.6667,
+  "std_dev": 22964.4653
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 33,
+  "avg_price": 508180.697,
+  "std_dev": 28206.4517
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 8,
+  "avg_price": 594125,
+  "std_dev": 22592.2711
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 461111.0588,
+  "std_dev": 22225.8336
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 36,
+  "avg_price": 522177.4444,
+  "std_dev": 32191.222
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 606000,
+  "std_dev": 5656.8542
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 9,
+  "avg_price": 454111.1111,
+  "std_dev": 13724.4713
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 33,
+  "avg_price": 515845.0909,
+  "std_dev": 27589.8604
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 577500,
+  "std_dev": 24748.7373
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 473729.8462,
+  "std_dev": 33243.766
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 521169.6216,
+  "std_dev": 26185.6081
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 570250,
+  "std_dev": 43392.5877
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 9,
+  "avg_price": 472632,
+  "std_dev": 26633.4229
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 524983.4595,
+  "std_dev": 23757.523
+}, {
+  "town": "PUNGGOL",
+  "month": "2011-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 580000
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 9,
+  "avg_price": 482043.1111,
+  "std_dev": 25503.8179
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 28,
+  "avg_price": 523917.4286,
+  "std_dev": 26676.5438
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 634333.3333,
+  "std_dev": 53631.4584
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 471583.3333,
+  "std_dev": 22799.8001
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 27,
+  "avg_price": 529122.2222,
+  "std_dev": 29302.0652
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 574000,
+  "std_dev": 26870.0577
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 42,
+  "avg_price": 478561.619,
+  "std_dev": 24283.4738
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 50,
+  "avg_price": 529613.76,
+  "std_dev": 28340.1703
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 602333.3333,
+  "std_dev": 10289.1529
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 35,
+  "avg_price": 474457.1429,
+  "std_dev": 27218.4441
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 35,
+  "avg_price": 535200,
+  "std_dev": 25305.254
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 605166.6667,
+  "std_dev": 14344.5692
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 22,
+  "avg_price": 487394.8636,
+  "std_dev": 32572.0537
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 44,
+  "avg_price": 538284.0909,
+  "std_dev": 24575.3227
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 8,
+  "avg_price": 623875,
+  "std_dev": 15869.445
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 19,
+  "avg_price": 474415.1579,
+  "std_dev": 24260.0011
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 44,
+  "avg_price": 539375,
+  "std_dev": 21905.4854
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 612314.6667,
+  "std_dev": 19299.3806
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 24,
+  "avg_price": 482474,
+  "std_dev": 28667.0428
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 547540.5405,
+  "std_dev": 28003.5658
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 614000,
+  "std_dev": 50911.6882
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 486040,
+  "std_dev": 22877.4861
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 44,
+  "avg_price": 545324.7273,
+  "std_dev": 31455.1792
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 6,
+  "avg_price": 618633.3333,
+  "std_dev": 20408.005
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 487052.2353,
+  "std_dev": 28866.8908
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 35,
+  "avg_price": 552985.7143,
+  "std_dev": 19587.0927
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 640500,
+  "std_dev": 30405.5916
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 27,
+  "avg_price": 505314.8148,
+  "std_dev": 29222.34
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 37,
+  "avg_price": 564375.3514,
+  "std_dev": 32769.7149
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 10,
+  "avg_price": 630000,
+  "std_dev": 28421.4317
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 521875,
+  "std_dev": 33765.6137
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 21,
+  "avg_price": 556857.1429,
+  "std_dev": 20778.0791
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 625000
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 6,
+  "avg_price": 507500,
+  "std_dev": 34425.2814
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 23,
+  "avg_price": 567413.0435,
+  "std_dev": 27319.9279
+}, {
+  "town": "PUNGGOL",
+  "month": "2012-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 665500,
+  "std_dev": 31819.8052
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 12,
+  "avg_price": 511916.6667,
+  "std_dev": 27868.0604
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 20,
+  "avg_price": 566075,
+  "std_dev": 39787.0235
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 647900,
+  "std_dev": 39456.5584
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 7,
+  "avg_price": 540828.5714,
+  "std_dev": 8858.4638
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 7,
+  "avg_price": 562785.7143,
+  "std_dev": 35876.9391
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 510937.5,
+  "std_dev": 33030.2261
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 10,
+  "avg_price": 554700,
+  "std_dev": 31123.5888
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 10,
+  "avg_price": 494300,
+  "std_dev": 26403.0722
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 20,
+  "avg_price": 570100,
+  "std_dev": 27374.4022
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 611000,
+  "std_dev": 15556.3492
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 505444.4444,
+  "std_dev": 30070.9401
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 24,
+  "avg_price": 556375,
+  "std_dev": 33266.7905
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 631500,
+  "std_dev": 37476.6594
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 12,
+  "avg_price": 511907.3333,
+  "std_dev": 30736.3887
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 15,
+  "avg_price": 563532.5333,
+  "std_dev": 33219.4666
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 21,
+  "avg_price": 491875.619,
+  "std_dev": 31913.4217
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 20,
+  "avg_price": 546628.8,
+  "std_dev": 18088.6084
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 628500,
+  "std_dev": 9192.3882
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 498000,
+  "std_dev": 24669.2405
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 16,
+  "avg_price": 541993,
+  "std_dev": 36280.9443
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 601250,
+  "std_dev": 1767.767
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 11,
+  "avg_price": 486426.1818,
+  "std_dev": 32161.7888
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 16,
+  "avg_price": 550125,
+  "std_dev": 33406.3367
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 613333.3333,
+  "std_dev": 28867.5135
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 492625,
+  "std_dev": 33414.8705
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 15,
+  "avg_price": 553118.4,
+  "std_dev": 24699.9
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-10",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 5,
+  "avg_price": 630000,
+  "std_dev": 7905.6942
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 9,
+  "avg_price": 483444.4444,
+  "std_dev": 35539.1021
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 15,
+  "avg_price": 523666.6667,
+  "std_dev": 29519.1625
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 595629.3333,
+  "std_dev": 48620.4502
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 465750,
+  "std_dev": 25549.6715
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 12,
+  "avg_price": 529448.8333,
+  "std_dev": 34544.834
+}, {
+  "town": "PUNGGOL",
+  "month": "2013-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 610000,
+  "std_dev": 28284.2712
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 12,
+  "avg_price": 464481.3333,
+  "std_dev": 27339.8492
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 9,
+  "avg_price": 519222.2222,
+  "std_dev": 33154.1015
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-01",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 606500,
+  "std_dev": 19091.8831
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 14,
+  "avg_price": 472500,
+  "std_dev": 48614.2588
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 12,
+  "avg_price": 532064.6667,
+  "std_dev": 32224.9803
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 617500,
+  "std_dev": 17635.1921
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 474860.4444,
+  "std_dev": 30944.2744
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 513181.8182,
+  "std_dev": 29085.4838
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 610000
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 473827.1111,
+  "std_dev": 32117.0603
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 20,
+  "avg_price": 505868.8,
+  "std_dev": 23061.4931
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 600296,
+  "std_dev": 53100.4976
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 21,
+  "avg_price": 464994.7086,
+  "std_dev": 42065.4317
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 16,
+  "avg_price": 523125,
+  "std_dev": 32592.177
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 600000
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 8,
+  "avg_price": 431111,
+  "std_dev": 36247.3447
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 18,
+  "avg_price": 488944.4444,
+  "std_dev": 37431.4624
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 570000
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 13,
+  "avg_price": 435606.7692,
+  "std_dev": 42932.0959
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 21,
+  "avg_price": 482751.2381,
+  "std_dev": 36896.4806
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 588333.3333,
+  "std_dev": 10408.33
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 11,
+  "avg_price": 429535.2727,
+  "std_dev": 28546.7701
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 474500,
+  "std_dev": 31972.8307
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 610500,
+  "std_dev": 38613.4692
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 436722.2222,
+  "std_dev": 30202.8545
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 19,
+  "avg_price": 475789.4737,
+  "std_dev": 30367.3416
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 574000,
+  "std_dev": 5656.8542
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-10",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 422400,
+  "std_dev": 40091.2118
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-10",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 473356.9091,
+  "std_dev": 31122.8094
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-11",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 438650,
+  "std_dev": 39295.4732
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-11",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 464176.7273,
+  "std_dev": 35483.1774
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-11",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 7,
+  "avg_price": 579428.5714,
+  "std_dev": 11414.2768
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-12",
+  "flat_type": "4 ROOM",
+  "txn_count": 16,
+  "avg_price": 419812.5,
+  "std_dev": 30459.194
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-12",
+  "flat_type": "5 ROOM",
+  "txn_count": 17,
+  "avg_price": 462169.8824,
+  "std_dev": 31359.9684
+}, {
+  "town": "PUNGGOL",
+  "month": "2014-12",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 560000
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-01",
+  "flat_type": "4 ROOM",
+  "txn_count": 28,
+  "avg_price": 433577.4286,
+  "std_dev": 41750.0589
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-01",
+  "flat_type": "5 ROOM",
+  "txn_count": 20,
+  "avg_price": 477394.4,
+  "std_dev": 28909.2277
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-02",
+  "flat_type": "4 ROOM",
+  "txn_count": 21,
+  "avg_price": 432042.2857,
+  "std_dev": 43013.6252
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-02",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 454812.9032,
+  "std_dev": 37572.3989
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-02",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 555000
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-03",
+  "flat_type": "4 ROOM",
+  "txn_count": 25,
+  "avg_price": 432991.04,
+  "std_dev": 49403.8355
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-03",
+  "flat_type": "5 ROOM",
+  "txn_count": 27,
+  "avg_price": 462477.3333,
+  "std_dev": 35411.9562
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-03",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 582333.3333,
+  "std_dev": 30435.7246
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-04",
+  "flat_type": "4 ROOM",
+  "txn_count": 20,
+  "avg_price": 424500,
+  "std_dev": 36201.9191
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-04",
+  "flat_type": "5 ROOM",
+  "txn_count": 26,
+  "avg_price": 458183.6923,
+  "std_dev": 28536.1159
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-04",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 1,
+  "avg_price": 548000
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-05",
+  "flat_type": "4 ROOM",
+  "txn_count": 15,
+  "avg_price": 423912.5333,
+  "std_dev": 48268.163
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-05",
+  "flat_type": "5 ROOM",
+  "txn_count": 31,
+  "avg_price": 445275.9677,
+  "std_dev": 40399.0802
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-05",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 550000,
+  "std_dev": 17320.5081
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-06",
+  "flat_type": "4 ROOM",
+  "txn_count": 21,
+  "avg_price": 423704.7619,
+  "std_dev": 40522.4688
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-06",
+  "flat_type": "5 ROOM",
+  "txn_count": 28,
+  "avg_price": 450210.2857,
+  "std_dev": 30316.6611
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-06",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 3,
+  "avg_price": 565000,
+  "std_dev": 45825.7569
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-07",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 420988.2353,
+  "std_dev": 44879.3087
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-07",
+  "flat_type": "5 ROOM",
+  "txn_count": 28,
+  "avg_price": 451353.1429,
+  "std_dev": 29085.1169
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-07",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 580750,
+  "std_dev": 45117.4393
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-08",
+  "flat_type": "4 ROOM",
+  "txn_count": 18,
+  "avg_price": 413874.3333,
+  "std_dev": 38846.1205
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-08",
+  "flat_type": "5 ROOM",
+  "txn_count": 26,
+  "avg_price": 444788.4615,
+  "std_dev": 37426.2403
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-08",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 2,
+  "avg_price": 532500,
+  "std_dev": 24748.7373
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-09",
+  "flat_type": "4 ROOM",
+  "txn_count": 17,
+  "avg_price": 407640.4706,
+  "std_dev": 44154.2828
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-09",
+  "flat_type": "5 ROOM",
+  "txn_count": 22,
+  "avg_price": 444772.7273,
+  "std_dev": 32179.4549
+}, {
+  "town": "PUNGGOL",
+  "month": "2015-09",
+  "flat_type": "EXECUTIVE",
+  "txn_count": 4,
+  "avg_price": 543750,
+  "std_dev": 28686.5241
+}, {
   "town": "QUEENSTOWN",
   "month": "2000-01",
   "flat_type": "2 ROOM",
@@ -129533,2344 +131873,4 @@
   "txn_count": 4,
   "avg_price": 605000,
   "std_dev": 27988.0927
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 1,
-  "avg_price": 292800
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 1,
-  "avg_price": 245000
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 1,
-  "avg_price": 318000
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 1,
-  "avg_price": 255000
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 1,
-  "avg_price": 235000
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 1,
-  "avg_price": 302888
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 2,
-  "avg_price": 310000,
-  "std_dev": 7071.0678
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 3,
-  "avg_price": 295833.3333,
-  "std_dev": 11814.5391
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 2,
-  "avg_price": 260000,
-  "std_dev": 11313.7085
-}, {
-  "town": "PUNGGOL",
-  "month": "2005-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 2,
-  "avg_price": 296500,
-  "std_dev": 30405.5916
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 4,
-  "avg_price": 312500,
-  "std_dev": 15947.8316
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 1,
-  "avg_price": 318000
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 5,
-  "avg_price": 292800,
-  "std_dev": 8927.4856
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 4,
-  "avg_price": 295500,
-  "std_dev": 20808.652
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 1,
-  "avg_price": 253000
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 8,
-  "avg_price": 301687.5,
-  "std_dev": 8198.1596
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 4,
-  "avg_price": 305250,
-  "std_dev": 6238.3224
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 10,
-  "avg_price": 253500,
-  "std_dev": 12686.3882
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 19,
-  "avg_price": 302199.9474,
-  "std_dev": 13409.6947
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 249375,
-  "std_dev": 8765.8021
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 19,
-  "avg_price": 301294.7368,
-  "std_dev": 9568.5523
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 251647.0588,
-  "std_dev": 8936.8701
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 16,
-  "avg_price": 300611,
-  "std_dev": 12877.7326
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 345000
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 12,
-  "avg_price": 251766.6667,
-  "std_dev": 8669.6265
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 18,
-  "avg_price": 303666.6667,
-  "std_dev": 13903.0255
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 359000,
-  "std_dev": 12727.9221
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 24,
-  "avg_price": 252812.5,
-  "std_dev": 7755.5205
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 14,
-  "avg_price": 298857.1429,
-  "std_dev": 11674.1473
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 359666.6667,
-  "std_dev": 8326.664
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 243875,
-  "std_dev": 9448.1669
-}, {
-  "town": "PUNGGOL",
-  "month": "2006-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 302681.8182,
-  "std_dev": 11965.7701
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 21,
-  "avg_price": 251666.6667,
-  "std_dev": 8102.983
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 25,
-  "avg_price": 300272,
-  "std_dev": 12755.3753
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 256911.7647,
-  "std_dev": 10741.6178
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 17,
-  "avg_price": 304594.1176,
-  "std_dev": 11336.637
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 253159.0909,
-  "std_dev": 8708.7618
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 305577.0323,
-  "std_dev": 17543.8637
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 376666.6667,
-  "std_dev": 11150.4858
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 15,
-  "avg_price": 243045.8667,
-  "std_dev": 13932.7287
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 27,
-  "avg_price": 306350,
-  "std_dev": 20967.1859
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 28,
-  "avg_price": 252314.2857,
-  "std_dev": 9576.9288
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 304945.2973,
-  "std_dev": 12230.7227
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 358000
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 252673.6842,
-  "std_dev": 10291.3579
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 49,
-  "avg_price": 307581.6327,
-  "std_dev": 13671.2544
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 355000,
-  "std_dev": 0
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 33,
-  "avg_price": 251842.4242,
-  "std_dev": 10426.7094
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 48,
-  "avg_price": 307229.1667,
-  "std_dev": 14948.8341
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 365000
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 30,
-  "avg_price": 255453.3333,
-  "std_dev": 10099.8714
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 49,
-  "avg_price": 319546.9388,
-  "std_dev": 21325.0059
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 385472,
-  "std_dev": 7897.371
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 265190.3636,
-  "std_dev": 13594.0766
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 53,
-  "avg_price": 319871.3208,
-  "std_dev": 19406.7231
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 375044,
-  "std_dev": 21150.978
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 275726.7727,
-  "std_dev": 14026.0713
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 50,
-  "avg_price": 331407.76,
-  "std_dev": 18567.3167
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 405000
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 279968.75,
-  "std_dev": 20656.2894
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 44,
-  "avg_price": 336415.9091,
-  "std_dev": 18889.4451
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 416000,
-  "std_dev": 10019.98
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 289594.8571,
-  "std_dev": 11603.6785
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 27,
-  "avg_price": 356555.5556,
-  "std_dev": 22913.438
-}, {
-  "town": "PUNGGOL",
-  "month": "2007-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 387360.6667,
-  "std_dev": 24067.7843
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 294071.4286,
-  "std_dev": 12987.9488
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 35,
-  "avg_price": 356302.1714,
-  "std_dev": 26913.0699
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 297653.8462,
-  "std_dev": 16468.8906
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 363177.4194,
-  "std_dev": 24875.8747
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 416000,
-  "std_dev": 18165.9021
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 297034.8571,
-  "std_dev": 21396.8746
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 35,
-  "avg_price": 359536.7714,
-  "std_dev": 22279.3261
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 441500,
-  "std_dev": 19091.8831
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 307600,
-  "std_dev": 13369.324
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 365351.3514,
-  "std_dev": 25051.2987
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 428000
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 310973.6842,
-  "std_dev": 20862.2957
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 26,
-  "avg_price": 389776.4615,
-  "std_dev": 27513.6761
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 450000
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 311312.5,
-  "std_dev": 13494.2889
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 48,
-  "avg_price": 386589.5833,
-  "std_dev": 21942.1894
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 455750,
-  "std_dev": 11056.6722
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 320050,
-  "std_dev": 18466.1141
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 51,
-  "avg_price": 383392.1569,
-  "std_dev": 24446.1272
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 443333.3333,
-  "std_dev": 18929.6945
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 322135.2941,
-  "std_dev": 11970.7425
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 41,
-  "avg_price": 385890.2439,
-  "std_dev": 22523.1859
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 447833.3333,
-  "std_dev": 15904.9259
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 326400,
-  "std_dev": 18083.5779
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 56,
-  "avg_price": 395506.7143,
-  "std_dev": 25764.5347
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 442250,
-  "std_dev": 9032.3493
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 325015.1579,
-  "std_dev": 15875.5412
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 46,
-  "avg_price": 395594.6087,
-  "std_dev": 24396.4817
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 456428.5714,
-  "std_dev": 19713.423
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 338612.5,
-  "std_dev": 17543.1611
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 56,
-  "avg_price": 396405.1429,
-  "std_dev": 23150.3534
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 460666.6667,
-  "std_dev": 20033.3056
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 340058.8235,
-  "std_dev": 23865.4316
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 57,
-  "avg_price": 396092.9825,
-  "std_dev": 20676.2446
-}, {
-  "town": "PUNGGOL",
-  "month": "2008-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 448000,
-  "std_dev": 16046.8065
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 340956.2857,
-  "std_dev": 25108.2024
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 41,
-  "avg_price": 393111.3171,
-  "std_dev": 18538.4166
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 460750,
-  "std_dev": 10340.0516
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 329504.5455,
-  "std_dev": 13862.1265
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 34,
-  "avg_price": 386685.2941,
-  "std_dev": 21478.3349
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 450814.6667,
-  "std_dev": 13149.6498
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 330694.9091,
-  "std_dev": 18559.1769
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 48,
-  "avg_price": 397767.9792,
-  "std_dev": 20645.1008
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 462750,
-  "std_dev": 11586.6302
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 15,
-  "avg_price": 325266.6667,
-  "std_dev": 16091.1096
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 39,
-  "avg_price": 392202.2564,
-  "std_dev": 22992.3655
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 453750,
-  "std_dev": 13768.9264
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 331750,
-  "std_dev": 17149.1138
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 44,
-  "avg_price": 390500,
-  "std_dev": 24834.803
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 460000
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 10,
-  "avg_price": 337000,
-  "std_dev": 14605.9349
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 48,
-  "avg_price": 384194.8333,
-  "std_dev": 24349.2514
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 439000,
-  "std_dev": 11269.4277
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 327348.6667,
-  "std_dev": 14681.0139
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 62,
-  "avg_price": 386352.4516,
-  "std_dev": 23129.0872
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 465714.2857,
-  "std_dev": 7587.5838
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 337055.5556,
-  "std_dev": 15946.4996
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 78,
-  "avg_price": 386718.3077,
-  "std_dev": 20474.2458
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 452500,
-  "std_dev": 9574.2711
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 333611.1111,
-  "std_dev": 13373.1025
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 79,
-  "avg_price": 390499.5443,
-  "std_dev": 21849.0473
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 451148,
-  "std_dev": 9899.5063
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 23,
-  "avg_price": 342043.4783,
-  "std_dev": 17907.5359
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 101,
-  "avg_price": 392725.6238,
-  "std_dev": 22958.5463
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 9,
-  "avg_price": 455166.6667,
-  "std_dev": 18200.2747
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 338152,
-  "std_dev": 19613.0761
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 68,
-  "avg_price": 395393.4118,
-  "std_dev": 25850.7718
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 466800,
-  "std_dev": 9359.4872
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 7,
-  "avg_price": 363571.4286,
-  "std_dev": 30137.7789
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 70,
-  "avg_price": 410945.5429,
-  "std_dev": 23577.4748
-}, {
-  "town": "PUNGGOL",
-  "month": "2009-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 482000,
-  "std_dev": 16512.6214
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 353250,
-  "std_dev": 17276.1879
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 53,
-  "avg_price": 412081.1321,
-  "std_dev": 24964.1825
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 476600,
-  "std_dev": 14665.606
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 355777.7143,
-  "std_dev": 13006.4623
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 41,
-  "avg_price": 410668.2195,
-  "std_dev": 26156.3489
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 494472,
-  "std_dev": 6771.3467
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 362000,
-  "std_dev": 19392.755
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 52,
-  "avg_price": 422525.7308,
-  "std_dev": 26834.7429
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 485000,
-  "std_dev": 22166.0401
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 369055.5,
-  "std_dev": 23095.4703
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 53,
-  "avg_price": 429720.2264,
-  "std_dev": 23566.0754
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 8,
-  "avg_price": 498736,
-  "std_dev": 21396.8722
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 23,
-  "avg_price": 365565.2174,
-  "std_dev": 22280.9052
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 59,
-  "avg_price": 431825.2203,
-  "std_dev": 22098.9866
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 8,
-  "avg_price": 504375,
-  "std_dev": 17104.1975
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 386849.1429,
-  "std_dev": 14304.765
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 56,
-  "avg_price": 438690.6429,
-  "std_dev": 22045.429
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 509857.1429,
-  "std_dev": 21782.4744
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 381684.2105,
-  "std_dev": 17885.6014
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 54,
-  "avg_price": 455055.3333,
-  "std_dev": 26587.3318
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 475000
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 15,
-  "avg_price": 400433.3333,
-  "std_dev": 18414.7327
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 39,
-  "avg_price": 457508.359,
-  "std_dev": 27665.6356
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 536777.6,
-  "std_dev": 14831.6995
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 402692.3846,
-  "std_dev": 21218.6354
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 45,
-  "avg_price": 459908.6222,
-  "std_dev": 26840.0061
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 549857.1429,
-  "std_dev": 16097.9147
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 12,
-  "avg_price": 417250,
-  "std_dev": 12454.4625
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 53,
-  "avg_price": 474412.9811,
-  "std_dev": 21323.5444
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 10,
-  "avg_price": 542000,
-  "std_dev": 25982.9004
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 10,
-  "avg_price": 406000,
-  "std_dev": 28705.4002
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 28,
-  "avg_price": 475478.1429,
-  "std_dev": 29889.3101
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 550000
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 5,
-  "avg_price": 411400,
-  "std_dev": 24592.6818
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 474516.129,
-  "std_dev": 25326.0353
-}, {
-  "town": "PUNGGOL",
-  "month": "2010-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 538292,
-  "std_dev": 24154.6073
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 9,
-  "avg_price": 411777.7778,
-  "std_dev": 16269.4328
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 29,
-  "avg_price": 480841.3793,
-  "std_dev": 24980.4712
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 543833.3333,
-  "std_dev": 19030.677
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 415446.1538,
-  "std_dev": 18358.1324
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 28,
-  "avg_price": 491250,
-  "std_dev": 20377.2295
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 567300,
-  "std_dev": 15136.0497
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 23,
-  "avg_price": 431634.7826,
-  "std_dev": 24263.1522
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 491818.9677,
-  "std_dev": 27917.936
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 573200,
-  "std_dev": 25820.5345
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 424159.0909,
-  "std_dev": 29098.5134
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 39,
-  "avg_price": 492828.2308,
-  "std_dev": 23010.9129
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 560000,
-  "std_dev": 23184.0462
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 441129.8462,
-  "std_dev": 23885.8559
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 35,
-  "avg_price": 496671.0857,
-  "std_dev": 20457.7801
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 525000
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 448837.5385,
-  "std_dev": 26986.0542
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 40,
-  "avg_price": 505014.425,
-  "std_dev": 27363.2932
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 560500,
-  "std_dev": 48790.3679
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 456562.5263,
-  "std_dev": 22216.3667
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 34,
-  "avg_price": 510467.2941,
-  "std_dev": 29895.6424
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 585333.3333,
-  "std_dev": 13428.8247
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 6,
-  "avg_price": 462166.6667,
-  "std_dev": 22964.4653
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 33,
-  "avg_price": 508180.697,
-  "std_dev": 28206.4517
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 8,
-  "avg_price": 594125,
-  "std_dev": 22592.2711
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 461111.0588,
-  "std_dev": 22225.8336
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 36,
-  "avg_price": 522177.4444,
-  "std_dev": 32191.222
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 606000,
-  "std_dev": 5656.8542
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 9,
-  "avg_price": 454111.1111,
-  "std_dev": 13724.4713
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 33,
-  "avg_price": 515845.0909,
-  "std_dev": 27589.8604
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 577500,
-  "std_dev": 24748.7373
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 473729.8462,
-  "std_dev": 33243.766
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 521169.6216,
-  "std_dev": 26185.6081
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 570250,
-  "std_dev": 43392.5877
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 9,
-  "avg_price": 472632,
-  "std_dev": 26633.4229
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 524983.4595,
-  "std_dev": 23757.523
-}, {
-  "town": "PUNGGOL",
-  "month": "2011-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 580000
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 9,
-  "avg_price": 482043.1111,
-  "std_dev": 25503.8179
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 28,
-  "avg_price": 523917.4286,
-  "std_dev": 26676.5438
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 634333.3333,
-  "std_dev": 53631.4584
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 471583.3333,
-  "std_dev": 22799.8001
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 27,
-  "avg_price": 529122.2222,
-  "std_dev": 29302.0652
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 574000,
-  "std_dev": 26870.0577
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 42,
-  "avg_price": 478561.619,
-  "std_dev": 24283.4738
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 50,
-  "avg_price": 529613.76,
-  "std_dev": 28340.1703
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 602333.3333,
-  "std_dev": 10289.1529
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 35,
-  "avg_price": 474457.1429,
-  "std_dev": 27218.4441
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 35,
-  "avg_price": 535200,
-  "std_dev": 25305.254
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 605166.6667,
-  "std_dev": 14344.5692
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 22,
-  "avg_price": 487394.8636,
-  "std_dev": 32572.0537
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 44,
-  "avg_price": 538284.0909,
-  "std_dev": 24575.3227
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 8,
-  "avg_price": 623875,
-  "std_dev": 15869.445
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 19,
-  "avg_price": 474415.1579,
-  "std_dev": 24260.0011
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 44,
-  "avg_price": 539375,
-  "std_dev": 21905.4854
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 612314.6667,
-  "std_dev": 19299.3806
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 24,
-  "avg_price": 482474,
-  "std_dev": 28667.0428
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 547540.5405,
-  "std_dev": 28003.5658
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 614000,
-  "std_dev": 50911.6882
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 486040,
-  "std_dev": 22877.4861
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 44,
-  "avg_price": 545324.7273,
-  "std_dev": 31455.1792
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 6,
-  "avg_price": 618633.3333,
-  "std_dev": 20408.005
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 487052.2353,
-  "std_dev": 28866.8908
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 35,
-  "avg_price": 552985.7143,
-  "std_dev": 19587.0927
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 640500,
-  "std_dev": 30405.5916
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 27,
-  "avg_price": 505314.8148,
-  "std_dev": 29222.34
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 37,
-  "avg_price": 564375.3514,
-  "std_dev": 32769.7149
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 10,
-  "avg_price": 630000,
-  "std_dev": 28421.4317
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 521875,
-  "std_dev": 33765.6137
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 21,
-  "avg_price": 556857.1429,
-  "std_dev": 20778.0791
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 625000
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 6,
-  "avg_price": 507500,
-  "std_dev": 34425.2814
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 23,
-  "avg_price": 567413.0435,
-  "std_dev": 27319.9279
-}, {
-  "town": "PUNGGOL",
-  "month": "2012-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 665500,
-  "std_dev": 31819.8052
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 12,
-  "avg_price": 511916.6667,
-  "std_dev": 27868.0604
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 20,
-  "avg_price": 566075,
-  "std_dev": 39787.0235
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 647900,
-  "std_dev": 39456.5584
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 7,
-  "avg_price": 540828.5714,
-  "std_dev": 8858.4638
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 7,
-  "avg_price": 562785.7143,
-  "std_dev": 35876.9391
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 510937.5,
-  "std_dev": 33030.2261
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 10,
-  "avg_price": 554700,
-  "std_dev": 31123.5888
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 10,
-  "avg_price": 494300,
-  "std_dev": 26403.0722
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 20,
-  "avg_price": 570100,
-  "std_dev": 27374.4022
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 611000,
-  "std_dev": 15556.3492
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 505444.4444,
-  "std_dev": 30070.9401
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 24,
-  "avg_price": 556375,
-  "std_dev": 33266.7905
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 631500,
-  "std_dev": 37476.6594
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 12,
-  "avg_price": 511907.3333,
-  "std_dev": 30736.3887
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 15,
-  "avg_price": 563532.5333,
-  "std_dev": 33219.4666
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 21,
-  "avg_price": 491875.619,
-  "std_dev": 31913.4217
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 20,
-  "avg_price": 546628.8,
-  "std_dev": 18088.6084
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 628500,
-  "std_dev": 9192.3882
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 498000,
-  "std_dev": 24669.2405
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 16,
-  "avg_price": 541993,
-  "std_dev": 36280.9443
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 601250,
-  "std_dev": 1767.767
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 11,
-  "avg_price": 486426.1818,
-  "std_dev": 32161.7888
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 16,
-  "avg_price": 550125,
-  "std_dev": 33406.3367
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 613333.3333,
-  "std_dev": 28867.5135
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 492625,
-  "std_dev": 33414.8705
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 15,
-  "avg_price": 553118.4,
-  "std_dev": 24699.9
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-10",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 5,
-  "avg_price": 630000,
-  "std_dev": 7905.6942
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 9,
-  "avg_price": 483444.4444,
-  "std_dev": 35539.1021
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 15,
-  "avg_price": 523666.6667,
-  "std_dev": 29519.1625
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 595629.3333,
-  "std_dev": 48620.4502
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 465750,
-  "std_dev": 25549.6715
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 12,
-  "avg_price": 529448.8333,
-  "std_dev": 34544.834
-}, {
-  "town": "PUNGGOL",
-  "month": "2013-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 610000,
-  "std_dev": 28284.2712
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 12,
-  "avg_price": 464481.3333,
-  "std_dev": 27339.8492
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 9,
-  "avg_price": 519222.2222,
-  "std_dev": 33154.1015
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-01",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 606500,
-  "std_dev": 19091.8831
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 14,
-  "avg_price": 472500,
-  "std_dev": 48614.2588
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 12,
-  "avg_price": 532064.6667,
-  "std_dev": 32224.9803
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 617500,
-  "std_dev": 17635.1921
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 474860.4444,
-  "std_dev": 30944.2744
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 513181.8182,
-  "std_dev": 29085.4838
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 610000
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 473827.1111,
-  "std_dev": 32117.0603
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 20,
-  "avg_price": 505868.8,
-  "std_dev": 23061.4931
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 600296,
-  "std_dev": 53100.4976
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 21,
-  "avg_price": 464994.7086,
-  "std_dev": 42065.4317
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 16,
-  "avg_price": 523125,
-  "std_dev": 32592.177
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 600000
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 8,
-  "avg_price": 431111,
-  "std_dev": 36247.3447
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 18,
-  "avg_price": 488944.4444,
-  "std_dev": 37431.4624
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 570000
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 13,
-  "avg_price": 435606.7692,
-  "std_dev": 42932.0959
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 21,
-  "avg_price": 482751.2381,
-  "std_dev": 36896.4806
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 588333.3333,
-  "std_dev": 10408.33
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 11,
-  "avg_price": 429535.2727,
-  "std_dev": 28546.7701
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 474500,
-  "std_dev": 31972.8307
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 610500,
-  "std_dev": 38613.4692
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 436722.2222,
-  "std_dev": 30202.8545
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 19,
-  "avg_price": 475789.4737,
-  "std_dev": 30367.3416
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 574000,
-  "std_dev": 5656.8542
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-10",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 422400,
-  "std_dev": 40091.2118
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-10",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 473356.9091,
-  "std_dev": 31122.8094
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-11",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 438650,
-  "std_dev": 39295.4732
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-11",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 464176.7273,
-  "std_dev": 35483.1774
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-11",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 7,
-  "avg_price": 579428.5714,
-  "std_dev": 11414.2768
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-12",
-  "flat_type": "4 ROOM",
-  "txn_count": 16,
-  "avg_price": 419812.5,
-  "std_dev": 30459.194
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-12",
-  "flat_type": "5 ROOM",
-  "txn_count": 17,
-  "avg_price": 462169.8824,
-  "std_dev": 31359.9684
-}, {
-  "town": "PUNGGOL",
-  "month": "2014-12",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 560000
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-01",
-  "flat_type": "4 ROOM",
-  "txn_count": 28,
-  "avg_price": 433577.4286,
-  "std_dev": 41750.0589
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-01",
-  "flat_type": "5 ROOM",
-  "txn_count": 20,
-  "avg_price": 477394.4,
-  "std_dev": 28909.2277
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-02",
-  "flat_type": "4 ROOM",
-  "txn_count": 21,
-  "avg_price": 432042.2857,
-  "std_dev": 43013.6252
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-02",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 454812.9032,
-  "std_dev": 37572.3989
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-02",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 555000
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-03",
-  "flat_type": "4 ROOM",
-  "txn_count": 25,
-  "avg_price": 432991.04,
-  "std_dev": 49403.8355
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-03",
-  "flat_type": "5 ROOM",
-  "txn_count": 27,
-  "avg_price": 462477.3333,
-  "std_dev": 35411.9562
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-03",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 582333.3333,
-  "std_dev": 30435.7246
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-04",
-  "flat_type": "4 ROOM",
-  "txn_count": 20,
-  "avg_price": 424500,
-  "std_dev": 36201.9191
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-04",
-  "flat_type": "5 ROOM",
-  "txn_count": 26,
-  "avg_price": 458183.6923,
-  "std_dev": 28536.1159
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-04",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 1,
-  "avg_price": 548000
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-05",
-  "flat_type": "4 ROOM",
-  "txn_count": 15,
-  "avg_price": 423912.5333,
-  "std_dev": 48268.163
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-05",
-  "flat_type": "5 ROOM",
-  "txn_count": 31,
-  "avg_price": 445275.9677,
-  "std_dev": 40399.0802
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-05",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 550000,
-  "std_dev": 17320.5081
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-06",
-  "flat_type": "4 ROOM",
-  "txn_count": 21,
-  "avg_price": 423704.7619,
-  "std_dev": 40522.4688
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-06",
-  "flat_type": "5 ROOM",
-  "txn_count": 28,
-  "avg_price": 450210.2857,
-  "std_dev": 30316.6611
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-06",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 3,
-  "avg_price": 565000,
-  "std_dev": 45825.7569
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-07",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 420988.2353,
-  "std_dev": 44879.3087
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-07",
-  "flat_type": "5 ROOM",
-  "txn_count": 28,
-  "avg_price": 451353.1429,
-  "std_dev": 29085.1169
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-07",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 580750,
-  "std_dev": 45117.4393
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-08",
-  "flat_type": "4 ROOM",
-  "txn_count": 18,
-  "avg_price": 413874.3333,
-  "std_dev": 38846.1205
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-08",
-  "flat_type": "5 ROOM",
-  "txn_count": 26,
-  "avg_price": 444788.4615,
-  "std_dev": 37426.2403
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-08",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 2,
-  "avg_price": 532500,
-  "std_dev": 24748.7373
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-09",
-  "flat_type": "4 ROOM",
-  "txn_count": 17,
-  "avg_price": 407640.4706,
-  "std_dev": 44154.2828
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-09",
-  "flat_type": "5 ROOM",
-  "txn_count": 22,
-  "avg_price": 444772.7273,
-  "std_dev": 32179.4549
-}, {
-  "town": "PUNGGOL",
-  "month": "2015-09",
-  "flat_type": "EXECUTIVE",
-  "txn_count": 4,
-  "avg_price": 543750,
-  "std_dev": 28686.5241
 }]
