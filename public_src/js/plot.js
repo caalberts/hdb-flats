@@ -20,16 +20,15 @@ function drawForm () {
   submitBtn.setAttribute('value', 'Submit')
   submitBtn.setAttribute('type', 'button')
   submitBtn.textContent = 'Submit'
-  submitBtn.addEventListener('click', () => {
-    resetChart()
-    const selection = document.getElementById('select-town')
-    const select = selection.options[selection.selectedIndex].text
-    plotChart(select)
-  })
+  submitBtn.addEventListener('click', () => plotChart())
   document.getElementById('plot-form').appendChild(submitBtn)
 }
 
-function plotChart (town) {
+function plotChart () {
+  resetChart()
+  const selection = document.getElementById('select-town')
+  const town = selection.options[selection.selectedIndex].text
+
   const xScale = new Plottable.Scales.Time()
   const yScale = new Plottable.Scales.Linear()
   const colorScale = new Plottable.Scales.Color()
@@ -87,5 +86,5 @@ function resetChart () {
 
 window.onload = function () {
   drawForm()
-  plotChart('Ang Mo Kio')
+  plotChart()
 }
