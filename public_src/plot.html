@@ -3,9 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Time series plot</title>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #plot { height: 500px; }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plottable.js/1.16.2/plottable.css">
   </head>
   <body>
+    <form class="town-selector" id="plot-form">
+      <select name="Town" id="select-town">
+      </select>
+    </form>
     <svg id="plot">
 
     </svg>
