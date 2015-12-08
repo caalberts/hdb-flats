@@ -9,18 +9,20 @@ function drawForm () {
     'Toa Payoh', 'Woodlands', 'Yishun'
   ]
   const charts = ['Average', 'Min, Max, Median']
-  const townSelection = document.getElementById('select-town')
-  const chartSelection = document.getElementById('select-chart')
-  towns.forEach(town => {
-    const option = document.createElement('option')
-    option.textContent = town
-    townSelection.appendChild(option)
-  })
-  charts.forEach(chart => {
-    const option = document.createElement('option')
-    option.textContent = chart
-    chartSelection.appendChild(option)
-  })
+  // const townSelection = document.getElementById('select-town')
+  // const chartSelection = document.getElementById('select-chart')
+  // towns.forEach(town => {
+  //   const option = document.createElement('option')
+  //   option.textContent = town
+  //   townSelection.appendChild(option)
+  // })
+  // charts.forEach(chart => {
+  //   const option = document.createElement('option')
+  //   option.textContent = chart
+  //   chartSelection.appendChild(option)
+  // })
+  createDropDown(towns, 'select-town')
+  createDropDown(charts, 'select-chart')
   const submitBtn = document.createElement('button')
   submitBtn.setAttribute('value', 'Submit')
   submitBtn.setAttribute('type', 'button')
@@ -79,6 +81,14 @@ function plotChart () {
       }
       Plotly.newPlot(plotSpace, data, layout)
     })
+}
+
+function createDropDown (list, selector) {
+  list.forEach(item => {
+    const option = document.createElement('option')
+    option.textContent = item
+    document.getElementById(selector).appendChild(option)
+  })
 }
 
 window.onload = function () {
