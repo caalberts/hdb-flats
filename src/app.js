@@ -18,6 +18,11 @@ const Flat = mongoose.model('Flat', {
   flat_type: String,
   avg_price: Number
 })
+const Town = mongoose.model('Town', {
+  town: String,
+  flat_type: String,
+  time_series: Object
+})
 
 app.use(express.static('public'))
 app.use(bodyParser.json())
@@ -72,6 +77,20 @@ app.post('/flats', function (req, res) {
     if (err) return console.error(err)
     console.log('new town added')
     res.status(201).json(newTownFlat)
+  })
+})
+
+app.get('/towns', function (req, res) {
+  let query = {}
+  if (req.query.town) {
+    query['town'] = { $regex: req.query.town, $options: 'i' }
+  }
+  Town.find(query).exec((err, docs) => {
+    if (err) console.error(err)
+    else {
+      console.log('town found')
+      res.json(docs)
+    }
   })
 })
 

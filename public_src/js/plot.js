@@ -1,6 +1,4 @@
-/* global Plottable */
-import groupBy from 'lodash.groupby'
-
+/* global Plotly */
 function drawForm () {
   const towns = [
     'Ang Mo Kio', 'Bedok', 'Bishan', 'Bukit Batok', 'Bukit Merah',
@@ -25,63 +23,56 @@ function drawForm () {
 }
 
 function plotChart () {
-  resetChart()
   const selection = document.getElementById('select-town')
   const town = selection.options[selection.selectedIndex].text
+  const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
 
-  const xScale = new Plottable.Scales.Time()
-  const yScale = new Plottable.Scales.Linear()
-  const colorScale = new Plottable.Scales.Color()
+  const plotSpace = document.getElementById('plot-space')
 
-  const xAxis = new Plottable.Axes.Time(xScale, 'bottom')
-  const yAxis = new Plottable.Axes.Numeric(yScale, 'left')
-
-  const xLabel = new Plottable.Components.AxisLabel('Year')
-  const yLabel = new Plottable.Components.AxisLabel('Average Price')
-
-  const legend = new Plottable.Components.Legend(colorScale).maxEntriesPerRow(6)
-  legend.xAlignment('center')
-  const plot = new Plottable.Plots.Line()
-  const panZoom = new Plottable.Interactions.PanZoom(xScale, null)
-  panZoom.attachTo(plot)
-
-  plot.x(function (d) {
-    return Date.parse(d.month)
-  }, xScale)
-  plot.y(function (d) {
-    return d.avg_price
-  }, yScale)
-  plot.attr('stroke', function (d, i, dataset) { return dataset.metadata().name }, colorScale)
-  plot.interpolator('basis')
-
-  const chart = new Plottable.Components.Table([
-    [null, null, legend],
-    [yLabel, yAxis, plot],
-    [null, null, xAxis],
-    [null, null, xLabel]
-  ])
-
-  const dataUrl = window.location.protocol + '//' + window.location.host + '/flats?town=' + town
-
-  window.fetch(dataUrl).then(data => data.json())
+  window.fetch(url).then(res => res.json())
     .then(result => {
-      const groupedByType = groupBy(result, el => el.flat_type)
-      for (const flatType in groupedByType) {
-        plot.addDataset(new Plottable.Dataset(
-          groupedByType[flatType],
-          {name: flatType}
-        ))
+      let data = []
+      result.forEach(flatType => {
+        if (flatType.time_series.mean.length > 0) {
+          data.push({
+            name: flatType.flat_type,
+            x: flatType.time_series.month,
+            y: flatType.time_series.mean,
+            error_y: {
+              type: 'data',
+              array: flatType.time_series.ci95,
+              visible: true,
+              thickness: 1,
+              width: 0
+            },
+            type: 'scatter',
+            mode: 'markers',
+            marker: {
+              size: 3
+            }
+          })
+        }
+      })
+      const layout = {
+        hovermode: 'closest',
+        title: 'Average HDB Resale Price in ' + town,
+        autosize: false,
+        width: 1000,
+        height: 600,
+        margin: {
+          l: 50,
+          r: 50,
+          b: 100,
+          t: 100,
+          pad: 4
+        },
+        yaxis: {
+          title: 'Average Resale Price in SGD',
+          rangemode: 'tozero'
+        }
       }
-
-      chart.renderTo('svg#plot')
+      Plotly.newPlot(plotSpace, data, layout)
     })
-}
-
-function resetChart () {
-  const svgFrame = document.getElementById('plot')
-  while (svgFrame.firstChild) {
-    svgFrame.removeChild(svgFrame.firstChild)
-  }
 }
 
 window.onload = function () {
