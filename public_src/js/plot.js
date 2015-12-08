@@ -11,14 +11,9 @@ function drawForm () {
   const charts = ['Average', 'Min, Max, Median']
   createDropDown(towns, 'select-town')
   createDropDown(charts, 'select-chart')
-  // const submitBtn = document.createElement('button')
+
   document.getElementById('select-town').addEventListener('change', () => plotChart())
   document.getElementById('select-chart').addEventListener('change', () => plotChart())
-  // submitBtn.setAttribute('value', 'Submit')
-  // submitBtn.setAttribute('type', 'button')
-  // submitBtn.textContent = 'Submit'
-  // submitBtn.addEventListener('click', () => plotChart())
-  // document.getElementById('plot-form').appendChild(submitBtn)
 }
 
 function plotChart () {
