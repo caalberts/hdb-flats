@@ -11,23 +11,26 @@ function drawForm () {
   const charts = ['Average', 'Min, Max, Median']
   createDropDown(towns, 'select-town')
   createDropDown(charts, 'select-chart')
-  const submitBtn = document.createElement('button')
-  submitBtn.setAttribute('value', 'Submit')
-  submitBtn.setAttribute('type', 'button')
-  submitBtn.textContent = 'Submit'
-  submitBtn.addEventListener('click', () => plotChart())
-  document.getElementById('plot-form').appendChild(submitBtn)
+  // const submitBtn = document.createElement('button')
+  document.getElementById('select-town').addEventListener('change', () => plotChart())
+  document.getElementById('select-chart').addEventListener('change', () => plotChart())
+  // submitBtn.setAttribute('value', 'Submit')
+  // submitBtn.setAttribute('type', 'button')
+  // submitBtn.textContent = 'Submit'
+  // submitBtn.addEventListener('click', () => plotChart())
+  // document.getElementById('plot-form').appendChild(submitBtn)
 }
 
 function plotChart () {
   const townSelection = document.getElementById('select-town')
   const town = townSelection.options[townSelection.selectedIndex].text
-  const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
 
   const chartSelection = document.getElementById('select-chart')
   const chart = chartSelection.options[chartSelection.selectedIndex].text
 
   const plotSpace = document.getElementById('plot-space')
+
+  const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
 
   window.fetch(url).then(res => res.json())
     .then(result => {
@@ -64,7 +67,7 @@ function plotChart () {
       })
       const layout = {
         hovermode: 'closest',
-        title: 'Average HDB Resale Price in ' + town,
+        title: chart + ' of HDB Resale Price in ' + town,
         autosize: false,
         width: 1000,
         height: 600,
