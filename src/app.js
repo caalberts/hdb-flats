@@ -13,10 +13,18 @@ const dbUri = 'mongodb://' +
 mongoose.connect(dbUri)
 const Flat = mongoose.model('Flat', {
   town: String,
-  type: String,
-  data: Array
+  month: String,
+  txn_count: Number,
+  flat_type: String,
+  avg_price: Number
+})
+const Town = mongoose.model('Town', {
+  town: String,
+  flat_type: String,
+  time_series: Object
 })
 
+app.use(express.static('public'))
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
@@ -26,16 +34,14 @@ app.get('/', function (req, res) {
 // get flat by town and flat type
 // eg. /flats?town=tampines&type=2 room
 app.get('/flats', function (req, res) {
-  let query
-  if (req.query.town && req.query.type) {
-    query = {
-      town: { $regex: req.query.town, $options: 'i' },
-      flat: { $regex: req.query.type, $options: 'i' }
-    }
-  } else {
-    query = {}
+  let query = {}
+  if (req.query.town) {
+    query['town'] = { $regex: req.query.town, $options: 'i' }
   }
-  Flat.find(query, (err, docs) => {
+  if (req.query.type) {
+    query['flat_type'] = { $regex: req.query.type, $options: 'i' }
+  }
+  Flat.find(query).sort({ month: 1 }).exec((err, docs) => {
     if (err) console.error(err)
     if (docs.length > 0) {
       console.log('town and flat type found')
@@ -71,6 +77,20 @@ app.post('/flats', function (req, res) {
     if (err) return console.error(err)
     console.log('new town added')
     res.status(201).json(newTownFlat)
+  })
+})
+
+app.get('/towns', function (req, res) {
+  let query = {}
+  if (req.query.town) {
+    query['town'] = { $regex: req.query.town, $options: 'i' }
+  }
+  Town.find(query).exec((err, docs) => {
+    if (err) console.error(err)
+    else {
+      console.log('town found')
+      res.json(docs)
+    }
   })
 })
 
