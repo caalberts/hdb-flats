@@ -35,7 +35,10 @@ function plotChart () {
   const townSelection = document.getElementById('select-town')
   const town = townSelection.options[townSelection.selectedIndex].text
   const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
-  console.log(url)
+
+  const chartSelection = document.getElementById('select-chart')
+  const chart = chartSelection.options[chartSelection.selectedIndex].text
+
   const plotSpace = document.getElementById('plot-space')
 
   window.fetch(url).then(res => res.json())
@@ -43,13 +46,11 @@ function plotChart () {
       let data = []
       result.forEach(flatType => {
         if (flatType.time_series.mean.length > 0) {
-          data.push({
+          const dataset = {
             name: flatType.flat_type,
             x: flatType.time_series.month,
-            y: flatType.time_series.mean,
             error_y: {
               type: 'data',
-              array: flatType.time_series.ci95,
               visible: true,
               thickness: 1,
               width: 0
@@ -59,7 +60,18 @@ function plotChart () {
             marker: {
               size: 3
             }
-          })
+          }
+          if (chart === 'Min, Max, Median') {
+            dataset.y = flatType.time_series.median
+            dataset.error_y.symmetric = false
+            dataset.error_y.array = flatType.time_series.max
+            dataset.error_y.arrayminus = flatType.time_series.min
+            console.log(dataset.error_y)
+          } else {
+            dataset.y = flatType.time_series.mean
+            dataset.error_y.array = flatType.time_series.ci95
+          }
+          data.push(dataset)
         }
       })
       const layout = {
