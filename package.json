@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && npm run start-server",
     "start-server": "node dist/server.js",
-    "build": "npm run clean && mkdir public && mkdir public/js && mkdir public/css && npm run build-src && npm run build-html && npm run build-css && npm run build-js",
+    "build": "npm run clean && mkdir public && mkdir public/js && mkdir public/css && npm run build-src & npm run build-html & npm run build-css & npm run build-js",
     "build-src": "babel src --out-dir dist --presets es2015",
     "build-html": "cp public_src/plot.html public/plot.html",
     "build-css": "stylus public_src/css --include-css -o public/css",
