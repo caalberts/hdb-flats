@@ -8,13 +8,20 @@ function drawForm () {
     'Queenstown', 'Sembawang', 'Sengkang', 'Serangoon', 'Tampines',
     'Toa Payoh', 'Woodlands', 'Yishun'
   ]
-  const submitBtn = document.createElement('button')
-  const selection = document.getElementById('select-town')
+  const charts = ['Average', 'Min, Max, Median']
+  const townSelection = document.getElementById('select-town')
+  const chartSelection = document.getElementById('select-chart')
   towns.forEach(town => {
     const option = document.createElement('option')
     option.textContent = town
-    selection.appendChild(option)
+    townSelection.appendChild(option)
   })
+  charts.forEach(chart => {
+    const option = document.createElement('option')
+    option.textContent = chart
+    chartSelection.appendChild(option)
+  })
+  const submitBtn = document.createElement('button')
   submitBtn.setAttribute('value', 'Submit')
   submitBtn.setAttribute('type', 'button')
   submitBtn.textContent = 'Submit'
@@ -23,10 +30,10 @@ function drawForm () {
 }
 
 function plotChart () {
-  const selection = document.getElementById('select-town')
-  const town = selection.options[selection.selectedIndex].text
+  const townSelection = document.getElementById('select-town')
+  const town = townSelection.options[townSelection.selectedIndex].text
   const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
-
+  console.log(url)
   const plotSpace = document.getElementById('plot-space')
 
   window.fetch(url).then(res => res.json())
@@ -67,7 +74,6 @@ function plotChart () {
           pad: 4
         },
         yaxis: {
-          title: 'Average Resale Price in SGD',
           rangemode: 'tozero'
         }
       }
