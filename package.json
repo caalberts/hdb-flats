@@ -14,7 +14,7 @@
     "clean": "rm -rf dist && rm -rf public",
     "test": "standard",
     "watch": "npm run build && npm run start-server & npm run watch-js & npm run watch-html & npm run watch-css",
-    "watch-html": "watch-spawn -p 'public_src/maps.html' npm run build-html",
+    "watch-html": "watch-spawn -p 'public_src/plot.html' npm run build-html",
     "watch-css": "npm run build-css -- --watch",
     "watch-js": "watchify public_src/js/plot.js -o public/js/plot.js -t babelify --verbose",
     "watch-test": "mocha --watch"
