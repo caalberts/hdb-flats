@@ -1,5 +1,5 @@
 {
-  "name":"hdb-resale-data",
+  "name":"hdb-flats",
   "description":"Mini hack to display HDB resale price",
   "scripts":{},
   "env":{},

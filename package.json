@@ -1,5 +1,5 @@
 {
-  "name": "hdb-resale-data",
+  "name": "hdb-flats",
   "version": "1.0.0",
   "description": "mini hack to display HDB resale price",
   "main": "index.js",
@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/caalberts/hdb-flats#readme",
   "dependencies": {
-    "babel": "^6.3.13",
     "babel-cli": "^6.3.13",
     "babel-core": "^6.2.1",
     "babel-preset-es2015": "^6.1.18",
