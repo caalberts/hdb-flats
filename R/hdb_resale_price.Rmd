@@ -1,0 +1,89 @@
+---
+title: "HDB Resale Prices"
+author: "Yong Jun"
+date: "December 6, 2015"
+output:
+  html_document:
+    keep_md: true
+---
+
+```{r, dependencies}
+library(data.table)
+library(jsonlite)
+library(manipulate)
+library(ggplot2)
+library(plyr)
+```
+
+```{r, import_data, cache=TRUE}
+raw1 <- read.csv('resale_prices_2000.csv', strip.white=TRUE, stringsAsFactors=FALSE)
+raw2 <- read.csv('resale_prices_2005.csv', strip.white=TRUE, stringsAsFactors=FALSE)
+raw3 <- read.csv('resale_prices_2012.csv', strip.white=TRUE, stringsAsFactors=FALSE)
+raw <- as.data.table(rbind(raw1,raw2,raw3))
+raw$month <- as.factor(raw$month)
+raw$town <- as.factor(raw$town)
+raw$flat_type <- as.factor(raw$flat_type)
+raw$street_name <- as.factor(raw$street_name)
+raw$storey_range <- as.factor(raw$storey_range)
+raw$flat_model <- as.factor(raw$flat_model)
+setkey(raw,town,flat_type,month,storey_range)
+```
+
+```{r, meta_data}
+levels(raw$town)
+levels(raw$flat_type)
+levels(raw$month)
+levels(raw$flat_model)
+levels(raw$storey_range)
+levels(raw$street_name)
+```
+
+```{r, time_series}
+time_series <- raw[, .(count=.N, min=min(resale_price), max=max(resale_price), median=median(resale_price), mean=mean(resale_price), ci95=1.96*sd(resale_price)/sqrt(.N)), .(town, flat_type, month)]
+time_series$min <- time_series$median-time_series$min
+time_series$max <- time_series$max-time_series$median
+time_series$ci95<- ifelse(time_series$count < 3, 0, time_series$ci95)
+town <- time_series$town
+data_obj <- time_series[,-1,with=FALSE]
+data_obj <- split(data_obj,town)
+data_obj <- lapply(data_obj, function(df) {
+  flat_type <- df$flat_type
+  df <- df[,-1,with=FALSE]
+  split(df,flat_type)
+})
+export_obj <- list()
+n <- 1
+for(town in levels(raw$town)) {
+  for(flat_type in levels(raw$flat_type)) {
+    export_obj[[n]] <- list(town=town, flat_type=flat_type, time_series=data_obj[[town]][[flat_type]])
+    n <- n+1
+  }
+}
+write(toJSON(export_obj,dataframe='columns',auto_unbox=TRUE,digit=0,pretty=TRUE),'plotly.json')
+```
+
+```{r, sample_plot}
+x_lab <- levels(raw$month)[seq(1,length(levels(raw$month)),12)]
+ggplot_mean <- function(town_name) {
+  ggplot(time_series[town==town_name],aes(x=month, y=mean, ymax=mean+ci95, ymin=mean-ci95, color=flat_type)) + geom_pointrange(size=0.3) + scale_x_discrete(breaks=x_lab, labels=substr(x_lab,1,4)) + theme(axis.text.x=element_text(angle=90, hjust=1))
+}
+ggplot_median <- function(town_name) {
+  ggplot(time_series[town==town_name],aes(x=month, y=median, ymax=median+max, ymin=median-min, color=flat_type)) + geom_pointrange(size=0.3) + scale_x_discrete(breaks=x_lab, labels=substr(x_lab,1,4)) + theme(axis.text.x=element_text(angle=90, hjust=1))
+}
+ggplot_mean('ANG MO KIO')
+ggplot_median('ANG MO KIO')
+```
+
+```{r, eval=FALSE}
+manipulate(ggplot_mean(town), town=picker(as.list(levels(raw$town))))
+manipulate(ggplot_median(town), town=picker(as.list(levels(raw$town))))
+```
+
+```{r, geocode}
+street_name <- count(raw,c('street_name'))
+address <- count(raw,c('street_name','block'))
+nrow(street_name)
+nrow(address)
+write.csv(street_name,'street_name.csv',row.names=FALSE)
+write.csv(address,'address.csv',row.names=FALSE)
+```
