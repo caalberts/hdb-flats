@@ -27,10 +27,6 @@ const Town = mongoose.model('Town', {
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-  res.send('Home page for user to enter the town and flat type')
-})
-
 // get flat by town and flat type
 // eg. /flats?town=tampines&type=2 room
 app.get('/flats', function (req, res) {
@@ -49,11 +45,6 @@ app.get('/flats', function (req, res) {
     } else {
       console.log('data not in existing database')
       console.log('please wait while we fetch new data')
-      // not found, call funciton to fetch data.gov.sg for new data,
-      // fetch(data.gov.sg)
-          // .then(process data)
-          // .then(save into mongodb)
-          // .then(respond with new data)
 
       getData(req.query.town, req.query.type)
         .then(data => {
