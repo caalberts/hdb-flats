@@ -11,6 +11,11 @@ const dbUri = 'mongodb://' +
   '@ds033087.mongolab.com:33087/hdb-resale'
 
 mongoose.connect(dbUri)
+const Heatmap = mongoose.model('Heatmap', {
+  flat_type: String,
+  month: String,
+  data: Array
+})
 const Flat = mongoose.model('Flat', {
   town: String,
   month: String,
@@ -80,6 +85,23 @@ app.get('/towns', function (req, res) {
     if (err) console.error(err)
     else {
       console.log('town found')
+      res.json(docs)
+    }
+  })
+})
+
+app.get('/heatmap', function (req, res) {
+  let query = {}
+  if (req.query.type) {
+    query['flat_type'] = { $regex: req.query.type, $options: 'i' }
+  }
+  if (req.query.month) {
+    query['month'] = req.query.month
+  }
+  Heatmap.find(query).exec((err, docs) => {
+    if (err) console.error(err)
+    else {
+      console.log(docs)
       res.json(docs)
     }
   })
