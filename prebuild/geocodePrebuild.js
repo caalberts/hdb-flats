@@ -17,7 +17,7 @@ let results = []
 fs.readFile(path.join(__dirname, '../R/address.json'), 'utf8', (err, data) => {
   if (err) console.error(err)
   const addresses = JSON.parse(data)
-  const offset = 0 // 0, 2000, 4000, 6000, 8000
+  const offset = 6000 // 0, 2000, 4000, 6000, 8000
   const total = 2000
   let slicedArray = addresses.slice(offset, offset + total)
 
@@ -50,6 +50,7 @@ function geocode (blk, street, callback) {
           'lat': data.results[0].geometry.location.lat
         }
         results.push(resolvedAddress)
+        console.log(resolvedAddress)
         callback(null)
       } else {
         // throw new Error(data.status)
