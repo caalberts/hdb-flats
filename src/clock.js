@@ -6,6 +6,8 @@ const _ = require('lodash')
 const math = require('mathjs')
 const jStat = require('jStat').jStat
 
+let townList = {}
+let flatList = {}
 let records = []
 const resID = [
   'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
@@ -31,8 +33,6 @@ function fetchData (dataset, offset) {
 }
 
 function processData (raw) {
-  let townList = {}
-  let flatList = {}
   raw.forEach(record => {
     townList[record.town.trim()] = true
     flatList[record.flat_type.trim()] = true
@@ -98,3 +98,33 @@ fetchData(0, 0)
     })
   })
   .catch(console.error)
+
+const addressBook = []
+const heatMap = []
+const queued = []
+
+function populateHeatMap (GoogleEnabled, record) {
+  let address = addressBook.find(address => address.street === record.street_name && address.block === record.block)
+  if (!address && GoogleEnabled) address = geocode(record.block, record.street_name)
+  if (address) {
+    const dataPoint = {
+      'lat': address.lat,
+      'long': address.long,
+      'weight': record.resale_price / record.floor_area_sqm
+    }
+    const idx = heatMap.find(dataset => dataset.month === record.month && dataset.flat === record.flat)
+    if (idx < 0) {
+      heatMap.push({
+        'flat': record.flat_type,
+        'month': record.month,
+        'dataPoint': [dataPoint]
+      })
+    } else {
+      heatMap[idx].dataPoint.push(dataPoint)
+    }
+  } else queued.push(record)
+}
+
+const lastID = 0
+records.slice(lastID).forEach(populateHeatMap.bind(null, false))
+queued.forEach((record, idx) => setTimeout(populateHeatMap.bind(null, true, record), idx * 150))
