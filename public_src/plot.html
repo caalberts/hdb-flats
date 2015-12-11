@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Singapore Housing Price</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>Hottest Properties in Singapore - Time Series</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plottable.js/1.16.2/plottable.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -11,21 +10,22 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/main.css">
+
     <!-- Latest compiled and minified JavaScript -->
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="content">
       <div class="input">
-        <h2>Choose the town and data you wish to see:</h2>
-        <form class="town-selector" id="plot-form">
-          <select name="Town" id="select-town">
-          </select>
-          <select name="Chart" id="select-chart">
-          </select>
+        <h2>Choose the town and data you wish to see</h2>
+        <form class="town-selector form-inline" id="plot-form">
+          <select name="Town" id="select-town" class="form-control"></select>
+          <select name="Chart" id="select-chart" class="form-control"></select>
         </form>
       </div>
-      <div class="plot-container">
+      <div id="plot-container">
         <div id="plot-space"></div>
       </div>
       <div id="transactions-list">
