@@ -64,14 +64,14 @@ function plotChart () {
         hovermode: 'closest',
         title: chart + ' of HDB Resale Price in ' + town,
         autosize: false,
-        width: 1000,
+        width: 800,
         height: 500,
         margin: {
           l: 50,
-          r: 50,
-          b: 100,
-          t: 100,
-          pad: 4
+          r: 20,
+          b: 50,
+          t: 50,
+          pad: 10
         },
         yaxis: {
           rangemode: 'tozero'
@@ -102,19 +102,31 @@ function listAllTransactions (town, type, date) {
   const resource = (Date.parse(date) < new Date('2005-01-01')) ? resID[0] : (Date.parse(date) < new Date('2012-03-01')) ? resID[1] : resID[2]
   console.log(resource)
   const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource + '&q={"town": "' + town + '", "flat_type":"' + type + '", "month":"' + date.slice(0, 7) + '"}'
-  console.log(dataURL)
+
   window.fetch(dataURL).then(data => data.json())
     .then(json => {
-      if (document.getElementById('transactions-ul')) document.getElementById('ul').remove()
-      const ul = document.createElement('ul')
-      ul.setAttribute('id', 'transactions-ul')
-      json.result.records.forEach(transaction => {
-        console.log(transaction)
-        const li = document.createElement('li')
-        li.textContent = transaction.town.trim() + ' ' + transaction.flat_type.trim() + ' ' + transaction.month + ' $' + transaction.resale_price
-        ul.appendChild(li)
+      if (document.getElementById('table-body')) document.getElementById('table-body').remove()
+      const tbody = document.createElement('tbody')
+      tbody.setAttribute('id', 'table-body')
+      json.result.records.forEach((transaction, index) => {
+        const row = document.createElement('tr')
+        row.classList.add('table-striped')
+        let rowData = [
+          index + 1,
+          transaction.block.trim(),
+          transaction.street_name.trim(),
+          transaction.storey_range.trim(),
+          transaction.floor_area_sqm,
+          transaction.resale_price
+        ]
+        rowData.map(data => {
+          const td = document.createElement('td')
+          td.textContent = data
+          return td
+        }).forEach(td => row.appendChild(td))
+        tbody.appendChild(row)
       })
-      document.getElementById('transactions-list').appendChild(ul)
+      document.getElementById('transactions-table').appendChild(tbody)
     })
 }
 
