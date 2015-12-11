@@ -60,12 +60,13 @@ function plotChart () {
           data.push(dataset)
         }
       })
+
       const layout = {
         hovermode: 'closest',
         title: chart + ' of HDB Resale Price in ' + town,
-        autosize: false,
-        width: 800,
-        height: 500,
+        autosize: true,
+        // width: 1000,
+        // height: 600,
         margin: {
           l: 50,
           r: 20,
