@@ -1,14 +1,17 @@
 /* global google */
+import { list as months } from './months'
+
 function drawForm () {
   const types = [
-    '2 Room', '3 Room', '4 Room'
+    '1 Room', '2 Room', '3 Room', '4 Room',
+    '5 Room', 'Executive', 'Multi-Generation'
   ]
-  const months = ['2015-10', '2015-09']
+  months.reverse()
   createDropDown(types, 'select-type')
   createDropDown(months, 'select-month')
 
-  document.getElementById('select-type').addEventListener('change', () => drawMap())
-  document.getElementById('select-month').addEventListener('change', () => drawMap())
+  document.getElementById('select-type').addEventListener('change', () => getData())
+  document.getElementById('select-month').addEventListener('change', () => getData())
 }
 
 function getData () {
@@ -21,44 +24,33 @@ function getData () {
   const month = monthSelection.options[monthSelection.selectedIndex].text
 
   const url = window.location.protocol + '//' + window.location.host + '/heatmap?type=' + type + '&month=' + month
-
+  console.log('fetch ', url)
   window.fetch(url).then(res => res.json())
-    .then(results => results.forEach(result => {
-      result.data.forEach(transaction => {
-        const tick = {
-          location: new google.maps.LatLng(transaction.lat, transaction.lng),
-          weight: transaction.weight
-        }
-        mapData.push(tick)
+    .then(results => {
+      results.forEach(result => {
+        result.data.forEach(transaction => {
+          const tick = {
+            location: new google.maps.LatLng(transaction.lat, transaction.lng),
+            weight: transaction.weight
+          }
+          mapData.push(tick)
+        })
       })
-      return mapData
-    }))
+      drawHeatmap(mapData)
+    })
 }
 
-function drawMap () {
-  const heatmapData = getData()
-  // const heatmapData = [
-  //   {location: new google.maps.LatLng(1.320, 103.800), weight: 10},
-  //   {location: new google.maps.LatLng(1.321, 103.800), weight: 15},
-  //   {location: new google.maps.LatLng(1.322, 103.850), weight: 25},
-  //   {location: new google.maps.LatLng(1.323, 103.800), weight: 12},
-  //   {location: new google.maps.LatLng(1.324, 103.800), weight: 30},
-  //   {location: new google.maps.LatLng(1.325, 103.730), weight: 34},
-  //   {location: new google.maps.LatLng(1.326, 103.800), weight: 33},
-  //   {location: new google.maps.LatLng(1.337, 103.950), weight: 20},
-  //   {location: new google.maps.LatLng(1.328, 103.700), weight: 10},
-  //   {location: new google.maps.LatLng(1.379, 103.800), weight: 50}
-  // ]
-
+function drawHeatmap (locations) {
+  if (locations.length === 0) console.log('no data')
   const singapore = new google.maps.LatLng(1.320, 103.800)
 
   const map = new google.maps.Map(document.getElementById('map'), {
     center: singapore,
     zoom: 11
   })
-  var heatmap = new google.maps.visualization.HeatmapLayer({
-    data: heatmapData,
-    radius: 50
+  const heatmap = new google.maps.visualization.HeatmapLayer({
+    data: locations,
+    radius: 20
   })
   heatmap.setMap(map)
 }
@@ -73,5 +65,5 @@ function createDropDown (list, selector) {
 
 window.onload = function () {
   drawForm()
-  drawMap()
+  getData()
 }
