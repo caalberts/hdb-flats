@@ -8,7 +8,7 @@
     "start-server": "node dist/server.js",
     "build": "npm run clean && mkdir public && mkdir public/js && mkdir public/css && npm run build-all",
     "build-all": "npm run build-src & npm run build-html & npm run build-css & npm run build-js",
-    "build-src": "/app/node_modules/babel-cli/bin/babel.js src --out-dir dist --presets es2015",
+    "build-src": "babel src --out-dir dist --presets es2015",
     "build-html": "cp public_src/plot.html public/plot.html",
     "build-css": "stylus public_src/css --include-css -o public/css",
     "build-js": "browserify public_src/js/plot.js --outfile public/js/plot.js -t babelify",
