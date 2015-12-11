@@ -1,4 +1,6 @@
 /* global Plotly */
+import createDropDown from './createDropDown'
+
 function drawForm () {
   const towns = [
     'Ang Mo Kio', 'Bedok', 'Bishan', 'Bukit Batok', 'Bukit Merah',
@@ -9,8 +11,8 @@ function drawForm () {
     'Toa Payoh', 'Woodlands', 'Yishun'
   ]
   const charts = ['Average', 'Min, Max, Median']
-  createDropDown(towns, 'select-town')
-  createDropDown(charts, 'select-chart')
+  createDropDown(towns, 'select-town', 'Ang Mo Kio')
+  createDropDown(charts, 'select-chart', 'Average')
 
   document.getElementById('select-town').addEventListener('change', () => plotChart())
   document.getElementById('select-chart').addEventListener('change', () => plotChart())
@@ -84,14 +86,6 @@ function plotChart () {
         listAllTransactions(town, click.points[0].data.name, click.points[0].x)
       })
     })
-}
-
-function createDropDown (list, selector) {
-  list.forEach(item => {
-    const option = document.createElement('option')
-    option.textContent = item
-    document.getElementById(selector).appendChild(option)
-  })
 }
 
 function listAllTransactions (town, type, date) {
