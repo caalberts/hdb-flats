@@ -28,12 +28,14 @@ function getData () {
   window.fetch(url).then(res => res.json())
     .then(results => {
       results.forEach(result => {
-        result.data.forEach(transaction => {
-          const tick = {
-            location: new google.maps.LatLng(transaction.lat, transaction.lng),
-            weight: transaction.weight
+        result.dataPoints.forEach(transaction => {
+          if (!(transaction.lat === 1.352083 && transaction.lng === 103.819836)) {
+            const tick = {
+              location: new google.maps.LatLng(transaction.lat, transaction.lng),
+              weight: transaction.weight
+            }
+            mapData.push(tick)
           }
-          mapData.push(tick)
         })
       })
       drawHeatmap(mapData)
@@ -50,7 +52,8 @@ function drawHeatmap (locations) {
   })
   const heatmap = new google.maps.visualization.HeatmapLayer({
     data: locations,
-    radius: 20
+    // dissipating: true,
+    radius: 15
   })
   heatmap.setMap(map)
 }
