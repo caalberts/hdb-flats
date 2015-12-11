@@ -14,7 +14,7 @@ mongoose.connect(dbUri)
 const Heatmap = mongoose.model('Heatmap', {
   flat_type: String,
   month: String,
-  data: Array
+  dataPoints: Array
 })
 const Flat = mongoose.model('Flat', {
   town: String,
