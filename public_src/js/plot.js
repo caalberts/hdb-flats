@@ -1,4 +1,5 @@
 /* global Plotly */
+import 'whatwg-fetch'
 import createDropDown from './createDropDown'
 
 function drawForm () {

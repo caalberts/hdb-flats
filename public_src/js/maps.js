@@ -1,4 +1,5 @@
 /* global google */
+import 'whatwg-fetch'
 import range from 'lodash.range'
 import padLeft from 'lodash.padleft'
 import createDropDown from './createDropDown'
