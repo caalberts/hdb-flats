@@ -1,6 +1,6 @@
 /* global google */
 import range from 'lodash.range'
-import padLeft from 'lodash.padLeft'
+import padLeft from 'lodash.padleft'
 import createDropDown from './createDropDown'
 
 function drawForm () {
