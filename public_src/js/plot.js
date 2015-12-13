@@ -4,7 +4,7 @@ import createDropDown from './createDropDown'
 
 class App {
   constructor () {
-    this.plotSpace = document.getElementById('plot-space')
+    this.plotContainer = document.getElementById('plot-container')
     this.townSelection = document.getElementById('select-town')
     this.chartSelection = document.getElementById('select-chart')
     this.transactionsTable = document.getElementById('transactions-table')
@@ -28,13 +28,18 @@ class App {
   }
 
   drawChart () {
-    if (this.plotSpace.firstChild) this.plotSpace.firstChild.remove()
+    if (this.plotContainer.firstChild) this.plotContainer.firstChild.remove()
+
     if (document.getElementById('table-body')) document.getElementById('table-body').remove()
+
+    const plotSpace = document.createElement('div')
+    plotSpace.setAttribute('id', 'plot-space')
+    this.plotContainer.appendChild(plotSpace)
 
     const chart = new Chart(
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      this.plotSpace,
+      plotSpace,
       this.transactionsTable
     )
     chart.plotChart()
@@ -71,7 +76,6 @@ class Chart {
     this.getChartData().then(() => {
       Plotly.newPlot(this.plotSpace, this.dataSeries, this.layout)
       this.plotSpace.on('plotly_click', click => {
-        console.log('click')
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
     })
@@ -85,6 +89,7 @@ class Chart {
         result.forEach(flatType => {
           if (flatType.time_series.mean.length > 0) {
             const dataPoint = {
+              town: this.town,
               name: flatType.flat_type,
               x: flatType.time_series.month,
               error_y: {
@@ -122,10 +127,9 @@ class Chart {
     ]
     const resource = (Date.parse(date) < new Date('2005-01-01')) ? resID[0] : (Date.parse(date) < new Date('2012-03-01')) ? resID[1] : resID[2]
     const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource + '&q={"town":"' + town + '","flat_type":"' + type + '","month":"' + date.slice(0, 7) + '"}'
-    console.log('fetch from ', dataURL)
+
     window.fetch(dataURL).then(data => data.json())
       .then(json => {
-        console.log(json)
         if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
         tbody.setAttribute('id', 'table-body')
