@@ -76,8 +76,7 @@ class Heatmap {
       zoom: 11
     })
     const googleHeatmap = new google.maps.visualization.HeatmapLayer({
-      data: locations,
-      radius: 15
+      data: locations
     })
     googleHeatmap.setMap(map)
   }
