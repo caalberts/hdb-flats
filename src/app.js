@@ -84,7 +84,6 @@ app.get('/towns', function (req, res) {
   Town.find(query).exec((err, docs) => {
     if (err) console.error(err)
     else {
-      console.log('town found')
       res.json(docs)
     }
   })
