@@ -2,13 +2,12 @@
 import 'whatwg-fetch'
 import createDropDown from './createDropDown'
 
-class Chart {
+class App {
   constructor () {
     this.plotSpace = document.getElementById('plot-space')
     this.townSelection = document.getElementById('select-town')
     this.chartSelection = document.getElementById('select-chart')
     this.transactionsTable = document.getElementById('transactions-table')
-    this.dataSeries = []
   }
 
   drawForm () {
@@ -24,17 +23,34 @@ class Chart {
     createDropDown(towns, 'select-town', 'Ang Mo Kio')
     createDropDown(charts, 'select-chart', 'Average')
 
-    this.townSelection.addEventListener('change', () => this.replotChart())
-    this.chartSelection.addEventListener('change', () => this.replotChart())
+    this.townSelection.addEventListener('change', () => this.drawChart())
+    this.chartSelection.addEventListener('change', () => this.drawChart())
   }
 
-  plotChart () {
-    const town = this.townSelection.options[this.townSelection.selectedIndex].text
-    const chartType = this.chartSelection.options[this.chartSelection.selectedIndex].text
+  drawChart () {
+    if (this.plotSpace.firstChild) this.plotSpace.firstChild.remove()
+    if (document.getElementById('table-body')) document.getElementById('table-body').remove()
 
-    const layout = {
+    const chart = new Chart(
+      this.townSelection.options[this.townSelection.selectedIndex].text,
+      this.chartSelection.options[this.chartSelection.selectedIndex].text,
+      this.plotSpace,
+      this.transactionsTable
+    )
+    chart.plotChart()
+  }
+}
+
+class Chart {
+  constructor (town, type, plotId, tableId) {
+    this.town = town
+    this.chartType = type
+    this.plotSpace = plotId
+    this.transactionsTable = tableId
+    this.dataSeries = []
+    this.layout = {
       hovermode: 'closest',
-      title: chartType + ' of HDB Resale Price in ' + town,
+      title: this.chartType + ' of HDB Resale Price in ' + this.town,
       autosize: true,
       // width: 1000,
       // height: 600,
@@ -49,18 +65,20 @@ class Chart {
         rangemode: 'tozero'
       }
     }
+  }
 
-    this.getChartData(town, chartType).then(() => {
-      Plotly.newPlot(this.plotSpace, this.dataSeries, layout)
+  plotChart () {
+    this.getChartData().then(() => {
+      Plotly.newPlot(this.plotSpace, this.dataSeries, this.layout)
       this.plotSpace.on('plotly_click', click => {
         console.log('click')
-        this.listAllTransactions(town, click.points[0].data.name, click.points[0].x)
+        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
     })
   }
 
-  getChartData (town, chartType) {
-    const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + town
+  getChartData () {
+    const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + this.town
 
     return window.fetch(url).then(res => res.json())
       .then(result => {
@@ -81,7 +99,7 @@ class Chart {
                 size: 3
               }
             }
-            if (chartType === 'Min, Max, Median') {
+            if (this.chartType === 'Min, Max, Median') {
               dataPoint.y = flatType.time_series.median
               dataPoint.error_y.symmetric = false
               dataPoint.error_y.array = flatType.time_series.max
@@ -132,17 +150,10 @@ class Chart {
         this.transactionsTable.appendChild(tbody)
       })
   }
-
-  replotChart () {
-    this.dataSeries = []
-    if (this.plotSpace.firstChild) this.plotSpace.firstChild.remove()
-    if (document.getElementById('table-body')) document.getElementById('table-body').remove()
-    this.plotChart()
-  }
 }
 
 window.onload = function () {
-  const chart = new Chart()
-  chart.drawForm()
-  chart.plotChart()
+  const app = new App()
+  app.drawForm()
+  app.drawChart()
 }
