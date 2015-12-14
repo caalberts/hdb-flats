@@ -5,25 +5,29 @@ html, body
   font-family Helvetica, sans-serif
 
 .content
-  margin 50px
+  margin 20px
 
 .input
   display flex
-  flex-direction row
+  flex-direction column
   justify-content center
   align-items center
 
-#plot-form
-  margin-left 20px
-
-#plot-container
+#plot-container, #map-container
+  margin 20px
   display flex
   flex-direction column
   justify-content center
 
 #plot-space
+  flex-grow 1
   display flex
   justify-content center
 
-// #plot
-//   height 500px
+#transactions-container, #transactions-list
+  display flex
+  flex-direction column
+  justify-content center
+
+#map
+  height 500px

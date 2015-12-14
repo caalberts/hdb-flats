@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-import getData from './util/hdb.js'
+// import getData from './util/hdb.js'
 
 const app = express()
 const dbUri = 'mongodb://' +
@@ -11,13 +11,18 @@ const dbUri = 'mongodb://' +
   '@ds033087.mongolab.com:33087/hdb-resale'
 
 mongoose.connect(dbUri)
-const Flat = mongoose.model('Flat', {
-  town: String,
-  month: String,
-  txn_count: Number,
+const Heatmap = mongoose.model('Heatmap', {
   flat_type: String,
-  avg_price: Number
+  month: String,
+  dataPoints: Array
 })
+// const Flat = mongoose.model('Flat', {
+//   town: String,
+//   month: String,
+//   txn_count: Number,
+//   flat_type: String,
+//   avg_price: Number
+// })
 const Town = mongoose.model('Town', {
   town: String,
   flat_type: String,
@@ -27,58 +32,49 @@ const Town = mongoose.model('Town', {
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-  res.send('Home page for user to enter the town and flat type')
-})
-
 // get flat by town and flat type
 // eg. /flats?town=tampines&type=2 room
-app.get('/flats', function (req, res) {
-  let query = {}
-  if (req.query.town) {
-    query['town'] = { $regex: req.query.town, $options: 'i' }
-  }
-  if (req.query.type) {
-    query['flat_type'] = { $regex: req.query.type, $options: 'i' }
-  }
-  Flat.find(query).sort({ month: 1 }).exec((err, docs) => {
-    if (err) console.error(err)
-    if (docs.length > 0) {
-      console.log('town and flat type found')
-      res.json(docs)
-    } else {
-      console.log('data not in existing database')
-      console.log('please wait while we fetch new data')
-      // not found, call funciton to fetch data.gov.sg for new data,
-      // fetch(data.gov.sg)
-          // .then(process data)
-          // .then(save into mongodb)
-          // .then(respond with new data)
-
-      getData(req.query.town, req.query.type)
-        .then(data => {
-          console.log(data)
-          const newTownFlat = new Flat(data)
-          newTownFlat.save(function (err) {
-            if (err) return console.error(err)
-            console.log('new data added')
-            res.status(201).json(newTownFlat)
-          })
-        })
-    }
-  })
-})
-
-// create new document for a specific town and flat type
-// document should be submitted in request body
-app.post('/flats', function (req, res) {
-  const newTownFlat = new Flat(req.body)
-  newTownFlat.save(function (err) {
-    if (err) return console.error(err)
-    console.log('new town added')
-    res.status(201).json(newTownFlat)
-  })
-})
+// app.get('/flats', function (req, res) {
+//   let query = {}
+//   if (req.query.town) {
+//     query['town'] = { $regex: req.query.town, $options: 'i' }
+//   }
+//   if (req.query.type) {
+//     query['flat_type'] = { $regex: req.query.type, $options: 'i' }
+//   }
+//   Flat.find(query).sort({ month: 1 }).exec((err, docs) => {
+//     if (err) console.error(err)
+//     if (docs.length > 0) {
+//       console.log('town and flat type found')
+//       res.json(docs)
+//     } else {
+//       console.log('data not in existing database')
+//       console.log('please wait while we fetch new data')
+//
+//       getData(req.query.town, req.query.type)
+//         .then(data => {
+//           console.log(data)
+//           const newTownFlat = new Flat(data)
+//           newTownFlat.save(function (err) {
+//             if (err) return console.error(err)
+//             console.log('new data added')
+//             res.status(201).json(newTownFlat)
+//           })
+//         })
+//     }
+//   })
+// })
+//
+// // create new document for a specific town and flat type
+// // document should be submitted in request body
+// app.post('/flats', function (req, res) {
+//   const newTownFlat = new Flat(req.body)
+//   newTownFlat.save(function (err) {
+//     if (err) return console.error(err)
+//     console.log('new town added')
+//     res.status(201).json(newTownFlat)
+//   })
+// })
 
 app.get('/towns', function (req, res) {
   let query = {}
@@ -88,7 +84,22 @@ app.get('/towns', function (req, res) {
   Town.find(query).exec((err, docs) => {
     if (err) console.error(err)
     else {
-      console.log('town found')
+      res.json(docs)
+    }
+  })
+})
+
+app.get('/heatmap', function (req, res) {
+  let query = {}
+  if (req.query.type) {
+    query['flat_type'] = { $regex: req.query.type, $options: 'i' }
+  }
+  if (req.query.month) {
+    query['month'] = req.query.month
+  }
+  Heatmap.find(query).exec((err, docs) => {
+    if (err) console.error(err)
+    else {
       res.json(docs)
     }
   })
