@@ -39,10 +39,10 @@ levels(raw$street_name)
 ```
 
 ```{r, time_series}
-time_series <- raw[, .(count=.N, min=min(resale_price), max=max(resale_price), median=median(resale_price), mean=mean(resale_price), ci95=1.96*sd(resale_price)/sqrt(.N)), .(town, flat_type, month)]
+time_series <- raw[, .(count=.N, min=min(resale_price), max=max(resale_price), median=median(resale_price), mean=mean(resale_price), ci95=sd(resale_price)/sqrt(.N)), .(town, flat_type, month)]
 time_series$min <- time_series$median-time_series$min
 time_series$max <- time_series$max-time_series$median
-time_series$ci95<- ifelse(time_series$count < 3, 0, time_series$ci95)
+time_series$ci95 <- ifelse(time_series$count < 3, 0, qt(0.975,time_series$count-1)*time_series$ci95)
 town <- time_series$town
 data_obj <- time_series[,-1,with=FALSE]
 data_obj <- split(data_obj,town)
@@ -84,6 +84,5 @@ street_name <- count(raw,c('street_name'))
 address <- count(raw,c('street_name','block'))
 nrow(street_name)
 nrow(address)
-write.csv(street_name,'street_name.csv',row.names=FALSE)
-write.csv(address,'address.csv',row.names=FALSE)
+write(toJSON(address),'address.json')
 ```
