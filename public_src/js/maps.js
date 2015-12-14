@@ -1,77 +1,89 @@
 /* global google */
-function drawForm () {
-  const types = [
-    '2 Room', '3 Room', '4 Room'
-  ]
-  const months = ['2015-10', '2015-09']
-  createDropDown(types, 'select-type')
-  createDropDown(months, 'select-month')
+import 'whatwg-fetch'
+import range from 'lodash.range'
+import padLeft from 'lodash.padleft'
+import createDropDown from './createDropDown'
 
-  document.getElementById('select-type').addEventListener('change', () => drawMap())
-  document.getElementById('select-month').addEventListener('change', () => drawMap())
-}
+class App {
+  constructor () {
+    this.typeSelection = document.getElementById('select-type')
+    this.monthSelection = document.getElementById('select-month')
+    this.mapDiv = document.getElementById('map')
+  }
 
-function getData () {
-  /* Data points defined as an array of LatLng objects */
-  let mapData = []
-  const typeSelection = document.getElementById('select-type')
-  const type = typeSelection.options[typeSelection.selectedIndex].text
-
-  const monthSelection = document.getElementById('select-month')
-  const month = monthSelection.options[monthSelection.selectedIndex].text
-
-  const url = window.location.protocol + '//' + window.location.host + '/heatmap?type=' + type + '&month=' + month
-
-  window.fetch(url).then(res => res.json())
-    .then(results => results.forEach(result => {
-      result.data.forEach(transaction => {
-        const tick = {
-          location: new google.maps.LatLng(transaction.lat, transaction.lng),
-          weight: transaction.weight
-        }
-        mapData.push(tick)
+  drawForm () {
+    const types = [
+      '1 Room', '2 Room', '3 Room', '4 Room',
+      '5 Room', 'Executive', 'Multi-Generation'
+    ]
+    const monthsList = range(2001, 2016).map(year => {
+      return range(1, 13).map(month => {
+        return year.toString() + '-' + padLeft(month.toString(), 2, '0')
       })
-      return mapData
-    }))
+    })
+    const months = monthsList.reduce((a, b) => a.concat(b)).reverse()
+
+    createDropDown(types, 'select-type', '3 Room')
+    createDropDown(months, 'select-month', '2015-09')
+
+    this.typeSelection.addEventListener('change', () => this.drawHeatmap())
+    this.monthSelection.addEventListener('change', () => this.drawHeatmap())
+  }
+
+  drawHeatmap () {
+    const heatmap = new Heatmap(
+      this.typeSelection.options[this.typeSelection.selectedIndex].text,
+      this.monthSelection.options[this.monthSelection.selectedIndex].text,
+      this.mapDiv
+    )
+    heatmap.getData()
+  }
 }
 
-function drawMap () {
-  const heatmapData = getData()
-  // const heatmapData = [
-  //   {location: new google.maps.LatLng(1.320, 103.800), weight: 10},
-  //   {location: new google.maps.LatLng(1.321, 103.800), weight: 15},
-  //   {location: new google.maps.LatLng(1.322, 103.850), weight: 25},
-  //   {location: new google.maps.LatLng(1.323, 103.800), weight: 12},
-  //   {location: new google.maps.LatLng(1.324, 103.800), weight: 30},
-  //   {location: new google.maps.LatLng(1.325, 103.730), weight: 34},
-  //   {location: new google.maps.LatLng(1.326, 103.800), weight: 33},
-  //   {location: new google.maps.LatLng(1.337, 103.950), weight: 20},
-  //   {location: new google.maps.LatLng(1.328, 103.700), weight: 10},
-  //   {location: new google.maps.LatLng(1.379, 103.800), weight: 50}
-  // ]
+class Heatmap {
+  constructor (type, month, plotId) {
+    this.type = type
+    this.month = month
+    this.mapData = []
+  }
 
-  const singapore = new google.maps.LatLng(1.320, 103.800)
+  getData () {
+    const url = window.location.protocol + '//' + window.location.host + '/heatmap?type=' + this.type + '&month=' + this.month
 
-  const map = new google.maps.Map(document.getElementById('map'), {
-    center: singapore,
-    zoom: 11
-  })
-  var heatmap = new google.maps.visualization.HeatmapLayer({
-    data: heatmapData,
-    radius: 50
-  })
-  heatmap.setMap(map)
-}
+    window.fetch(url).then(res => res.json())
+      .then(results => {
+        results.forEach(result => {
+          result.dataPoints.forEach(transaction => {
+            if (!(transaction.lat === 1.352083 && transaction.lng === 103.819836)) {
+              const tick = {
+                location: new google.maps.LatLng(transaction.lat, transaction.lng),
+                weight: transaction.weight
+              }
+              this.mapData.push(tick)
+            }
+          })
+        })
+        this.plotHeatmap(this.mapData)
+      })
+  }
 
-function createDropDown (list, selector) {
-  list.forEach(item => {
-    const option = document.createElement('option')
-    option.textContent = item
-    document.getElementById(selector).appendChild(option)
-  })
+  plotHeatmap (locations) {
+    if (locations.length === 0) console.log('no data')
+    const singapore = new google.maps.LatLng(1.352083, 103.819836)
+
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: singapore,
+      zoom: 11
+    })
+    const googleHeatmap = new google.maps.visualization.HeatmapLayer({
+      data: locations
+    })
+    googleHeatmap.setMap(map)
+  }
 }
 
 window.onload = function () {
-  drawForm()
-  drawMap()
+  const app = new App()
+  app.drawForm()
+  app.drawHeatmap()
 }
