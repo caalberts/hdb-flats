@@ -48,7 +48,7 @@ class Heatmap {
   }
 
   getData () {
-    const url = window.location.protocol + '//' + window.location.host + '/heatmap?type=' + this.type + '&month=' + this.month
+    const url = window.location.protocol + '//' + window.location.host + '/heatmap?flat_type=' + this.type + '&month=' + this.month
 
     window.fetch(url).then(res => res.json())
       .then(results => {
