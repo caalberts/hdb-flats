@@ -24,6 +24,10 @@ The project can be divided into 4 main components:
 ## Challenges
 - Learning data visualisation tool using Plotly.js and Google Maps API
 
+## API
+
+[API documentation](http://docs.hdbflats.apiary.io/)
+
 ## Contributors
 - Thong Yong Jun - @yongjun21
 - Albert Salim - @caalberts
@@ -33,6 +37,7 @@ The project can be divided into 4 main components:
 - [Mongoose](http://mongoosejs.com/)
 - [Plotly.js](https://plot.ly/javascript/)
 - [Google Maps](https://developers.google.com/maps/)
+- [Apiary.io](https://apiary.io/)
 
 ## Data Source
 - [Data.gov.sg - Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)
