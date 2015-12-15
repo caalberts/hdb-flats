@@ -5,18 +5,39 @@
 [![Travis Build Status](https://img.shields.io/travis/caalberts/hdb-flats.svg?style=flat-square)](https://travis-ci.org/caalberts/hdb-flats)
 [![Gemnasium Status](https://img.shields.io/gemnasium/caalberts/hdb-flats.svg?style=flat-square)](https://gemnasium.com/caalberts/hdb-flats)
 
-An application to display historical HDB resale price for a given town and flat type, created during a GA Web Development Immersive mini-hack.
+A back-end application to process and visualize data on resale prices of public housing (HDB flats) in Singapore, created as part of GA Web Development Immersive course.
 
-The application serves a single page application where user can enter the town name and the flat type and view the number of transactions and average resale price for each month.
+The application provides 2 methods of visualizing resale flat prices:
+
+1. Time series showing historical data
+2. Heatmap showing data across all locations in Singapore
+
+## Project Approach
+
+The project can be divided into 4 main components:
+
+1. Retrieving and processing data from the source
+2. Preparing and storing data into MongoDB database
+3. Building an Express server to handle API calls from front end
+4. Building front end visualisation using Plotly.js and Google Maps
+
+## Challenges
+- Learning data visualisation tool using Plotly.js and Google Maps API
+
+## API
+
+[API documentation](http://docs.hdbflats.apiary.io/)
 
 ## Contributors
 - Thong Yong Jun - @yongjun21
-- Jared Tong - @tongrhj
 - Albert Salim - @caalberts
 
 ## Tools and Frameworks
 - [Express](http://expressjs.com/en/index.html)
 - [Mongoose](http://mongoosejs.com/)
+- [Plotly.js](https://plot.ly/javascript/)
+- [Google Maps](https://developers.google.com/maps/)
+- [Apiary.io](https://apiary.io/)
 
 ## Data Source
-- [Data.gov.sg - HDB Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-pricesÂ)
+- [Data.gov.sg - Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)

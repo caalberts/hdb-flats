@@ -81,6 +81,9 @@ app.get('/towns', function (req, res) {
   if (req.query.town) {
     query['town'] = { $regex: req.query.town, $options: 'i' }
   }
+  if (req.query.flat_type) {
+    query['flat_type'] = { $regex: req.query.flat_type, $options: 'i' }
+  }
   Town.find(query).exec((err, docs) => {
     if (err) console.error(err)
     else {
