@@ -2,6 +2,9 @@
   "name":"hdb-flats",
   "description":"Mini hack to display HDB resale price",
   "scripts":{},
-  "env":{},
+  "env": {
+    "HDBRESALE_MONGODB_USER": { "required": true },
+    "HDBRESALE_MONGODB_PASSWORD": { "required": true }
+  },
   "addons":[]
 }
