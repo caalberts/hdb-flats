@@ -15,6 +15,8 @@ HDB Flats is a simple API allowing users to view data on public housing (HDB) re
 
 You may retrieve the resale prices of HDB flats in a time series format. The data includes the transaction counts and highest price, lowest price and average price in each month.
 
+This API takes 2 optional query variables - `town` and `flat_type` - to specify the desired data.
+
 + Response 200 (application/json)
 
 
@@ -255,6 +257,8 @@ You may retrieve the resale prices of HDB flats in a time series format. The dat
 ## List Location Details of All Transactions [GET]
 
 You may retrieve the location data (longitude and latitude) of all the transactions for a particular flat type and month. Each result contains the longitude, latitude and the price per square feet of each transaction.
+
+This API takes 2 optional query variables - `flat_type` and `month` - to specify the desired data.
 
 + Response 200 (application/json)
 
