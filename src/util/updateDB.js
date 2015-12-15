@@ -4,8 +4,8 @@ const _ = require('lodash')
 const math = require('mathjs')
 const jStat = require('jStat').jStat
 
-import {meta, time_seriesDB, AddressDB, heatmapDB} from './util/initDB.js'
-import {fetchData, geocode} from './util/fetchExtRes.js'
+import {meta, time_seriesDB, AddressDB, heatmapDB} from './initDB.js'
+import {fetchData, geocode} from './fetchExtRes.js'
 
 function processData (raw) {
   const processed = []
@@ -47,11 +47,8 @@ function processData (raw) {
           'time_series': {
             'month': month,
             'count': count,
-            'min': min,
-            'max': max,
-            'median': median,
-            'mean': mean,
-            'ci95': ci95
+            'min': min, 'max': max, 'median': median,
+            'mean': mean, 'ci95': ci95
           }
         })
       })
@@ -216,13 +213,19 @@ function updateMeta (info) {
   return meta.findOneAndUpdate({}, info.meta)
     .exec(err => {
       if (err) throw err
-    }).then(() => {
-      return info.msg
-    })
+    }).then(() => info.msg)
 }
 
-fetchData(0, 0)
-  .then(splitTask)
-  .then(updateMeta)
-  .then(console.log)
-  .catch(console.error)
+export default function () {
+  return fetchData(0, 0)
+    .then(splitTask)
+    .then(updateMeta)
+    .then(pass_msg => {
+      console.log(pass_msg)
+      return 200
+    })
+    .catch(err => {
+      console.error(err)
+      return 501
+    })
+}

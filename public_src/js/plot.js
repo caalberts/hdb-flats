@@ -82,7 +82,7 @@ class Chart {
   }
 
   getChartData () {
-    const url = window.location.protocol + '//' + window.location.host + '/towns?town=' + this.town
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
 
     return window.fetch(url).then(res => res.json())
       .then(result => {
