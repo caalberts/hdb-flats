@@ -57,7 +57,7 @@ class Heatmap {
             if (!(transaction.lat === 1.352083 && transaction.lng === 103.819836)) {
               const tick = {
                 location: new google.maps.LatLng(transaction.lat, transaction.lng),
-                weight: transaction.weight
+                weight: Math.pow(transaction.weight, 2.5)
               }
               this.mapData.push(tick)
             }
