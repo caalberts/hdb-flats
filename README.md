@@ -4,6 +4,7 @@
 
 [![Travis Build Status](https://img.shields.io/travis/caalberts/hdb-flats.svg?style=flat-square)](https://travis-ci.org/caalberts/hdb-flats)
 [![Gemnasium Status](https://img.shields.io/gemnasium/caalberts/hdb-flats.svg?style=flat-square)](https://gemnasium.com/caalberts/hdb-flats)
+[![Codecov Status](https://img.shields.io/codecov/c/github/caalberts/hdb-flats.svg?style=flat-square)](https://codecov.io/github/caalberts/hdb-flats)
 
 A back-end application to process and visualize data on resale prices of public housing (HDB flats) in Singapore, created as part of GA Web Development Immersive course.
 
