@@ -1,27 +1,30 @@
 import fetch from 'node-fetch'
 
-let records = []
-const batchSize = 10000
-const resID = [
-  'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
-  'e119f1a2-e528-4535-adaf-2872b60dbf0a',
-  '8d2112ca-726e-4394-9b50-3cdf5404e790'
-]
+export function fetchData () {
+  const batchSize = 10000
+  const resID = [
+    'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
+    'e119f1a2-e528-4535-adaf-2872b60dbf0a',
+    '8d2112ca-726e-4394-9b50-3cdf5404e790'
+  ]
 
-export function fetchData (dataset, offset) {
-  const fetchURL =
-    'https://data.gov.sg/api/action/datastore_search?' +
-    'resource_id=' + resID[dataset] + '&sort=_id&' +
-    'limit=' + batchSize + '&offset=' + offset
-  return fetch(fetchURL)
-  .then(data => data.json())
-  .then(json => {
-    records = records.concat(json.result.records)
-    console.log(offset)
-    if (offset + batchSize < json.result.total) return fetchData(dataset, offset + batchSize)
-    else if (resID[dataset + 1]) return fetchData(dataset + 1, 0)
-    else return records
-  })
+  function fetchOneDataset (dataset, offset, records) {
+    const fetchURL =
+      'https://data.gov.sg/api/action/datastore_search?' +
+      'resource_id=' + dataset + '&sort=_id&' +
+      'limit=' + batchSize + '&offset=' + offset
+    return fetch(fetchURL)
+    .then(data => data.json())
+    .then(json => {
+      records = records.concat(json.result.records)
+      console.log(dataset, offset)
+      if (offset + batchSize < json.result.total) return fetchOneDataset(dataset, offset + batchSize, records)
+      else return records
+    })
+  }
+
+  return Promise.all(resID.map(dataset => fetchOneDataset(dataset, 0, [])))
+    .then(recordSet => recordSet.reduce((combined, records) => combined.concat(records), []))
 }
 
 export function geocode (block, street) {
