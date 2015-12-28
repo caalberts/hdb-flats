@@ -7,8 +7,8 @@ import bodyParser from 'body-parser'
 const app = express()
 const dbUri = 'mongodb://' +
   process.env.HDBRESALE_MONGODB_USER + ':' +
-  process.env.HDBRESALE_MONGODB_PASSWORD +
-  '@ds033087.mongolab.com:33087/hdb-resale'
+  process.env.HDBRESALE_MONGODB_PASSWORD + '@' +
+  process.env.HDBRESALE_MONGODB_URL
 
 mongoose.connect(dbUri)
 const Heatmap = mongoose.model('Heatmap', {
