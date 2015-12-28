@@ -3,8 +3,13 @@
 const mongoose = require('mongoose')
 const dbURI = 'mongodb://' +
   process.env.HDBRESALE_MONGODB_USER + ':' +
+<<<<<<< HEAD
   process.env.HDBRESALE_MONGODB_PASSWORD + '@' +
   process.env.HDBRESALE_MONGODB_URL
+=======
+  process.env.HDBRESALE_MONGODB_PASSWORD +
+  '@ds027345.mongolab.com:27345/hdb_resale_market'
+>>>>>>> 0a31b189f38542fa26732f2963aa6356d9a15983
 mongoose.connect(dbURI)
 
 export const meta = mongoose.model('meta', new mongoose.Schema({
