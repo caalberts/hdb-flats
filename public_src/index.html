@@ -3,12 +3,46 @@
   <head>
     <meta charset="utf-8">
     <title>Looking for home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plottable.js/1.16.2/plottable.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Plotly script -->
+    <script defer src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Google Maps script -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ7kA90kT6tiOfVciR1L8hK-avHkJLP3o&libraries=visualization"></script>
+
+    <script defer src="js/index.js">
+
+    </script>
+
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-
-    <h1>Hi, what would you like to do today?</h1>
-    <a href="/plot.html">Check out historical HDB prices</a>
-    <a href="/maps.html">See the hottest HDB districts</a>
-
+    <nav class="navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-left">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="/charts">Charts</a></li>
+            <li class="active"><a href="/maps">Maps</a></li>
+          </ul>
+        </div>
+        <div class="navbar-right"></div>
+      </div>
+    </nav>
+    <div class="content">
+      <div id="chart-container"></div>
+      <div id="chart-detail"></div>
+    </div>
   </body>
 </html>

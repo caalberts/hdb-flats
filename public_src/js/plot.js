@@ -1,52 +1,7 @@
 /* global Plotly */
 import 'whatwg-fetch'
-import createDropDown from './createDropDown'
 
-class App {
-  constructor () {
-    this.plotContainer = document.getElementById('plot-container')
-    this.townSelection = document.getElementById('select-town')
-    this.chartSelection = document.getElementById('select-chart')
-    this.transactionsTable = document.getElementById('transactions-table')
-  }
-
-  drawForm () {
-    const towns = [
-      'Ang Mo Kio', 'Bedok', 'Bishan', 'Bukit Batok', 'Bukit Merah',
-      'Bukit Panjang', 'Bukit Timah', 'Central Area', 'Choa Chu Kang',
-      'Clementi', 'Geylang', 'Hougang', 'Jurong East', 'Jurong West',
-      'Kallang/Whampoa', 'Marine Parade', 'Pasir Ris', 'Punggol',
-      'Queenstown', 'Sembawang', 'Sengkang', 'Serangoon', 'Tampines',
-      'Toa Payoh', 'Woodlands', 'Yishun'
-    ]
-    const charts = ['Average', 'Min, Max, Median']
-    createDropDown(towns, 'select-town', 'Ang Mo Kio')
-    createDropDown(charts, 'select-chart', 'Average')
-
-    this.townSelection.addEventListener('change', () => this.drawChart())
-    this.chartSelection.addEventListener('change', () => this.drawChart())
-  }
-
-  drawChart () {
-    if (this.plotContainer.firstChild) this.plotContainer.firstChild.remove()
-
-    if (document.getElementById('table-body')) document.getElementById('table-body').remove()
-
-    const plotSpace = document.createElement('div')
-    plotSpace.setAttribute('id', 'plot-space')
-    this.plotContainer.appendChild(plotSpace)
-
-    const chart = new Chart(
-      this.townSelection.options[this.townSelection.selectedIndex].text,
-      this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      plotSpace,
-      this.transactionsTable
-    )
-    chart.plotChart()
-  }
-}
-
-class Chart {
+export default class Plot {
   constructor (town, type, plotId, tableId) {
     this.town = town
     this.chartType = type
@@ -154,10 +109,4 @@ class Chart {
         this.transactionsTable.appendChild(tbody)
       })
   }
-}
-
-window.onload = function () {
-  const app = new App()
-  app.drawForm()
-  app.drawChart()
 }
