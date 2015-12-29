@@ -13,12 +13,12 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
       .forEach(child => child.remove())
     Array.from(document.querySelector('.navbar-right').children)
       .forEach(child => child.remove())
-    route().drawChart()
+    route()
   })
 })
 
 window.onload = function () {
-  route().drawChart()
+  route()
 }
 
 function route () {

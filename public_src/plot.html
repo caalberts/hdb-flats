@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hottest Properties in Singapore - Time Series</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+    integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="content">
+      <div class="input">
+        <h2>Choose the town and data you wish to see</h2>
+        <form class="town-selector form-inline" id="plot-form">
+          <select name="Town" id="select-town" class="form-control"></select>
+          <select name="Chart" id="select-chart" class="form-control"></select>
+        </form>
+      </div>
+      <div id="loading-screen"></div>
+      <div id="plot-container"></div>
+      <div id="transactions-list">
+        <h3>Click on a data point to display all transactions in that month</h2>
+        <table id="transactions-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Block</th>
+              <th>Street Name</th>
+              <th>Storey Range</th>
+              <th>Remaining Lease<br>(years)</th>
+              <th>Floor Area<br>(sqm)</th>
+              <th>Resale Price<br>(SGD)</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script defer src="js/plot.js"></script>
+  </body>
+</html>
