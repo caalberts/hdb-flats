@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import { TimeSeries, Maps } from './app.js'
+import { App, TimeSeries, Maps } from './app.js'
 
 Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
   nav.addEventListener('click', event => {
@@ -18,7 +18,7 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
 })
 
 window.onload = function () {
-  route()
+  App.getMeta().then(route)
 }
 
 function route () {

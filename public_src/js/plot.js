@@ -35,9 +35,6 @@ export default class Plot {
   }
 
   getChartData () {
-    console.log(this.town)
-    console.log(this.chartType)
-    console.log(this.dataCache[this.town])
     if (this.dataCache[this.town]) return Promise.resolve(this.dataCache[this.town][this.chartType])
     const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
     return window.fetch(url).then(res => res.json()).then(results => {
