@@ -3,11 +3,11 @@ import 'whatwg-fetch'
 import _ from 'lodash'
 
 export default class Plot {
-  constructor (town, type, plotId, dataCache, tableId) {
+  constructor (town, type, plotId, tableId) {
     this.town = town
     this.chartType = type
     this.plotSpace = plotId
-    this.dataCache = dataCache
+    this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
     this.transactionsTable = tableId
     this.layout = {
       hovermode: 'closest',
@@ -35,7 +35,9 @@ export default class Plot {
   }
 
   getChartData () {
-    if (this.dataCache[this.town]) return Promise.resolve(this.dataCache[this.town][this.chartType])
+    let storage = JSON.parse(window.sessionStorage.getItem(this.town))
+    if (storage) return Promise.resolve(storage[this.chartType])
+
     const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
     return window.fetch(url).then(res => res.json()).then(results => {
       function prepareData (chartType) {
@@ -72,11 +74,12 @@ export default class Plot {
         })
         return datasets
       }
-      this.dataCache[this.town] = {
+      storage = {
         'Average': prepareData('Average'),
         'Min, Max & Median': prepareData('Min, Max & Median')
       }
-      return this.dataCache[this.town][this.chartType]
+      window.sessionStorage.setItem(this.town, JSON.stringify(storage))
+      return storage[this.chartType]
     })
   }
 

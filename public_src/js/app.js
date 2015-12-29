@@ -7,13 +7,13 @@ export class App {
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
     this.loadingScreen = document.getElementById('loading-screen')
-    this.dataCache = JSON.parse(window.sessionStorage.getItem('hdbflats'))
+    this.dataCache = JSON.parse(window.sessionStorage.getItem('meta'))
   }
 
   static getMeta () {
     const url = window.location.protocol + '//' + window.location.host + '/list'
     return window.fetch(url).then(res => res.json()).then(meta => {
-      window.sessionStorage.setItem('hdbflats', JSON.stringify({
+      window.sessionStorage.setItem('meta', JSON.stringify({
         townList: meta.townList,
         flatList: meta.flatList,
         monthList: meta.monthList
@@ -105,7 +105,6 @@ export class TimeSeries extends App {
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
       plotSpace,
-      this.dataCache,
       this.transactionsTable
     )
     plot.plotChart()
@@ -125,7 +124,7 @@ export class Maps extends App {
     this.mapDiv.setAttribute('id', 'map')
     this.chartContainer.appendChild(this.mapDiv)
 
-    this.drawChart()
+    this.initMap()
   }
 
   drawForm () {
@@ -138,12 +137,16 @@ export class Maps extends App {
     this.createSelections(text, months)
   }
 
-  drawChart () {
-    const heatmap = new Heatmap(
+  initMap () {
+    this.heatmap = new Heatmap(
       this.monthSelection.options[this.monthSelection.selectedIndex].text,
-      this.dataCache,
       this.mapDiv
     )
-    heatmap.plotHeatmap()
+    this.drawChart()
+  }
+
+  drawChart () {
+    this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
+    this.heatmap.plotHeatmap()
   }
 }
