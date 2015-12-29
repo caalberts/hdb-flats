@@ -1,93 +1,85 @@
 /* global google */
 import 'whatwg-fetch'
-import range from 'lodash.range'
-import padLeft from 'lodash.padleft'
 import createDropDown from './createDropDown'
+
+const dataCache = {}
 
 class App {
   constructor () {
-    this.typeSelection = document.getElementById('select-type')
-    this.monthSelection = document.getElementById('select-month')
+    this.loadingScreen = document.getElementById('loading-screen')
+    this.typeSelector = document.getElementById('select-type')
+    this.monthSelector = document.getElementById('select-month')
     this.mapDiv = document.getElementById('map')
   }
 
-  drawForm () {
-    const types = [
-      '1 Room', '2 Room', '3 Room', '4 Room',
-      '5 Room', 'Executive', 'Multi-Generation'
-    ]
-    const monthsList = range(2001, 2016).map(year => {
-      return range(1, 13).map(month => {
-        return year.toString() + '-' + padLeft(month.toString(), 2, '0')
-      })
+  build () {
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    window.fetch(url).then(res => res.json()).then(meta => {
+      dataCache['flatList'] = meta.flatList
+      dataCache['monthList'] = meta.monthList.reverse()
+      this.drawForm()
+      this.drawHeatmap()
+      this.loadingScreen.style.display = 'none'
+      this.mapDiv.parentElement.style.display = 'flex'
     })
-    const months = monthsList.reduce((a, b) => a.concat(b)).reverse()
+  }
 
-    createDropDown(types, 'select-type', '3 Room')
-    createDropDown(months, 'select-month', '2015-09')
-
-    this.typeSelection.addEventListener('change', () => this.drawHeatmap())
-    this.monthSelection.addEventListener('change', () => this.drawHeatmap())
+  drawForm () {
+    createDropDown(dataCache.monthList, 'select-month', '2015-07')
+    this.monthSelector.addEventListener('change', () => this.drawHeatmap())
   }
 
   drawHeatmap () {
     const heatmap = new Heatmap(
-      this.typeSelection.options[this.typeSelection.selectedIndex].text,
-      this.monthSelection.options[this.monthSelection.selectedIndex].text,
-      this.mapDiv
+      this.monthSelector.options[this.monthSelector.selectedIndex].value
     )
-    heatmap.getData()
+    heatmap.plotHeatmap()
   }
 }
 
 class Heatmap {
-  constructor (type, month, plotId) {
-    this.type = type
+  constructor (month) {
     this.month = month
-    this.mapData = []
   }
 
   getData () {
-<<<<<<< HEAD
-    const url = window.location.protocol + '//' + window.location.host + '/heatmap?type=' + this.type + '&month=' + this.month
-=======
-    const url = window.location.protocol + '//' + window.location.host + '/heatmap?flat_type=' + this.type + '&month=' + this.month
->>>>>>> 0a31b189f38542fa26732f2963aa6356d9a15983
-
-    window.fetch(url).then(res => res.json())
-      .then(results => {
-        results.forEach(result => {
-          result.dataPoints.forEach(transaction => {
-            if (!(transaction.lat === 1.352083 && transaction.lng === 103.819836)) {
-              const tick = {
-                location: new google.maps.LatLng(transaction.lat, transaction.lng),
-                weight: Math.pow(transaction.weight, 2.5)
-              }
-              this.mapData.push(tick)
-            }
-          })
+    if (dataCache[this.month]) return Promise.resolve(dataCache[this.month])
+    const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + this.month
+    return window.fetch(url).then(res => res.json()).then(results => {
+      const dataset = []
+      results.forEach(result => {
+        result.dataPoints.forEach(transaction => {
+          const tick = {
+            location: new google.maps.LatLng(transaction.lat, transaction.lng),
+            weight: Math.pow(transaction.weight, 1.5)
+          }
+          dataset.push(tick)
         })
-        this.plotHeatmap(this.mapData)
       })
+      dataCache[this.month] = dataset
+      return dataCache[this.month]
+    })
   }
 
-  plotHeatmap (locations) {
-    if (locations.length === 0) console.log('no data')
-    const singapore = new google.maps.LatLng(1.352083, 103.819836)
+  plotHeatmap () {
+    this.getData().then(dataset => {
+      if (dataset.length === 0) console.log('no data')
+      const singapore = new google.maps.LatLng(1.352083, 103.819836)
 
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: singapore,
-      zoom: 11
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: singapore,
+        zoom: 11
+      })
+      const googleHeatmap = new google.maps.visualization.HeatmapLayer({
+        data: dataset,
+        radius: 7
+      })
+      googleHeatmap.setMap(map)
     })
-    const googleHeatmap = new google.maps.visualization.HeatmapLayer({
-      data: locations
-    })
-    googleHeatmap.setMap(map)
   }
 }
 
 window.onload = function () {
   const app = new App()
-  app.drawForm()
-  app.drawHeatmap()
+  app.build()
 }

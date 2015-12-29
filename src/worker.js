@@ -4,7 +4,7 @@ const _ = require('lodash')
 const math = require('mathjs')
 const jStat = require('jStat').jStat
 
-import {mongoose, meta, time_seriesDB, AddressDB, heatmapDB} from './util/initDB.js'
+import {meta, time_seriesDB, AddressDB, heatmapDB} from './util/initDB.js'
 import {fetchData, geocode} from './util/fetchExtRes.js'
 
 function getMeta () {
@@ -41,7 +41,7 @@ function processData (townList, flatList, data) {
         Object.keys(byMonth).sort().forEach(mth => {
           month.push(mth)
           count.push(byMonth[mth].length)
-          const resale_price = byMonth[mth].map(record => record.resale_price)
+          const resale_price = byMonth[mth].map(record => +record.resale_price)
           min.push(math.min(resale_price))
           max.push(math.max(resale_price))
           median.push(math.median(resale_price))
@@ -115,7 +115,7 @@ function populateHeatMap (addressBook, filtered) {
         const dataPoint = {
           'lng': address.lng,
           'lat': address.lat,
-          'weight': Math.round(record.resale_price / record.floor_area_sqm)
+          'weight': Math.round(+record.resale_price / +record.floor_area_sqm)
         }
         let idx = heatmap.findIndex(dataset =>
           dataset.month === record.month && dataset.flat_type === record.flat_type.trim())
