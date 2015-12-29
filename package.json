@@ -18,7 +18,7 @@
     "watch-css": "npm run build-css -- --watch",
     "watch-js": "watchify public_src/js/index.js -o public/js/index.js -t babelify --verbose",
     "watch-test": "mocha --watch",
-    "test": "standard && npm run test:cover",
+    "test": "standard",
     "test:cover": "babel-node node_modules/.bin/babel-istanbul cover _mocha",
     "codecov": "cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
