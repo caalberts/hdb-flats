@@ -7,12 +7,9 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
     Array.from(document.querySelectorAll('.nav-item a')).forEach(nav => nav.classList.remove('active'))
     event.target.classList.add('active')
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
-    Array.from(document.getElementById('chart-container').children)
-      .forEach(child => child.remove())
-    Array.from(document.getElementById('chart-detail').children)
-      .forEach(child => child.remove())
-    Array.from(document.querySelector('.navbar-right').children)
-      .forEach(child => child.remove())
+    removeChildren(document.getElementById('chart-container'))
+    removeChildren(document.getElementById('chart-detail'))
+    removeChildren(document.querySelector('.navbar-right'))
     route()
   })
 })
@@ -30,4 +27,8 @@ function route () {
     default:
       return new TimeSeries()
   }
+}
+
+function removeChildren (elem) {
+  Array.from(elem.children).forEach(child => child.remove())
 }

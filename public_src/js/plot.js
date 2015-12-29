@@ -90,7 +90,15 @@ export default class Plot {
 
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
-    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Remaining Lease (years)', 'Floor Area (sqm)', 'Resale Price (SGD)']
+    const headers = [
+      '#',
+      'Block',
+      'Street Name',
+      'Storey Range',
+      'Remaining Lease (years)',
+      'Floor Area (sqm)',
+      'Resale Price (SGD)'
+    ]
 
     headers.forEach(header => {
       const th = document.createElement('th')
