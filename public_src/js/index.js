@@ -1,36 +1,34 @@
-'use strict'
+import 'whatwg-fetch'
+import { App, TimeSeries, Maps } from './app.js'
 
-function createForm () {
-  const form = document.querySelector('form')
-  const townList = form.elements['town']
-  const town = townList.options[townList.selectedIndex].text
-  const roomList = form.elements['roomtype']
-  const type = roomList.options[roomList.selectedIndex].text
-  const submitBtn = document.querySelector('#submitBtn')
-
-  submitBtn.addEventListener('click', (event) => {
+Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
+  nav.addEventListener('click', event => {
     event.preventDefault()
-    fetchFromURL(town, type)
+    Array.from(document.querySelectorAll('.nav-item a')).forEach(nav => nav.classList.remove('active'))
+    event.target.classList.add('active')
+    window.history.pushState(null, '', event.target.textContent.toLowerCase())
+    removeChildren(document.getElementById('chart-container'))
+    removeChildren(document.getElementById('chart-detail'))
+    removeChildren(document.querySelector('.navbar-right'))
+    route()
   })
+})
+
+window.onload = function () {
+  App.getMeta().then(route)
 }
 
-function fetchFromURL (town, type) {
-  // function getBaseURL () {
-  //   return window.location.protocol + '//' + window.location.hostname + (window.location.port && ':' + window.location.port) + '/'
-  // }
-  //
-  // const url = getBaseURL() + 'flats?town=' + town + '&type=' + type
-  const url = '/flats?town=' + town + '&type=' + type
-  console.log('Fetching: ' + url)
-  window.fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      var searchResult = JSON.parse(JSON.stringify(data))
-      searchResult.forEach((elem) => {
-        document.querySelector('#results').textContent = elem
-        console.log(elem)
-      })
-    })
+function route () {
+  switch (window.location.pathname) {
+    case '/charts':
+      return new TimeSeries()
+    case '/maps':
+      return new Maps()
+    default:
+      return new TimeSeries()
+  }
 }
 
-createForm()
+function removeChildren (elem) {
+  Array.from(elem.children).forEach(child => child.remove())
+}
