@@ -10,7 +10,6 @@ export default class Plot {
     this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
     this.layout = {
       hovermode: 'closest',
-      title: this.chartType + ' of HDB Resale Price in ' + this.town,
       autosize: true,
       // width: 1000,
       // height: 600,

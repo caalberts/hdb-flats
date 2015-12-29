@@ -4,6 +4,7 @@ import Heatmap from './heatmap.js'
 export class App {
   constructor () {
     this.chartNav = document.querySelector('.navbar-right')
+    this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
     this.loadingScreen = document.getElementById('loading-screen')
@@ -82,12 +83,17 @@ export class TimeSeries extends App {
     plotSpace.setAttribute('id', 'plot-space')
     this.chartContainer.appendChild(plotSpace)
 
-    const plot = new Plot(
+    this.plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
       plotSpace
     )
-    plot.plotChart()
+    this.chartTitle.textContent =
+      this.plot.chartType +
+      ' of HDB Resale Price in ' +
+      this.plot.town
+
+    this.plot.plotChart()
   }
 }
 
@@ -127,6 +133,7 @@ export class Maps extends App {
 
   drawChart () {
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
+    this.chartTitle.textContent = 'Hottest areas in the month of ' + this.heatmap.month
     this.heatmap.plotHeatmap()
   }
 }
