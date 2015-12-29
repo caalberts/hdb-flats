@@ -3,12 +3,11 @@ import 'whatwg-fetch'
 import _ from 'lodash'
 
 export default class Plot {
-  constructor (town, type, plotId, tableId) {
+  constructor (town, type, plotId) {
     this.town = town
     this.chartType = type
     this.plotSpace = plotId
     this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
-    this.transactionsTable = tableId
     this.layout = {
       hovermode: 'closest',
       title: this.chartType + ' of HDB Resale Price in ' + this.town,
@@ -84,6 +83,23 @@ export default class Plot {
   }
 
   listAllTransactions (town, type, date) {
+    this.chartDetail = document.getElementById('chart-detail')
+    const table = document.createElement('table')
+    table.className = 'table table-striped'
+    table.setAttribute('id', 'transactions-table')
+
+    const thead = document.createElement('thead')
+    const tr = document.createElement('tr')
+    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Remaining Lease (years)', 'Floor Area (sqm)', 'Resale Price (SGD)']
+
+    headers.forEach(header => {
+      const th = document.createElement('th')
+      th.textContent = header
+      tr.appendChild(th)
+    })
+    thead.appendChild(tr)
+    table.appendChild(thead)
+
     const resID = [
       'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
       'e119f1a2-e528-4535-adaf-2872b60dbf0a',
@@ -121,7 +137,9 @@ export default class Plot {
             }).forEach(td => row.appendChild(td))
             tbody.appendChild(row)
           })
-        this.transactionsTable.appendChild(tbody)
+        table.appendChild(tbody)
+        Array.from(this.chartDetail.children).forEach(child => child.remove())
+        this.chartDetail.appendChild(table)
       })
   }
 }

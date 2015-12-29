@@ -52,27 +52,8 @@ export class TimeSeries extends App {
     super()
 
     this.drawForm()
-
     this.townSelection = document.getElementById('select-town')
     this.chartSelection = document.getElementById('select-chart')
-
-    const table = document.createElement('table')
-    table.className = 'table table-striped'
-    table.setAttribute('id', 'transactions-table')
-
-    const thead = document.createElement('thead')
-    const tr = document.createElement('tr')
-    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Floor Area (sqm)', 'Resale Price (SGD)']
-    headers.forEach(header => {
-      const th = document.createElement('th')
-      th.textContent = header
-      tr.appendChild(th)
-    })
-    thead.appendChild(tr)
-    table.appendChild(thead)
-    this.chartDetail.appendChild(table)
-
-    this.transactionsTable = document.getElementById('transactions-table')
 
     this.drawChart()
   }
@@ -104,8 +85,7 @@ export class TimeSeries extends App {
     const plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      plotSpace,
-      this.transactionsTable
+      plotSpace
     )
     plot.plotChart()
   }
