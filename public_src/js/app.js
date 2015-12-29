@@ -50,7 +50,7 @@ export class TimeSeries extends App {
 
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
-    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Floor Area(sqm)', 'Resale Price (SGD)']
+    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Floor Area (sqm)', 'Resale Price (SGD)']
     headers.forEach(header => {
       const th = document.createElement('th')
       th.textContent = header

@@ -4,8 +4,8 @@ import { TimeSeries, Maps } from './app.js'
 Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
   nav.addEventListener('click', event => {
     event.preventDefault()
-    Array.from(document.querySelectorAll('.nav-item')).forEach(nav => nav.classList.remove('active'))
-    event.target.parentElement.classList.add('active')
+    Array.from(document.querySelectorAll('.nav-item a')).forEach(nav => nav.classList.remove('active'))
+    event.target.classList.add('active')
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
     Array.from(document.getElementById('chart-container').children)
       .forEach(child => child.remove())
