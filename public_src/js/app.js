@@ -1,13 +1,15 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
-import range from 'lodash.range'
-import padLeft from 'lodash.padleft'
+// import range from 'lodash.range'
+// import padLeft from 'lodash.padleft'
 
 class App {
   constructor () {
     this.chartNav = document.querySelector('.navbar-right')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
+    this.loadingScreen = document.getElementById('loading-screen')
+    this.dataCache = {}
   }
 
   createSelections (text, ...dropdowns) {
@@ -39,47 +41,48 @@ class App {
 export class TimeSeries extends App {
   constructor () {
     super()
-    this.drawForm()
 
-    this.townSelection = document.getElementById('select-town')
-    this.chartSelection = document.getElementById('select-chart')
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    window.fetch(url).then(res => res.json()).then(meta => {
+      this.dataCache['townList'] = meta.townList
+      this.dataCache['flatList'] = meta.flatList
+      this.drawForm()
+      // this.loadingScreen.style.display = 'none'
+      // this.plotContainer.style.display = 'flex'
+      this.townSelection = document.getElementById('select-town')
+      this.chartSelection = document.getElementById('select-chart')
 
-    const table = document.createElement('table')
-    table.className = 'table table-striped'
-    table.setAttribute('id', 'transactions-table')
+      const table = document.createElement('table')
+      table.className = 'table table-striped'
+      table.setAttribute('id', 'transactions-table')
 
-    const thead = document.createElement('thead')
-    const tr = document.createElement('tr')
-    const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Floor Area (sqm)', 'Resale Price (SGD)']
-    headers.forEach(header => {
-      const th = document.createElement('th')
-      th.textContent = header
-      tr.appendChild(th)
+      const thead = document.createElement('thead')
+      const tr = document.createElement('tr')
+      const headers = ['#', 'Block', 'Street Name', 'Storey Range', 'Floor Area (sqm)', 'Resale Price (SGD)']
+      headers.forEach(header => {
+        const th = document.createElement('th')
+        th.textContent = header
+        tr.appendChild(th)
+      })
+      thead.appendChild(tr)
+      table.appendChild(thead)
+      this.chartDetail.appendChild(table)
+
+      this.transactionsTable = document.getElementById('transactions-table')
+
+      this.drawChart()
     })
-    thead.appendChild(tr)
-    table.appendChild(thead)
-    this.chartDetail.appendChild(table)
-
-    this.transactionsTable = document.getElementById('transactions-table')
   }
 
   drawForm () {
     const text = 'Choose the town and data you wish to see'
     const towns = {
-      options: [
-        'Ang Mo Kio', 'Bedok', 'Bishan', 'Bukit Batok', 'Bukit Merah',
-        'Bukit Panjang', 'Bukit Timah', 'Central Area', 'Choa Chu Kang',
-        'Clementi', 'Geylang', 'Hougang', 'Jurong East', 'Jurong West',
-        'Kallang/Whampoa', 'Marine Parade', 'Pasir Ris', 'Punggol',
-        'Queenstown', 'Sembawang', 'Sengkang', 'Serangoon', 'Tampines',
-        'Toa Payoh', 'Woodlands', 'Yishun'
-      ],
+      options: this.dataCache.townList,
       selector: 'select-town',
       defaultOption: 'Ang Mo Kio'
     }
-
     const charts = {
-      options: ['Average', 'Min, Max, Median'],
+      options: ['Average', 'Min, Max & Median'],
       selector: 'select-chart',
       defaultOption: 'Average'
     }
@@ -99,6 +102,7 @@ export class TimeSeries extends App {
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
       plotSpace,
+      this.dataCache,
       this.transactionsTable
     )
     plot.plotChart()
@@ -108,46 +112,42 @@ export class TimeSeries extends App {
 export class Maps extends App {
   constructor () {
     super()
-    this.drawForm()
 
-    this.typeSelection = document.getElementById('select-type')
-    this.monthSelection = document.getElementById('select-month')
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    window.fetch(url).then(res => res.json()).then(meta => {
+      this.dataCache['flatList'] = meta.flatList
+      this.dataCache['monthList'] = meta.monthList.reverse()
+      this.drawForm()
 
-    this.mapDiv = document.createElement('div')
-    this.mapDiv.setAttribute('id', 'map')
-    this.chartContainer.appendChild(this.mapDiv)
+      this.typeSelection = document.getElementById('select-type')
+      this.monthSelection = document.getElementById('select-month')
+
+      this.mapDiv = document.createElement('div')
+      this.mapDiv.setAttribute('id', 'map')
+      this.chartContainer.appendChild(this.mapDiv)
+
+      this.drawChart()
+      // this.loadingScreen.style.display = 'none'
+      // this.mapDiv.parentElement.style.display = 'flex'
+    })
   }
 
   drawForm () {
-    const text = 'Choose the flat type and month'
-    const types = {
-      options: [
-        '1 Room', '2 Room', '3 Room', '4 Room',
-        '5 Room', 'Executive', 'Multi-Generation'
-      ],
-      selector: 'select-type',
-      defaultOption: '3 Room'
-    }
-    const monthsList = range(2001, 2016).map(year => {
-      return range(1, 13).map(month => {
-        return year.toString() + '-' + padLeft(month.toString(), 2, '0')
-      })
-    })
+    const text = 'Choose the month'
     const months = {
-      options: monthsList.reduce((a, b) => a.concat(b)).reverse(),
+      options: this.dataCache.monthList,
       selector: 'select-month',
       defaultOption: '2015-09'
     }
-
-    this.createSelections(text, types, months)
+    this.createSelections(text, months)
   }
 
   drawChart () {
     const heatmap = new Heatmap(
-      this.typeSelection.options[this.typeSelection.selectedIndex].text,
       this.monthSelection.options[this.monthSelection.selectedIndex].text,
+      this.dataCache,
       this.mapDiv
     )
-    heatmap.getData()
+    heatmap.plotHeatmap()
   }
 }
