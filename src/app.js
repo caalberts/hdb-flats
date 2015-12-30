@@ -1,8 +1,12 @@
 import express from 'express'
+import fallback from 'express-history-api-fallback'
+import path from 'path'
 import {meta, time_seriesDB, heatmapDB} from './util/initDB.js'
 
 const app = express()
-app.use(express.static('public'))
+const root = path.join(__dirname, '../public')
+console.log(root)
+app.use(express.static(root))
 
 // let runningState = 'idle'
 //
@@ -62,5 +66,7 @@ app.get('/heatmap', function (req, res) {
     else res.json(docs)
   })
 })
+
+app.use(fallback('index.html', { root }))
 
 export default app

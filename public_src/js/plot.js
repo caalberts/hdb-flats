@@ -41,7 +41,8 @@ export default class Plot {
     if (storage) return Promise.resolve(storage[this.chartType])
 
     const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
-    return window.fetch(url).then(res => res.json()).then(results => {
+    const headers = { Accept: 'application/json' }
+    return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
         _.sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
@@ -128,7 +129,7 @@ export default class Plot {
     const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource +
       '&q={"town":"' + town + '","flat_type":"' + type + '","month":"' + date + '"}'
 
-    window.fetch(dataURL).then(data => data.json())
+    window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
         if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')

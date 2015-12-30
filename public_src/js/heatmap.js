@@ -23,7 +23,8 @@ export default class Heatmap {
 
     this.heatmap.setData([])
     const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + this.month
-    return window.fetch(url).then(res => res.json()).then(results => {
+    const headers = { Accept: 'application/json' }
+    return window.fetch(url, headers).then(res => res.json()).then(results => {
       let dataset = []
       results.forEach(result => dataset = dataset.concat(result.dataPoints))
       dataset.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
