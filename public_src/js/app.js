@@ -60,6 +60,16 @@ export class TimeSeries extends App {
     this.townSelection = document.getElementById('select-town')
     this.chartSelection = document.getElementById('select-chart')
 
+    this.plotDiv = document.createElement('div')
+    this.plotDiv.setAttribute('id', 'plot-space')
+    this.chartContainer.appendChild(this.plotDiv)
+
+    this.plot = new Plot(
+      this.townSelection.options[this.townSelection.selectedIndex].text,
+      this.chartSelection.options[this.chartSelection.selectedIndex].text,
+      this.plotDiv
+    )
+
     this.drawChart()
   }
 
@@ -80,23 +90,16 @@ export class TimeSeries extends App {
 
   drawChart () {
     this.showLoader(document.querySelector('main'))
+    removeChildren(this.chartDetail)
 
-    const plotSpace = document.createElement('div')
-    plotSpace.setAttribute('id', 'plot-space')
+    this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].text
+    this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].text
 
-    this.plot = new Plot(
-      this.townSelection.options[this.townSelection.selectedIndex].text,
-      this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      plotSpace
-    )
     this.chartTitle.textContent =
       this.plot.chartType +
       ' of HDB Resale Price in ' +
       capitalizeFirstLetters(this.plot.town.toLowerCase())
 
-    removeChildren(this.chartContainer)
-    removeChildren(this.chartDetail)
-    this.chartContainer.appendChild(plotSpace)
     this.plot.plotChart()
   }
 }
@@ -114,7 +117,11 @@ export class Maps extends App {
     this.mapDiv.setAttribute('id', 'map')
     this.chartContainer.appendChild(this.mapDiv)
 
-    this.initMap()
+    this.heatmap = new Heatmap(
+      this.monthSelection.options[this.monthSelection.selectedIndex].text,
+      this.mapDiv
+    )
+    this.drawChart()
   }
 
   drawForm () {
@@ -125,14 +132,6 @@ export class Maps extends App {
       defaultOption: '2015-09'
     }
     this.createSelections(text, months)
-  }
-
-  initMap () {
-    this.heatmap = new Heatmap(
-      this.monthSelection.options[this.monthSelection.selectedIndex].text,
-      this.mapDiv
-    )
-    this.drawChart()
   }
 
   drawChart () {
