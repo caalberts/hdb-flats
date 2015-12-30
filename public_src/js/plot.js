@@ -166,7 +166,7 @@ export default class Plot {
 
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
-        table.scrollIntoView()
+        thead.scrollIntoView()
       })
   }
 }

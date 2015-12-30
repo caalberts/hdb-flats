@@ -4,7 +4,7 @@ import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.
 
 export class App {
   constructor () {
-    this.chartNav = document.querySelector('.navbar-right')
+    this.chartNav = document.querySelector('.selectors')
     this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
@@ -16,6 +16,9 @@ export class App {
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(meta => {
       window.sessionStorage.setItem('meta', JSON.stringify(meta))
+      document.querySelector('.retrieve-date').textContent =
+        ' accurate as of ' +
+        new Date(meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
     })
   }
 

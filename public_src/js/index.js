@@ -10,7 +10,7 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
     removeChildren(document.getElementById('chart-container'))
     removeChildren(document.getElementById('chart-detail'))
-    removeChildren(document.querySelector('.navbar-right'))
+    removeChildren(document.querySelector('.selectors'))
     route()
   })
 })

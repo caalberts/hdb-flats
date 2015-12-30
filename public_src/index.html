@@ -18,19 +18,18 @@
     <script defer src="js/index.js"></script>
   </head>
   <body>
-      <nav class="navbar-default navbar-fixed-top">
-          <!-- <div class="navbar-left"> -->
-            <ul class="nav navbar-nav">
-              <li class="nav-item"><a class="active" href="/charts">Charts</a></li>
-              <li class="nav-item"><a href="/maps">Maps</a></li>
-            </ul>
-          <!-- </div> -->
-          <div class="navbar-right selectors"></div>
+      <nav>
+          <ul class="charts">
+            <li class="nav-item"><a class="active" href="/charts">Charts</a></li>
+            <li class="nav-item"><a href="/maps">Maps</a></li>
+          </ul>
+          <div class="selectors"></div>
       </nav>
       <main>
         <div id="chart-title-container"><h1 class="chart-title"></h1></div>
         <div id="chart-container"></div>
         <div id="chart-detail"></div>
       </main>
+      <footer><p class="footer-text">Data from <a href="https://data.gov.sg/">data.gov.sg</a><span class="retrieve-date"></span></p></footer>
   </body>
 </html>

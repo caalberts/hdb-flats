@@ -8,6 +8,8 @@ body
   flex-direction column
 
 nav
+  position fixed
+  width 100%
   padding 0 2vw
   top 0
   background darkslategrey
@@ -16,6 +18,8 @@ nav
   justify-content space-between
   flex-wrap wrap
   color white
+  z-index 1
+  box-sizing border-box
 
 nav ul
   padding 0
@@ -23,14 +27,14 @@ nav ul
   display flex
   flex-direction row
 
-nav ul li
+.nav-item
   margin-right 1em
 
-nav ul li a
+.nav-item a
   text-decoration none
   color white
 
-nav ul li a.active
+.nav-item a.active
   font-weight bold
 
 .selectors
@@ -42,6 +46,7 @@ nav ul li a.active
   margin-left 1em
 
 main
+  margin-top 2em
   padding 2em 2vw
   display flex
   flex-direction column
@@ -105,3 +110,17 @@ main > div
   width 50px
   height 50px
   background-color blue
+
+footer
+  position fixed
+  bottom 0
+  width 100%
+  padding 0.5em
+  display flex
+  justify-content center
+  background-color lightgrey
+  box-sizing border-box
+
+.footer-text
+  margin 0
+  font-size small
