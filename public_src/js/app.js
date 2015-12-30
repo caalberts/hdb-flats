@@ -13,7 +13,8 @@ export class App {
 
   static getMeta () {
     const url = window.location.protocol + '//' + window.location.host + '/list'
-    return window.fetch(url).then(res => res.json()).then(meta => {
+    const headers = { Accept: 'application/json' }
+    return window.fetch(url, headers).then(res => res.json()).then(meta => {
       window.sessionStorage.setItem('meta', JSON.stringify({
         townList: meta.townList,
         flatList: meta.flatList,

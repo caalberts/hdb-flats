@@ -7,7 +7,6 @@ const app = express()
 const root = path.join(__dirname, '../public')
 console.log(root)
 app.use(express.static(root))
-app.use(fallback('index.html', { root }))
 
 // let runningState = 'idle'
 //
@@ -67,5 +66,7 @@ app.get('/heatmap', function (req, res) {
     else res.json(docs)
   })
 })
+
+app.use(fallback('index.html', { root }))
 
 export default app
