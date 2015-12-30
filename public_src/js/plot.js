@@ -25,19 +25,20 @@ export default class Plot {
   }
 
   plotChart () {
-    this.getChartData().then(datasets => {
+    this.getData().then(datasets => {
       Plotly.newPlot(this.plotSpace, datasets, this.layout)
       this.plotSpace.on('plotly_click', click => {
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
-      })
+      }).catch(console.error.bind(console))
     })
   }
 
-  getChartData () {
+  getData () {
     let storage = JSON.parse(window.sessionStorage.getItem(this.town))
     if (storage) return Promise.resolve(storage[this.chartType])
 
-    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
+    const selectedTown = this.town
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + selectedTown
     return window.fetch(url).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
@@ -77,8 +78,13 @@ export default class Plot {
         'Average': prepareData('Average'),
         'Min, Max & Median': prepareData('Min, Max & Median')
       }
-      window.sessionStorage.setItem(this.town, JSON.stringify(storage))
-      return storage[this.chartType]
+      try {
+        window.sessionStorage.setItem(selectedTown, JSON.stringify(storage))
+      } catch (err) {
+        console.error(err)
+      }
+      if (selectedTown === this.town) return storage[this.chartType]
+      else throw new Error('Overlapping queries')
     })
   }
 
