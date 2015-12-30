@@ -4,7 +4,8 @@
   "scripts":{},
   "env": {
     "HDBRESALE_MONGODB_USER": { "required": true },
-    "HDBRESALE_MONGODB_PASSWORD": { "required": true }
+    "HDBRESALE_MONGODB_PASSWORD": { "required": true },
+    "HDBRESALE_MONGODB_URL": { "required": true }
   },
   "addons":[]
 }

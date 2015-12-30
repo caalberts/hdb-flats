@@ -1,33 +1,97 @@
 html, body
-  height 100%
   margin 0
   padding 0
   font-family Helvetica, sans-serif
 
-.content
-  margin 20px
-
-.input
+body
   display flex
   flex-direction column
-  justify-content center
+
+nav
+  padding 0 2vw
+  top 0
+  background darkslategrey
+  display flex
+  flex-direction row
+  justify-content space-between
+  flex-wrap wrap
+  color white
+
+nav ul
+  padding 0
+  list-style none
+  display flex
+  flex-direction row
+
+nav ul li
+  margin-right 1em
+
+nav ul li a
+  text-decoration none
+  color white
+
+nav ul li a.active
+  font-weight bold
+
+.selectors
+  display flex
+  flex-direction row
   align-items center
 
-#plot-container, #map-container
-  margin 20px
+.navbar-form .form-control
+  margin-left 1em
+
+main
+  padding 2em 2vw
   display flex
   flex-direction column
-  justify-content center
 
-#plot-space
-  flex-grow 1
-  display flex
-  justify-content center
-
-#transactions-container, #transactions-list
+main > div
+  margin-bottom 1em
+  width 100%
   display flex
   flex-direction column
-  justify-content center
+  align-items center
+
+#chart-title
+  text-align center
+
+#chart-detail
+  width 100%
+
+#chart-detail > table
+  width 100%
+  border-spacing 0
+
+#chart-detail > table > tr
+  display flex
+  justify-content space-around
+
+#chart-detail th, #chart-detail td
+  text-align center
+  padding 0.5em
+
+#chart-detail thead
+  background darkslategrey
+  color white
+
+#chart-detail tr:nth-child(even)
+  background lightgrey
 
 #map
+  width 100%
   height 500px
+
+.loading::before
+  content url('../img/spin.svg')
+  z-index 1
+  position absolute
+  width 100%
+  left 0
+  top 50%
+  display flex
+  justify-content center
+  opacity 0.9
+
+.chart-loading
+  opacity 0.5

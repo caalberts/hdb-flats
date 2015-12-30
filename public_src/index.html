@@ -2,13 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Looking for home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HDB Resale History</title>
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Plotly script -->
+    <script defer src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Google Maps script -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ7kA90kT6tiOfVciR1L8hK-avHkJLP3o&libraries=visualization"></script>
+
+    <script defer src="js/index.js"></script>
   </head>
   <body>
-
-    <h1>Hi, what would you like to do today?</h1>
-    <a href="/plot.html">Check out historical HDB prices</a>
-    <a href="/maps.html">See the hottest HDB districts</a>
-
+      <nav class="navbar-default navbar-fixed-top">
+          <!-- <div class="navbar-left"> -->
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><a class="active" href="/charts">Charts</a></li>
+              <li class="nav-item"><a href="/maps">Maps</a></li>
+            </ul>
+          <!-- </div> -->
+          <div class="navbar-right selectors"></div>
+      </nav>
+      <main>
+        <div id="chart-title-container"><h1 class="chart-title"></h1></div>
+        <div id="chart-container"></div>
+        <div id="chart-detail"></div>
+      </main>
   </body>
 </html>
