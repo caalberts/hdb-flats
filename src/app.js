@@ -5,7 +5,7 @@ import {meta, time_seriesDB, heatmapDB} from './util/initDB.js'
 
 const app = express()
 const root = path.join(__dirname, '../public')
-console.log(root)
+
 app.use(express.static(root))
 
 // let runningState = 'idle'

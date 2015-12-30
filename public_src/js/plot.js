@@ -33,14 +33,15 @@ export default class Plot {
       })
       document.querySelector('.loading').classList.remove('loading')
       document.querySelector('.chart-loading').classList.remove('chart-loading')
-    })
+    }).catch(console.error.bind(console))
   }
 
   getChartData () {
     let storage = JSON.parse(window.sessionStorage.getItem(this.town))
     if (storage) return Promise.resolve(storage[this.chartType])
 
-    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
+    const selectedTown = this.town
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + selectedTown
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
@@ -81,8 +82,13 @@ export default class Plot {
         'Average': prepareData('Average'),
         'Min, Max & Median': prepareData('Min, Max & Median')
       }
-      window.sessionStorage.setItem(this.town, JSON.stringify(storage))
-      return storage[this.chartType]
+      try {
+        window.sessionStorage.setItem(selectedTown, JSON.stringify(storage))
+      } catch (err) {
+        console.error(err)
+      }
+      if (selectedTown === this.town) return storage[this.chartType]
+      else throw new Error('Overlapping queries')
     })
   }
 
