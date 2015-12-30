@@ -87,7 +87,7 @@ export class TimeSeries extends App {
   }
 
   drawForm () {
-    const text = 'Choose the town and data you wish to see'
+    const text = 'Choose town and chart type'
     const towns = {
       options: this.meta.townList,
       selector: 'select-town',
@@ -104,9 +104,6 @@ export class TimeSeries extends App {
   drawChart () {
     this.showLoader(document.querySelector('main'))
     removeChildren(this.chartDetail)
-
-    // this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].text
-    // this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].text
 
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
     this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
@@ -135,7 +132,6 @@ export class Maps extends App {
     this.chartContainer.appendChild(this.mapDiv)
 
     this.heatmap = new Heatmap(
-      // this.monthSelection.options[this.monthSelection.selectedIndex].text,
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
       this.mapDiv
     )
@@ -143,7 +139,7 @@ export class Maps extends App {
   }
 
   drawForm () {
-    const text = 'Choose the month'
+    const text = 'Choose month'
     const months = {
       options: this.meta.monthList,
       selector: 'select-month',
