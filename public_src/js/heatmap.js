@@ -34,6 +34,7 @@ export default class Heatmap {
   }
 
   plotHeatmap () {
+    document.querySelector('#map').classList.add('chart-loading')
     this.getData().then(dataset => {
       if (dataset.length === 0) console.warn('no data')
       const ticks = dataset.map(tick => {
@@ -42,7 +43,8 @@ export default class Heatmap {
           weight: tick.weight
         }
       })
-
+      document.querySelector('.loading').classList.remove('loading')
+      document.querySelector('.chart-loading').classList.remove('chart-loading')
       this.heatmap.setData(ticks)
     })
   }

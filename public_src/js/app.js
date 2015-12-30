@@ -1,6 +1,6 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
-import { capitalizeFirstLetters, getMonthYear } from './helpers.js'
+import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export class App {
   constructor () {
@@ -8,7 +8,6 @@ export class App {
     this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
-    this.loadingScreen = document.getElementById('loading-screen')
     this.dataCache = JSON.parse(window.sessionStorage.getItem('meta'))
   }
 
@@ -47,6 +46,10 @@ export class App {
     })
     this.chartNav.appendChild(form)
   }
+
+  showLoader (element) {
+    element.classList.add('loading')
+  }
 }
 
 export class TimeSeries extends App {
@@ -76,13 +79,10 @@ export class TimeSeries extends App {
   }
 
   drawChart () {
-    if (this.chartContainer.firstChild) this.chartContainer.firstChild.remove()
-
-    if (document.getElementById('table-body')) document.getElementById('table-body').remove()
+    this.showLoader(document.querySelector('main'))
 
     const plotSpace = document.createElement('div')
     plotSpace.setAttribute('id', 'plot-space')
-    this.chartContainer.appendChild(plotSpace)
 
     this.plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].text,
@@ -94,6 +94,9 @@ export class TimeSeries extends App {
       ' of HDB Resale Price in ' +
       capitalizeFirstLetters(this.plot.town.toLowerCase())
 
+    removeChildren(this.chartContainer)
+    removeChildren(this.chartDetail)
+    this.chartContainer.appendChild(plotSpace)
     this.plot.plotChart()
   }
 }
@@ -133,6 +136,7 @@ export class Maps extends App {
   }
 
   drawChart () {
+    this.showLoader(document.querySelector('main'))
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
     this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
     this.heatmap.plotHeatmap()

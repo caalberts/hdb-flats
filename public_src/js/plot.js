@@ -30,6 +30,7 @@ export default class Plot {
       this.plotSpace.on('plotly_click', click => {
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
+      document.querySelector('.loading').classList.remove('loading')
     })
   }
 

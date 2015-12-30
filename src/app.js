@@ -4,7 +4,6 @@ import {meta, time_seriesDB, heatmapDB} from './util/initDB.js'
 const app = express()
 app.use(express.static('public'))
 
-// const accessKey = 'daburu'
 // let runningState = 'idle'
 //
 // app.get('/updateDB', function (req, res) {
@@ -37,7 +36,6 @@ app.get('/list', function (req, res) {
 
 app.get('/list/:key', function (req, res) {
   const key = req.params.key
-  // console.log(key)
   meta.findOne().exec((err, docs) => {
     if (err) console.error(err)
     else if (['town', 'flat', 'month'].indexOf(key) > -1) res.json(docs[key + 'List'])

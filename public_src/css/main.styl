@@ -78,3 +78,17 @@ main > div
 #map
   width 100%
   height 500px
+
+.loading::before
+  content url('../img/spin.svg')
+  z-index 1
+  position absolute
+  width 100%
+  left 0
+  top 50%
+  display flex
+  justify-content center
+  opacity 0.9
+
+.chart-loading
+  opacity 0.5
