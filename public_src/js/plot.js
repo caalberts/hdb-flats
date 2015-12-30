@@ -4,10 +4,10 @@ import _ from 'lodash'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotId) {
+  constructor (town, type, plotDiv) {
     this.town = town
     this.chartType = type
-    this.plotSpace = plotId
+    this.plotSpace = plotDiv
     this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
     this.layout = {
       hovermode: 'closest',
@@ -25,12 +25,14 @@ export default class Plot {
   }
 
   plotChart () {
+    document.querySelector('#plot-space').classList.add('chart-loading')
     this.getChartData().then(datasets => {
       Plotly.newPlot(this.plotSpace, datasets, this.layout)
       this.plotSpace.on('plotly_click', click => {
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
       document.querySelector('.loading').classList.remove('loading')
+      document.querySelector('.chart-loading').classList.remove('chart-loading')
     })
   }
 
@@ -90,7 +92,10 @@ export default class Plot {
     table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
-    tableTitle.textContent = 'Resale transactions in ' + capitalizeFirstLetters(this.town.toLowerCase()) + ' in ' + getMonthYear(date)
+    tableTitle.textContent =
+      'Resale Transactions for ' + capitalizeFirstLetters(type.toLowerCase()) +
+      ' Flats in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
+      ' in ' + getMonthYear(date)
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
     const headers = [
