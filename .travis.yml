@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - 5
-after_script:
-  - npm run codecov
+# after_script:
+#   - npm run codecov
 notifications:
   webhooks:
     urls:
