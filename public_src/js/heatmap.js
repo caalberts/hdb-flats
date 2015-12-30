@@ -21,16 +21,22 @@ export default class Heatmap {
     let storage = JSON.parse(window.sessionStorage.getItem(this.month))
     if (storage) return Promise.resolve(storage)
 
+    const selectedMonth = this.month
     this.heatmap.setData([])
-    const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + this.month
+    const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + selectedMonth
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       let dataset = []
       results.forEach(result => dataset = dataset.concat(result.dataPoints))
       dataset.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
       storage = dataset
-      window.sessionStorage.setItem(this.month, JSON.stringify(storage))
-      return storage
+      try {
+        window.sessionStorage.setItem(selectedMonth, JSON.stringify(storage))
+      } catch (err) {
+        console.error(err)
+      }
+      if (selectedMonth === this.month) return storage
+      else throw new Error('Overlapping queries')
     })
   }
 
@@ -47,6 +53,6 @@ export default class Heatmap {
       document.querySelector('.loading').classList.remove('loading')
       document.querySelector('.chart-loading').classList.remove('chart-loading')
       this.heatmap.setData(ticks)
-    })
+    }).catch(console.error.bind(console))
   }
 }
