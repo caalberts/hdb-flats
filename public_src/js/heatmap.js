@@ -19,22 +19,14 @@ export default class Heatmap {
 
   getData () {
     let storage = JSON.parse(window.sessionStorage.getItem(this.month))
-
     if (storage) return Promise.resolve(storage)
 
+    this.heatmap.setData([])
     const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + this.month
     return window.fetch(url).then(res => res.json()).then(results => {
-      const dataset = []
-      results.forEach(result => {
-        result.dataPoints.forEach(transaction => {
-          const tick = {
-            lat: transaction.lat,
-            lng: transaction.lng,
-            weight: Math.pow(transaction.weight, 1.5)
-          }
-          dataset.push(tick)
-        })
-      })
+      let dataset = []
+      results.forEach(result => dataset = dataset.concat(result.dataPoints))
+      dataset.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
       storage = dataset
       window.sessionStorage.setItem(this.month, JSON.stringify(storage))
       return storage
