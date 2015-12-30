@@ -1,5 +1,6 @@
 import 'whatwg-fetch'
 import { App, TimeSeries, Maps } from './app.js'
+import { removeChildren } from './helpers.js'
 
 Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
   nav.addEventListener('click', event => {
@@ -27,8 +28,4 @@ function route () {
     default:
       return new TimeSeries()
   }
-}
-
-function removeChildren (elem) {
-  Array.from(elem.children).forEach(child => child.remove())
 }

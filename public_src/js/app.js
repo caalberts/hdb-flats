@@ -1,5 +1,6 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
+import { capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export class App {
   constructor () {
@@ -91,7 +92,7 @@ export class TimeSeries extends App {
     this.chartTitle.textContent =
       this.plot.chartType +
       ' of HDB Resale Price in ' +
-      this.plot.town
+      capitalizeFirstLetters(this.plot.town.toLowerCase())
 
     this.plot.plotChart()
   }
@@ -133,7 +134,7 @@ export class Maps extends App {
 
   drawChart () {
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
-    this.chartTitle.textContent = 'Hottest areas in the month of ' + this.heatmap.month
+    this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
     this.heatmap.plotHeatmap()
   }
 }

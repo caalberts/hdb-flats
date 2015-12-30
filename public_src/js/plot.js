@@ -1,6 +1,7 @@
 /* global Plotly */
 import 'whatwg-fetch'
 import _ from 'lodash'
+import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
   constructor (town, type, plotId) {
@@ -87,6 +88,8 @@ export default class Plot {
     table.className = 'table table-striped'
     table.setAttribute('id', 'transactions-table')
 
+    const tableTitle = document.createElement('h2')
+    tableTitle.textContent = 'Resale transactions in ' + capitalizeFirstLetters(this.town.toLowerCase()) + ' in ' + getMonthYear(date)
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
     const headers = [
@@ -131,8 +134,8 @@ export default class Plot {
             let rowData = [
               index + 1,
               transaction.block.trim(),
-              transaction.street_name.trim(),
-              transaction.storey_range.trim(),
+              capitalizeFirstLetters(transaction.street_name.trim().toLowerCase()),
+              transaction.storey_range.trim().toLowerCase(),
               99 - (+transaction.month.slice(0, 4)) + (+transaction.lease_commence_date),
               transaction.floor_area_sqm,
               (+transaction.resale_price).toLocaleString()
@@ -145,7 +148,10 @@ export default class Plot {
             tbody.appendChild(row)
           })
         table.appendChild(tbody)
-        Array.from(this.chartDetail.children).forEach(child => child.remove())
+
+        removeChildren(this.chartDetail)
+
+        this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
       })
   }
