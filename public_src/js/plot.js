@@ -7,8 +7,8 @@ export default class Plot {
   constructor (town, type, plotDiv) {
     this.town = town
     this.chartType = type
-    this.plotSpace = plotDiv
-    this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
+    this.plotDiv = plotDiv
+    this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
       autosize: true,
@@ -17,31 +17,46 @@ export default class Plot {
       margin: {
         l: 50,
         r: 20,
-        b: 50,
         t: 50,
+        b: 50,
         pad: 10
       }
     }
   }
 
-  plotChart () {
-    document.querySelector('#plot-space').classList.add('chart-loading')
-    this.getChartData().then(datasets => {
-      Plotly.newPlot(this.plotSpace, datasets, this.layout)
-      this.plotSpace.on('plotly_click', click => {
-        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+  plotChart (town) {
+    this.db.get(town)
+      .then(doc => {
+        this.renderData(doc)
+        if (doc.lastUpdated < window.meta.lastUpdated) {
+          this.getData(town).then(dataPoints => {
+            doc.dataPoints = dataPoints
+            this.db.put(doc)
+              .then(console.log.bind(console))
+              .catch(console.error.bind(console))
+            this.renderData(doc)
+          })
+        }
       })
-      document.querySelector('.loading').classList.remove('loading')
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
-    }).catch(console.error.bind(console))
+      .catch(() => {
+        this.getData(town).then(datasets => {
+          const doc = {
+            '_id': town,
+            'lastUpdated': window.meta.lastUpdated,
+            'Average': datasets[0],
+            'Min, Max & Median': datasets[1]
+          }
+          this.db.put(doc)
+            .then(console.log.bind(console))
+            .catch(console.error.bind(console))
+          this.renderData(doc)
+        })
+      })
   }
 
-  getChartData () {
-    let storage = JSON.parse(window.sessionStorage.getItem(this.town))
-    if (storage) return Promise.resolve(storage[this.chartType])
-
-    const selectedTown = this.town
-    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + selectedTown
+  getData (town) {
+    console.log('retrieving data from MongoDB')
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + town
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
@@ -49,7 +64,6 @@ export default class Plot {
         _.sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             const dataset = {
-              town: result.town,
               name: result.flat_type,
               x: result.time_series.month,
               error_y: {
@@ -78,18 +92,20 @@ export default class Plot {
         })
         return datasets
       }
-      storage = {
-        'Average': prepareData('Average'),
-        'Min, Max & Median': prepareData('Min, Max & Median')
-      }
-      try {
-        window.sessionStorage.setItem(selectedTown, JSON.stringify(storage))
-      } catch (err) {
-        console.error(err)
-      }
-      if (selectedTown === this.town) return storage[this.chartType]
-      else throw new Error('Overlapping queries')
+      return [prepareData('Average'), prepareData('Min, Max & Median')]
     })
+  }
+
+  renderData (dataObj) {
+    if (dataObj._id !== this.town) console.warn('overlapping queries')
+    else {
+      document.querySelector('.chart-loading').classList.remove('chart-loading')
+      document.querySelector('.loading').classList.remove('loading')
+      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
+      this.plotDiv.on('plotly_click', click => {
+        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+      })
+    }
   }
 
   listAllTransactions (town, type, date) {

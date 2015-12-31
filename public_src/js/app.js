@@ -2,21 +2,14 @@ import Plot from './plot.js'
 import Heatmap from './heatmap.js'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
+window.PouchDB = require('pouchdb')
+
 export class App {
   constructor () {
     this.chartNav = document.querySelector('.navbar-right')
     this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
-    this.meta = JSON.parse(window.sessionStorage.getItem('meta'))
-  }
-
-  static getMeta () {
-    const url = window.location.protocol + '//' + window.location.host + '/list'
-    const headers = { Accept: 'application/json' }
-    return window.fetch(url, headers).then(res => res.json()).then(meta => {
-      window.sessionStorage.setItem('meta', JSON.stringify(meta))
-    })
   }
 
   createSelections (text, ...dropdowns) {
@@ -44,8 +37,9 @@ export class App {
     this.chartNav.appendChild(form)
   }
 
-  showLoader (element) {
-    element.classList.add('loading')
+  showLoader (chart) {
+    this.chartContainer.classList.add('loading')
+    chart.classList.add('chart-loading')
   }
 
   createButtons () {
@@ -86,7 +80,7 @@ export class TimeSeries extends App {
   drawForm () {
     const text = 'Choose the town and data you wish to see'
     const towns = {
-      options: this.meta.townList,
+      options: window.meta.townList,
       selector: 'select-town',
       defaultOption: 'Ang Mo Kio'
     }
@@ -99,7 +93,7 @@ export class TimeSeries extends App {
   }
 
   drawChart () {
-    this.showLoader(document.querySelector('main'))
+    this.showLoader(this.plotDiv)
     removeChildren(this.chartDetail)
 
     // this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].text
@@ -113,7 +107,7 @@ export class TimeSeries extends App {
       ' of HDB Resale Price in ' +
       capitalizeFirstLetters(this.plot.town.toLowerCase())
 
-    this.plot.plotChart()
+    this.plot.plotChart(this.plot.town)
   }
 }
 
@@ -122,7 +116,6 @@ export class Maps extends App {
     super()
 
     this.drawForm()
-
     this.monthSelection = document.getElementById('select-month')
     this.prevButton = document.getElementById('prev-month')
     this.nextButton = document.getElementById('next-month')
@@ -142,7 +135,7 @@ export class Maps extends App {
   drawForm () {
     const text = 'Choose the month'
     const months = {
-      options: this.meta.monthList,
+      options: window.meta.monthList,
       selector: 'select-month',
       defaultOption: '2015-09'
     }
@@ -151,11 +144,11 @@ export class Maps extends App {
   }
 
   drawChart () {
-    this.showLoader(document.querySelector('main'))
-    this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
+    this.showLoader(this.mapDiv)
+    this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
     this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
     this.withinMonthRange(this.monthSelection.selectedIndex)
-    this.heatmap.plotHeatmap()
+    this.heatmap.plotHeatmap(this.heatmap.month)
   }
 
   prevChart () {
@@ -172,6 +165,6 @@ export class Maps extends App {
     this.prevButton.disabled = false
     this.nextButton.disabled = false
     if (idx === 0) this.prevButton.disabled = true
-    if (idx === this.meta.monthList.length - 1) this.nextButton.disabled = true
+    if (idx === window.meta.monthList.length - 1) this.nextButton.disabled = true
   }
 }

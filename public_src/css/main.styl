@@ -78,23 +78,27 @@ main > div
 #chart-detail tr:nth-child(even)
   background lightgrey
 
+#chart-container
+  position relative
+
 #map
   width 100%
+  max-width 800px
   height 500px
+
+.chart-loading
+  opacity 0.5
 
 .loading::before
   content url('../img/spin.svg')
   z-index 1
   position absolute
   width 100%
-  left 0
-  top 50%
+  height 100%
   display flex
   justify-content center
+  align-items center
   opacity 0.9
-
-.chart-loading
-  opacity 0.5
 
 #prev-month
   width 50px

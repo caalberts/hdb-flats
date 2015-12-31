@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import { App, TimeSeries, Maps } from './app.js'
+import { TimeSeries, Maps } from './app.js'
 import { removeChildren } from './helpers.js'
 
 Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
@@ -16,7 +16,16 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
 })
 
 window.onload = function () {
-  App.getMeta().then(route)
+  window.meta = JSON.parse(window.sessionStorage.getItem('meta'))
+  if (window.meta) route()
+  else {
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    const headers = { Accept: 'application/json' }
+    window.fetch(url, headers).then(res => res.json()).then(meta => {
+      window.meta = meta
+      window.sessionStorage.setItem('meta', JSON.stringify(meta))
+    }).then(route)
+  }
 }
 
 function route () {
