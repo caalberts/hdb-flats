@@ -58,6 +58,9 @@ main > div
   flex-direction column
   align-items center
 
+#chart-container
+  position relative
+
 #chart-title
   text-align center
 
@@ -85,7 +88,8 @@ main > div
 
 #map
   width 100%
-  height 500px
+  height 70vh
+  min-height 500px
 
 .loading::before
   content url('../img/spin.svg')
@@ -101,15 +105,27 @@ main > div
 .chart-loading
   opacity 0.5
 
+#prev-month, #next-month
+  position absolute
+  width 4em
+  height 6vh
+  min-height 50px
+  z-index 1
+  top 32vh
+  border none
+  background-color lightslategrey
+  opacity 0.5
+  color white
+
 #prev-month
-  width 50px
-  height 50px
-  background-color red
+  left 0
+#prev-month:before
+  content '<'
 
 #next-month
-  width 50px
-  height 50px
-  background-color blue
+  right 0
+#next-month:before
+  content '>'
 
 footer
   position fixed

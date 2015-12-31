@@ -55,13 +55,13 @@ export class App {
     const prevButton = document.createElement('button')
     prevButton.setAttribute('id', 'prev-month')
     prevButton.addEventListener('click', event => this.prevChart())
-    this.chartNav.appendChild(prevButton)
+    this.chartContainer.appendChild(prevButton)
 
     const nextButton = document.createElement('button')
     nextButton.setAttribute('id', 'next-month')
     nextButton.disabled = true
     nextButton.addEventListener('click', event => this.nextChart())
-    this.chartNav.appendChild(nextButton)
+    this.chartContainer.appendChild(nextButton)
   }
 }
 
