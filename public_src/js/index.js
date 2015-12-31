@@ -17,6 +17,7 @@ window.onload = function () {
   window.meta = JSON.parse(window.sessionStorage.getItem('meta'))
   if (window.meta) route()
   else {
+    console.log('retrieving data from MongoDB')
     const url = window.location.protocol + '//' + window.location.host + '/list'
     const headers = { Accept: 'application/json' }
     window.fetch(url, headers).then(res => res.json()).then(meta => {
