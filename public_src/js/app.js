@@ -10,21 +10,6 @@ export class App {
     this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
-<<<<<<< HEAD
-=======
-    this.meta = JSON.parse(window.sessionStorage.getItem('meta'))
-  }
-
-  static getMeta () {
-    const url = window.location.protocol + '//' + window.location.host + '/list'
-    const headers = { Accept: 'application/json' }
-    return window.fetch(url, headers).then(res => res.json()).then(meta => {
-      window.sessionStorage.setItem('meta', JSON.stringify(meta))
-      document.querySelector('.retrieve-date').textContent =
-        ' accurate as of ' +
-        new Date(meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
-    })
->>>>>>> ca946332d70b20334a1d760ca757213092f0d9e0
   }
 
   createSelections (text, ...dropdowns) {
