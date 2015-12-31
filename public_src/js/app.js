@@ -6,10 +6,25 @@ window.PouchDB = require('pouchdb')
 
 export class App {
   constructor () {
-    this.chartNav = document.querySelector('.navbar-right')
+    this.chartNav = document.querySelector('.selectors')
     this.chartTitle = document.querySelector('.chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
+<<<<<<< HEAD
+=======
+    this.meta = JSON.parse(window.sessionStorage.getItem('meta'))
+  }
+
+  static getMeta () {
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    const headers = { Accept: 'application/json' }
+    return window.fetch(url, headers).then(res => res.json()).then(meta => {
+      window.sessionStorage.setItem('meta', JSON.stringify(meta))
+      document.querySelector('.retrieve-date').textContent =
+        ' accurate as of ' +
+        new Date(meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
+    })
+>>>>>>> ca946332d70b20334a1d760ca757213092f0d9e0
   }
 
   createSelections (text, ...dropdowns) {
@@ -46,13 +61,13 @@ export class App {
     const prevButton = document.createElement('button')
     prevButton.setAttribute('id', 'prev-month')
     prevButton.addEventListener('click', event => this.prevChart())
-    this.chartNav.appendChild(prevButton)
+    this.chartContainer.appendChild(prevButton)
 
     const nextButton = document.createElement('button')
     nextButton.setAttribute('id', 'next-month')
     nextButton.disabled = true
     nextButton.addEventListener('click', event => this.nextChart())
-    this.chartNav.appendChild(nextButton)
+    this.chartContainer.appendChild(nextButton)
   }
 }
 
@@ -78,7 +93,7 @@ export class TimeSeries extends App {
   }
 
   drawForm () {
-    const text = 'Choose the town and data you wish to see'
+    const text = 'Choose town and chart type'
     const towns = {
       options: window.meta.townList,
       selector: 'select-town',
@@ -95,9 +110,6 @@ export class TimeSeries extends App {
   drawChart () {
     this.showLoader(this.plotDiv)
     removeChildren(this.chartDetail)
-
-    // this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].text
-    // this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].text
 
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
     this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
@@ -125,7 +137,6 @@ export class Maps extends App {
     this.chartContainer.appendChild(this.mapDiv)
 
     this.heatmap = new Heatmap(
-      // this.monthSelection.options[this.monthSelection.selectedIndex].text,
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
       this.mapDiv
     )
@@ -133,7 +144,7 @@ export class Maps extends App {
   }
 
   drawForm () {
-    const text = 'Choose the month'
+    const text = 'Choose month'
     const months = {
       options: window.meta.monthList,
       selector: 'select-month',
