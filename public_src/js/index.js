@@ -2,7 +2,7 @@ import 'whatwg-fetch'
 import { TimeSeries, Maps } from './app.js'
 import { removeChildren } from './helpers.js'
 
-Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
+Array.from(document.querySelectorAll('.nav-item.route')).forEach(nav => {
   nav.addEventListener('click', event => {
     event.preventDefault()
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
@@ -36,12 +36,10 @@ function route () {
     new Date(window.meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
   switch (window.location.pathname) {
     case '/charts':
+    case '/':
       return new TimeSeries()
     case '/maps':
       return new Maps()
-    default:
-      document.querySelector('.nav-item a').classList.add('active')
-      return new TimeSeries()
   }
 }
 
