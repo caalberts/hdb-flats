@@ -4,44 +4,64 @@ import _ from 'lodash'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotDiv) {
+  constructor (town, type, plotDiv, container) {
     this.town = town
     this.chartType = type
-    this.plotSpace = plotDiv
-    this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
+    this.plotDiv = plotDiv
+    this.chartContainer = container
+    this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
       autosize: true,
-      // width: 1000,
-      // height: 600,
+      width: 700,
+      height: 500,
       margin: {
         l: 50,
         r: 20,
-        b: 50,
         t: 50,
+        b: 50,
         pad: 10
       }
     }
   }
 
-  plotChart () {
-    document.querySelector('#plot-space').classList.add('chart-loading')
-    this.getChartData().then(datasets => {
-      Plotly.newPlot(this.plotSpace, datasets, this.layout)
-      this.plotSpace.on('plotly_click', click => {
-        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+  plotChart (town) {
+    this.db.get(town)
+      .then(doc => {
+        this.renderData(doc)
+        if (doc.lastUpdate < window.meta.lastUpdate) {
+          this.getData(town).then(datasets => {
+            doc['Average'] = datasets[0]
+            doc['Min, Max & Median'] = datasets[1]
+            doc.lastUpdate = window.meta.lastUpdate
+            this.db.put(doc)
+              .then(console.log.bind(console))
+              .catch(console.error.bind(console))
+            this.renderData(doc)
+          })
+        }
       })
-      document.querySelector('.loading').classList.remove('loading')
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
-    }).catch(console.error.bind(console))
+      .catch(() => {
+        this.chartContainer.classList.add('loading')
+        this.plotDiv.classList.add('chart-loading')
+        this.getData(town).then(datasets => {
+          const doc = {
+            '_id': town,
+            'lastUpdate': window.meta.lastUpdate,
+            'Average': datasets[0],
+            'Min, Max & Median': datasets[1]
+          }
+          this.db.put(doc)
+            .then(console.log.bind(console))
+            .catch(console.error.bind(console))
+          this.renderData(doc)
+        })
+      })
   }
 
-  getChartData () {
-    let storage = JSON.parse(window.sessionStorage.getItem(this.town))
-    if (storage) return Promise.resolve(storage[this.chartType])
-
-    const selectedTown = this.town
-    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + selectedTown
+  getData (town) {
+    console.log('retrieving data from MongoDB')
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + town
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
@@ -49,7 +69,6 @@ export default class Plot {
         _.sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             const dataset = {
-              town: result.town,
               name: result.flat_type,
               x: result.time_series.month,
               error_y: {
@@ -78,18 +97,20 @@ export default class Plot {
         })
         return datasets
       }
-      storage = {
-        'Average': prepareData('Average'),
-        'Min, Max & Median': prepareData('Min, Max & Median')
-      }
-      try {
-        window.sessionStorage.setItem(selectedTown, JSON.stringify(storage))
-      } catch (err) {
-        console.error(err)
-      }
-      if (selectedTown === this.town) return storage[this.chartType]
-      else throw new Error('Overlapping queries')
+      return [prepareData('Average'), prepareData('Min, Max & Median')]
     })
+  }
+
+  renderData (dataObj) {
+    if (dataObj._id !== this.town) console.warn('overlapping queries')
+    else {
+      this.chartContainer.classList.remove('loading')
+      this.plotDiv.classList.remove('chart-loading')
+      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout, {scrollZoom: true})
+      this.plotDiv.on('plotly_click', click => {
+        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+      })
+    }
   }
 
   listAllTransactions (town, type, date) {
@@ -166,7 +187,8 @@ export default class Plot {
 
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
-        thead.scrollIntoView()
+        tableTitle.scrollIntoView()
+        // window.scrollBy(0, -70)
       })
   }
 }

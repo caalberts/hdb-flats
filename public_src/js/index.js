@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import { App, TimeSeries, Maps } from './app.js'
+import { TimeSeries, Maps } from './app.js'
 import { removeChildren } from './helpers.js'
 
 Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
@@ -14,7 +14,17 @@ Array.from(document.querySelectorAll('.nav-item')).forEach(nav => {
 })
 
 window.onload = function () {
-  App.getMeta().then(route)
+  window.meta = JSON.parse(window.sessionStorage.getItem('meta'))
+  if (window.meta) route()
+  else {
+    console.log('retrieving data from MongoDB')
+    const url = window.location.protocol + '//' + window.location.host + '/list'
+    const headers = { Accept: 'application/json' }
+    window.fetch(url, headers).then(res => res.json()).then(meta => {
+      window.meta = meta
+      window.sessionStorage.setItem('meta', JSON.stringify(meta))
+    }).then(route)
+  }
 }
 
 function route () {
@@ -22,6 +32,8 @@ function route () {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
+  document.querySelector('.retrieve-date').textContent = 'Last updated ' +
+    new Date(window.meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
   switch (window.location.pathname) {
     case '/charts':
       return new TimeSeries()

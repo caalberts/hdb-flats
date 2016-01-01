@@ -1,4 +1,4 @@
-/* global describe it */
+/* eslint-env mocha */
 import app from '../src/app.js'
 import chai from 'chai'
 import request from 'supertest'
