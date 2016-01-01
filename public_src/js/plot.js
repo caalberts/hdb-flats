@@ -187,7 +187,9 @@ export default class Plot {
 
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
-        tableTitle.scrollIntoView()
+
+        document.querySelector('rect.drag.ewdrag').scrollIntoView()
+        // tableTitle.scrollIntoView({ behaviour: 'smooth', block: 'start' })
         // window.scrollBy(0, -70)
       })
   }
