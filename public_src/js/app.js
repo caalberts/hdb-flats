@@ -37,11 +37,6 @@ export class App {
     this.chartNav.appendChild(form)
   }
 
-  showLoader (chart) {
-    this.chartContainer.classList.add('loading')
-    chart.classList.add('chart-loading')
-  }
-
   createButtons () {
     const prevButton = document.createElement('button')
     prevButton.setAttribute('id', 'prev-month')
@@ -71,7 +66,8 @@ export class TimeSeries extends App {
     this.plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].text,
       this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      this.plotDiv
+      this.plotDiv,
+      this.chartContainer
     )
 
     this.drawChart()
@@ -93,7 +89,6 @@ export class TimeSeries extends App {
   }
 
   drawChart () {
-    this.showLoader(this.plotDiv)
     removeChildren(this.chartDetail)
 
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
@@ -123,8 +118,10 @@ export class Maps extends App {
 
     this.heatmap = new Heatmap(
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
-      this.mapDiv
+      this.mapDiv,
+      this.chartContainer
     )
+
     this.drawChart()
   }
 
@@ -140,7 +137,6 @@ export class Maps extends App {
   }
 
   drawChart () {
-    this.showLoader(this.mapDiv)
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
     this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
     this.withinMonthRange(this.monthSelection.selectedIndex)

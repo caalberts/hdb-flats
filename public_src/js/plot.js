@@ -4,16 +4,17 @@ import _ from 'lodash'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotDiv) {
+  constructor (town, type, plotDiv, container) {
     this.town = town
     this.chartType = type
     this.plotDiv = plotDiv
+    this.chartContainer = container
     this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
       autosize: true,
-      // width: 1000,
-      // height: 600,
+      width: 700,
+      height: 500,
       margin: {
         l: 50,
         r: 20,
@@ -28,9 +29,11 @@ export default class Plot {
     this.db.get(town)
       .then(doc => {
         this.renderData(doc)
-        if (doc.lastUpdated < window.meta.lastUpdated) {
-          this.getData(town).then(dataPoints => {
-            doc.dataPoints = dataPoints
+        if (doc.lastUpdate < window.meta.lastUpdate) {
+          this.getData(town).then(datasets => {
+            doc['Average'] = datasets[0]
+            doc['Min, Max & Median'] = datasets[1]
+            doc.lastUpdate = window.meta.lastUpdate
             this.db.put(doc)
               .then(console.log.bind(console))
               .catch(console.error.bind(console))
@@ -39,10 +42,12 @@ export default class Plot {
         }
       })
       .catch(() => {
+        this.chartContainer.classList.add('loading')
+        this.plotDiv.classList.add('chart-loading')
         this.getData(town).then(datasets => {
           const doc = {
             '_id': town,
-            'lastUpdated': window.meta.lastUpdated,
+            'lastUpdate': window.meta.lastUpdate,
             'Average': datasets[0],
             'Min, Max & Median': datasets[1]
           }
@@ -99,9 +104,9 @@ export default class Plot {
   renderData (dataObj) {
     if (dataObj._id !== this.town) console.warn('overlapping queries')
     else {
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
-      document.querySelector('.loading').classList.remove('loading')
-      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
+      this.chartContainer.classList.remove('loading')
+      this.plotDiv.classList.remove('chart-loading')
+      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout, {scrollZoom: true})
       this.plotDiv.on('plotly_click', click => {
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
@@ -182,7 +187,8 @@ export default class Plot {
 
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
-        thead.scrollIntoView()
+        tableTitle.scrollIntoView()
+        // window.scrollBy(0, -70)
       })
   }
 }

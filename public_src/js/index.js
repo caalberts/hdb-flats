@@ -32,6 +32,8 @@ function route () {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
+  document.querySelector('.retrieve-date').textContent = 'Last updated ' +
+    new Date(window.meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
   switch (window.location.pathname) {
     case '/charts':
       return new TimeSeries()

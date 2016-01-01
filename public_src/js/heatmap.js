@@ -2,9 +2,10 @@
 import 'whatwg-fetch'
 
 export default class Heatmap {
-  constructor (month, mapDiv) {
+  constructor (month, mapDiv, container) {
     this.month = month
     this.mapDiv = mapDiv
+    this.chartContainer = container
     this.db = new window.PouchDB('hdbresale')
 
     const map = new google.maps.Map(this.mapDiv, {
@@ -22,9 +23,10 @@ export default class Heatmap {
     this.db.get(month)
       .then(doc => {
         this.renderData(doc)
-        if (doc.lastUpdated < window.meta.lastUpdated) {
+        if (doc.lastUpdate < window.meta.lastUpdate) {
           this.getData(month).then(dataPoints => {
             doc.dataPoints = dataPoints
+            doc.lastUpdate = window.meta.lastUpdate
             this.db.put(doc)
               .then(console.log.bind(console))
               .catch(console.error.bind(console))
@@ -33,10 +35,12 @@ export default class Heatmap {
         }
       })
       .catch(() => {
+        this.chartContainer.classList.add('loading')
+        this.mapDiv.classList.add('chart-loading')
         this.getData(month).then(dataPoints => {
           const doc = {
             '_id': month,
-            'lastUpdated': window.meta.lastUpdated,
+            'lastUpdate': window.meta.lastUpdate,
             'dataPoints': dataPoints
           }
           this.db.put(doc)
@@ -70,8 +74,8 @@ export default class Heatmap {
           weight: tick.weight
         }
       })
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
-      document.querySelector('.loading').classList.remove('loading')
+      this.chartContainer.classList.remove('loading')
+      this.mapDiv.classList.remove('chart-loading')
       this.heatmap.setData(ticks)
     }
   }
