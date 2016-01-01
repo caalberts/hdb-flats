@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/caalberts/hdb-flats#readme",
   "dependencies": {
+    "array-from": "^2.0.2",
     "async": "^1.5.0",
     "babel-cli": "^6.3.13",
     "babel-core": "^6.2.1",

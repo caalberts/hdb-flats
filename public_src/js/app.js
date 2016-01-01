@@ -7,7 +7,7 @@ window.PouchDB = require('pouchdb')
 export class App {
   constructor () {
     this.chartNav = document.querySelector('.selectors')
-    this.chartTitle = document.querySelector('.chart-title')
+    this.chartTitle = document.getElementById('chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
   }
@@ -74,7 +74,7 @@ export class TimeSeries extends App {
   }
 
   drawForm () {
-    const text = 'Choose town and chart type'
+    const text = 'Choose town & chart type'
     const towns = {
       options: window.meta.townList,
       selector: 'select-town',

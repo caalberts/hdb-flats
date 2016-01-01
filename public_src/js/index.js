@@ -1,8 +1,9 @@
 import 'whatwg-fetch'
+Array.from = require('array-from')
 import { TimeSeries, Maps } from './app.js'
 import { removeChildren, getMonthYear } from './helpers.js'
 
-Array.prototype.forEach.call(document.querySelectorAll('.nav-item.route'), nav => {
+Array.from(document.querySelectorAll('.nav-item.route')).forEach(nav => {
   nav.addEventListener('click', event => {
     event.preventDefault()
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
@@ -28,7 +29,7 @@ window.onload = function () {
 }
 
 function route () {
-  Array.prototype.forEach.call(document.querySelectorAll('.nav-item a'), a => {
+  Array.from(document.querySelectorAll('.nav-item a')).forEach(a => {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
