@@ -106,7 +106,7 @@ export default class Plot {
     else {
       this.chartContainer.classList.remove('loading')
       this.plotDiv.classList.remove('chart-loading')
-      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout, {scrollZoom: true})
+      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
       this.plotDiv.on('plotly_click', click => {
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
