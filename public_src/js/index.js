@@ -32,7 +32,7 @@ function route () {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
-  document.querySelector('.retrieve-date').textContent = 'Last updated ' +
+  document.querySelector('.retrieve-date').textContent =
     new Date(window.meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
   switch (window.location.pathname) {
     case '/charts':
@@ -44,3 +44,12 @@ function route () {
       return new TimeSeries()
   }
 }
+
+document.querySelector('.footer-terms').addEventListener('click', event => {
+  event.preventDefault()
+  document.querySelector('.terms').classList.toggle('hidden')
+})
+document.querySelector('.accept-terms').addEventListener('click', event => {
+  event.preventDefault()
+  document.querySelector('.terms').classList.add('hidden')
+})
