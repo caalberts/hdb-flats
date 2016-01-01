@@ -161,7 +161,7 @@ export default class Plot {
         if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
         tbody.setAttribute('id', 'table-body')
-        _.sortByOrder(json.result.records, record => record.resale_price, 'desc')
+        _.sortByOrder(json.result.records, record => +record.resale_price, 'desc')
           .forEach((transaction, index) => {
             const row = document.createElement('tr')
             row.classList.add('table-striped')
@@ -188,9 +188,8 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        document.querySelector('rect.drag.ewdrag').scrollIntoView()
-        // tableTitle.scrollIntoView({ behaviour: 'smooth', block: 'start' })
-        // window.scrollBy(0, -70)
+        // document.querySelector('rect.drag.ewdrag').scrollIntoView()
+        window.scrollTo(0, 630)
       })
   }
 }
