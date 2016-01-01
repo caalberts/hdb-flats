@@ -68,7 +68,7 @@ app.get('/heatmap', function (req, res) {
 })
 
 app.get('/about', function (req, res) {
-  res.sendfile(root + '/about.html')
+  res.sendFile(root + '/about.html')
 })
 
 app.use(fallback('index.html', { root }))
