@@ -10,7 +10,7 @@
     "build-all": "npm run build-src & npm run build-html & npm run build-css & npm run build-img & npm run build-js",
     "build-src": "babel src --out-dir dist --presets es2015",
     "build-html": "cp public_src/index.html public/index.html",
-    "build-css": "stylus public_src/css --include-css -o public/css",
+    "build-css": "stylus public_src/css/main.styl --include-css -o public/css",
     "build-img": "cp -r public_src/img public/img",
     "build-js": "browserify public_src/js/index.js --outfile public/js/index.js -t babelify",
     "clean": "rm -rf dist && rm -rf public",
