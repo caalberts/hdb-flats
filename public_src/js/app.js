@@ -64,8 +64,8 @@ export class TimeSeries extends App {
     this.chartContainer.appendChild(this.plotDiv)
 
     this.plot = new Plot(
-      this.townSelection.options[this.townSelection.selectedIndex].text,
-      this.chartSelection.options[this.chartSelection.selectedIndex].text,
+      this.townSelection.options[this.townSelection.selectedIndex].value,
+      this.chartSelection.options[this.chartSelection.selectedIndex].value,
       this.plotDiv,
       this.chartContainer
     )

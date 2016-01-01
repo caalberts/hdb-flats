@@ -12,6 +12,10 @@ export function capitalizeFirstLetters (phrase) {
   }
 }
 
-export function getMonthYear (date) {
-  return new Date(date).toLocaleDateString({}, {year: 'numeric', month: 'long'})
+export function getMonthYear (dateStr) {
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ]
+  return monthNames[+dateStr.slice(5, 7) - 1] + ' ' + dateStr.slice(0, 4)
 }

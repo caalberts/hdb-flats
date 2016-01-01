@@ -1,8 +1,8 @@
 import 'whatwg-fetch'
 import { TimeSeries, Maps } from './app.js'
-import { removeChildren } from './helpers.js'
+import { removeChildren, getMonthYear } from './helpers.js'
 
-Array.from(document.querySelectorAll('.nav-item.route')).forEach(nav => {
+Array.prototype.forEach.call(document.querySelectorAll('.nav-item.route'), nav => {
   nav.addEventListener('click', event => {
     event.preventDefault()
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
@@ -28,12 +28,12 @@ window.onload = function () {
 }
 
 function route () {
-  Array.from(document.querySelectorAll('.nav-item a')).forEach(a => {
+  Array.prototype.forEach.call(document.querySelectorAll('.nav-item a'), a => {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
   document.querySelector('.retrieve-date').textContent =
-    new Date(window.meta.lastUpdate).toLocaleDateString({}, {year: 'numeric', month: 'long', day: 'numeric'})
+    window.meta.lastUpdate.slice(8, 10) + ' ' + getMonthYear(window.meta.lastUpdate)
   switch (window.location.pathname) {
     case '/charts':
     case '/':
