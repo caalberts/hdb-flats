@@ -14,17 +14,16 @@ export class App {
 
   createSelections (text, ...dropdowns) {
     const navbarText = document.createElement('p')
-    navbarText.classList.add('navbar-text')
+    navbarText.classList.add('selectors-item')
     navbarText.textContent = text
     this.chartNav.appendChild(navbarText)
 
     const form = document.createElement('form')
-    form.className = 'navbar-form form-inline'
 
     dropdowns.forEach(dropdown => {
       const selector = document.createElement('select')
       selector.setAttribute('id', dropdown.selector)
-      selector.className = 'form-control'
+      selector.classList.add('selectors-item')
       dropdown.options.forEach(item => {
         const option = document.createElement('option')
         option.textContent = item
@@ -40,11 +39,13 @@ export class App {
   createButtons () {
     const prevButton = document.createElement('button')
     prevButton.setAttribute('id', 'prev-month')
+    prevButton.textContent = '<'
     prevButton.addEventListener('click', event => this.prevChart())
     this.chartContainer.appendChild(prevButton)
 
     const nextButton = document.createElement('button')
     nextButton.setAttribute('id', 'next-month')
+    nextButton.textContent = '>'
     nextButton.disabled = true
     nextButton.addEventListener('click', event => this.nextChart())
     this.chartContainer.appendChild(nextButton)

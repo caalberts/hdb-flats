@@ -15,25 +15,39 @@ h1, h2
 nav
   position fixed
   width 100%
-  padding 0 2vw
   top 0
-  background darkslategrey
+  background-color darkslategrey
   display flex
   flex-direction row
   justify-content space-between
-  flex-wrap wrap
   color white
   z-index 1
   box-sizing border-box
 
 nav ul
-  padding 0
+  margin 0
+  padding 1em 2vw
+  background-color darkslategrey
   list-style none
   display flex
   flex-direction row
+  justify-content space-around
+
+.selectors
+  padding 1em 2vw
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+  align-items center
+
+form
+  display inline-block
+  color black
 
 .nav-item
-  margin-right 1em
+  margin 0 1em
+  padding 0.25em 0
 
 .nav-item a
   text-decoration none
@@ -42,17 +56,13 @@ nav ul
 .nav-item a.active
   font-weight bolder
 
-.selectors
-  display flex
-  flex-direction row
-  align-items center
-
-.navbar-form .form-control
-  margin-left 1em
+.selectors-item
+  margin 0 0.5em
+  padding 0.25em 0
 
 main
-  margin-top 2em
-  padding 2em 2vw
+  margin-top 4em
+  padding 0 2vw
   display flex
   flex-direction column
 
@@ -93,11 +103,12 @@ main > div
 
 #prev-month, #next-month
   position absolute
-  width 4em
-  height 6vh
+  width 8vh
+  height 8vh
+  min-width 50px
   min-height 50px
   z-index 1
-  top 32vh
+  top 31vh
   border none
   background-color lightslategrey
   opacity 0.5
@@ -106,13 +117,8 @@ main > div
 #prev-month
   left 0
 
-#prev-month:before
-  content '<'
-
 #next-month
   right 0
-#next-month:before
-  content '>'
 
 footer
   position fixed
@@ -122,7 +128,7 @@ footer
   display flex
   justify-content space-around
   flex-wrap wrap
-  background-color lightgrey
+  background-color darkgrey
   box-sizing border-box
 
 .footer-text
@@ -149,3 +155,17 @@ footer a
 
 .terms.hidden
   display none
+
+@media (max-width: 900px)
+  main
+    margin-top 11em
+  h1
+  h2
+    font-size 1.4em
+  nav
+    flex-direction column
+    background-color white
+  nav ul
+    font-size 1.5em
+  .selectors
+    color black
