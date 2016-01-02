@@ -1,6 +1,6 @@
 /* global Plotly */
 import 'whatwg-fetch'
-import _ from 'lodash'
+import sortByOrder from 'lodash.sortbyorder'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
@@ -80,7 +80,7 @@ export default class Plot {
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
-        _.sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
+        sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             const dataset = {
               name: result.flat_type,
@@ -175,7 +175,7 @@ export default class Plot {
         if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
         tbody.setAttribute('id', 'table-body')
-        _.sortByOrder(json.result.records, record => +record.resale_price, 'desc')
+        sortByOrder(json.result.records, record => +record.resale_price, 'desc')
           .forEach((transaction, index) => {
             const row = document.createElement('tr')
             row.classList.add('table-striped')
