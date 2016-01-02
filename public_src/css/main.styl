@@ -78,12 +78,12 @@ main > div
 
 #chart-container
   position relative
-  min-height 500px
+  min-height 400px
 
 #map
   width 100%
   height 70vh
-  min-height 500px
+  min-height 400px
 
 .chart-loading
   opacity 0.5
@@ -141,24 +141,32 @@ footer a
 .terms
   position fixed
   top 0
+  left 0
   z-index 1
   background white
-  margin 20vh 5vw 0
-  padding 5vw
+  margin 10vh 5vw
+  padding 2em
   display flex
   flex-direction column
   align-items center
   border 2px solid darkslategrey
 
+.terms-title h4
+  margin 0.5em
 .terms p
+  margin 0.5em
   align-self flex-start
+  font-size small
+.accept-terms
+  font-size small
+  margin-top 1em
 
 .terms.hidden
   display none
 
 @media (max-width: 900px)
   main
-    margin-top 11em
+    margin-top 8em
   h1
   h2
     font-size 1.4em
@@ -166,6 +174,21 @@ footer a
     flex-direction column
     background-color white
   nav ul
-    font-size 1.5em
+    padding 0.5em
+    font-size 1.2em
   .selectors
     color black
+    display flex
+    flex-direction row
+    flex-wrap wrap
+  footer
+    position static
+
+@media (max-width: 450px)
+  main
+    margin-top 9em
+  .selectors form
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    justify-content center
