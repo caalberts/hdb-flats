@@ -120,9 +120,9 @@ export default class Plot {
     table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
-    tableTitle.textContent =
+    tableTitle.innerHTML =
       'Resale Transactions for ' + capitalizeFirstLetters(type.toLowerCase()) +
-      ' Flats in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
+      ' Flats <br>in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
       ' in ' + getMonthYear(date)
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
@@ -189,7 +189,7 @@ export default class Plot {
         this.chartDetail.appendChild(table)
 
         // document.querySelector('rect.drag.ewdrag').scrollIntoView()
-        window.scrollTo(0, 630)
+        window.scrollTo(0, 625)
       })
   }
 }
