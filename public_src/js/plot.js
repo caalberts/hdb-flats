@@ -13,7 +13,6 @@ export default class Plot {
     this.layout = {
       hovermode: 'closest',
       autosize: true,
-      width: 700,
       height: 500,
       margin: {
         l: 50,
@@ -21,6 +20,21 @@ export default class Plot {
         t: 50,
         b: 50,
         pad: 10
+      }
+    }
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      this.layout.width = 500
+      this.layout.legend = {
+        x: 0.08,
+        y: 0.92,
+        xanchor: 'left',
+        yanchor: 'top'
+      }
+    } else {
+      this.layout.width = 700
+      this.layout.legend = {
+        y: 0.5,
+        yanchor: 'middle'
       }
     }
   }
@@ -120,9 +134,9 @@ export default class Plot {
     table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
-    tableTitle.innerHTML =
+    tableTitle.textContent =
       'Resale Transactions for ' + capitalizeFirstLetters(type.toLowerCase()) +
-      ' Flats <br>in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
+      ' Flats in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
       ' in ' + getMonthYear(date)
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
@@ -188,8 +202,8 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        // document.querySelector('rect.drag.ewdrag').scrollIntoView()
-        window.scrollTo(0, 625)
+        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 570)
+        else window.scrollTo(0, 600)
       })
   }
 }

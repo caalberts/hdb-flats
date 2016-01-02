@@ -3,13 +3,10 @@ export function removeChildren (elem) {
 }
 
 export function capitalizeFirstLetters (phrase) {
-  if (phrase.includes(' ')) {
-    return phrase.split(' ').map(word => capitalizeFirstLetters(word)).join(' ')
-  } else {
-    return phrase.split('').map((letter, index) => {
-      return index === 0 ? letter.toUpperCase() : letter
-    }).join('')
-  }
+  return phrase
+    .split(' ')
+    .map(word => word[0].toUpperCase() + word.slice(1))
+    .join(' ')
 }
 
 export function getMonthYear (dateStr) {
