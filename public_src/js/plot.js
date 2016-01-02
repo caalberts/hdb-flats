@@ -22,10 +22,19 @@ export default class Plot {
         pad: 10
       }
     }
-    if (window.matchMedia('(max-width: 900px)').matches) {
+    if (window.matchMedia('(max-width: 450px)').matches) {
+      this.layout.width = 300
+      this.layout.height = 400
+      this.layout.legend = {
+        x: 0,
+        y: 0.92,
+        xanchor: 'left',
+        yanchor: 'top'
+      }
+    } else if (window.matchMedia('(max-width: 900px)').matches) {
       this.layout.width = 500
       this.layout.legend = {
-        x: 0.08,
+        x: 0,
         y: 0.92,
         xanchor: 'left',
         yanchor: 'top'
