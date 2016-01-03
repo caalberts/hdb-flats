@@ -6,7 +6,7 @@ import InitDB from './util/InitDB.js'
 const app = express()
 const root = path.join(__dirname, '../public')
 
-const db = new InitDB
+const db = new InitDB()
 
 app.use(express.static(root))
 

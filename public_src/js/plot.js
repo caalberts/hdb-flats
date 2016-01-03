@@ -130,8 +130,6 @@ export default class Plot {
   listAllTransactions (town, type, date) {
     this.chartDetail = document.getElementById('chart-detail')
     const table = document.createElement('table')
-    table.className = 'table table-striped'
-    table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
     tableTitle.textContent =
@@ -172,9 +170,7 @@ export default class Plot {
 
     window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
-        if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
-        tbody.setAttribute('id', 'table-body')
         _.sortByOrder(json.result.records, record => +record.resale_price, 'desc')
           .forEach((transaction, index) => {
             const row = document.createElement('tr')

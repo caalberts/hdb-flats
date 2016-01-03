@@ -1,5 +1,5 @@
 export function removeChildren (elem) {
-  Array.from(elem.children).forEach(child => child.remove())
+  Array.from(elem.children).forEach(child => elem.removeChild(child))
 }
 
 export function capitalizeFirstLetters (phrase) {
