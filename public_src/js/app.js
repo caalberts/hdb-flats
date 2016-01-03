@@ -95,10 +95,9 @@ export class TimeSeries extends App {
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
     this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
 
-    this.chartTitle.textContent =
-      this.plot.chartType +
-      ' of HDB Resale Price in ' +
-      capitalizeFirstLetters(this.plot.town.toLowerCase())
+    this.chartTitle.innerHTML = this.plot.chartType === 'Average'
+      ? 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+      : 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
 
     this.plot.plotChart(this.plot.town)
   }
@@ -139,7 +138,7 @@ export class Maps extends App {
 
   drawChart () {
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
-    this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
+    this.chartTitle.textContent = 'Property Hotspots in ' + getMonthYear(this.heatmap.month)
     this.withinMonthRange(this.monthSelection.selectedIndex)
     this.heatmap.plotHeatmap(this.heatmap.month)
   }

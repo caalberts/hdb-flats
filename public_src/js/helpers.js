@@ -4,6 +4,8 @@ export function removeChildren (elem) {
 
 export function capitalizeFirstLetters (phrase) {
   return phrase
+    .toLowerCase()
+    .replace('/', ' / ')
     .split(' ')
     .map(word => word[0].toUpperCase() + word.slice(1))
     .join(' ')
