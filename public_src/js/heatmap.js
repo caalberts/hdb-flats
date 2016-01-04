@@ -8,7 +8,7 @@ export default class Heatmap {
     this.chartContainer = container
     this.db = new window.PouchDB('hdbresale')
 
-    const map = new google.maps.Map(this.mapDiv, {
+    this.map = new google.maps.Map(this.mapDiv, {
       center: new google.maps.LatLng(1.352083, 103.819836),
       zoom: 11
     })
@@ -16,7 +16,14 @@ export default class Heatmap {
     this.heatmap = new google.maps.visualization.HeatmapLayer({
       radius: 7
     })
-    this.heatmap.setMap(map)
+    this.heatmap.setMap(this.map)
+    this.centerMap = document.createElement('i')
+    this.centerMap.className = 'fa fa-crosshairs reset-map'
+    this.mapDiv.appendChild(this.centerMap)
+    this.centerMap.addEventListener('click', event => {
+      event.preventDefault()
+      this.resetMap(new google.maps.LatLng(1.352083, 103.819836))
+    })
   }
 
   plotHeatmap (month) {
@@ -78,5 +85,10 @@ export default class Heatmap {
       this.mapDiv.classList.remove('chart-loading')
       this.heatmap.setData(ticks)
     }
+  }
+
+  resetMap (location) {
+    this.map.setCenter(location)
+    this.map.setZoom(11)
   }
 }
