@@ -1,0 +1,62 @@
+#chart-detail
+  width 100%
+#chart-detail > table
+  width 100%
+  border-spacing 0
+#chart-detail thead
+  background darkslategrey
+  color white
+#chart-detail th
+#chart-detail td
+  text-align center
+  padding 0.5em
+#chart-detail tr:nth-child(even)
+  background lightgrey
+
+@media screen and (max-width: 750px)
+  #chart-detail thead tr
+    display none
+  #chart-detail tbody tr
+    display flex
+    flex-direction column
+  #chart-detail tr:nth-child(odd)
+    background lightgrey
+  #chart-detail tr:nth-child(even)
+    background none
+  #chart-detail td
+    display flex
+    justify-content flex-start
+  #chart-detail td:before
+    font-weight bold
+    width 50%
+    text-align start
+  #chart-detail td:nth-of-type(1):before
+    content "#"
+	#chart-detail td:nth-of-type(2):before
+    content "Block"
+	#chart-detail td:nth-of-type(3):before
+    content: "Street Name"
+	#chart-detail td:nth-of-type(4):before
+    content: "Storey Range"
+	#chart-detail td:nth-of-type(5):before
+    content: "Remaining Lease (years)"
+	#chart-detail td:nth-of-type(6):before
+    content: "Floor Area (sqm)"
+	#chart-detail td:nth-of-type(7):before
+    content: "Resale Price (SGD)"
+
+@media screen and (min-width: 751px)
+  #chart-detail td:nth-of-type(1):before
+    content ""
+  #chart-detail td:nth-of-type(2):before
+    content ""
+  #chart-detail td:nth-of-type(3):before
+    content: ""
+  #chart-detail td:nth-of-type(4):before
+    content: ""
+  #chart-detail td:nth-of-type(5):before
+    content: ""
+  #chart-detail td:nth-of-type(6):before
+    content: ""
+  #chart-detail td:nth-of-type(7):before
+    content: ""

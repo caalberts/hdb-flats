@@ -1,21 +1,21 @@
-'use strict'
-
 const _ = require('lodash')
 const math = require('mathjs')
 const jStat = require('jStat').jStat
 
-import {meta, time_seriesDB, AddressDB, heatmapDB} from './util/initDB.js'
+import InitDB from './util/InitDB.js'
 import {fetchData, geocode} from './util/fetchExtRes.js'
 
+const db = new InitDB()
+
 function getMeta () {
-  return meta.findOne().exec((err) => {
+  return db.meta.findOne().exec((err) => {
     if (err) throw err
     console.log('Retrieved meta data')
   })
 }
 
 function getAddressBook () {
-  return AddressDB.find().exec((err) => {
+  return db.Address.find().exec((err) => {
     if (err) throw err
     console.log('Address book loaded')
   })
@@ -79,13 +79,23 @@ function updateTimeSeries (data) {
   function updateOneTS (data) {
     if (!data.length) return 'Time-series updated'
     const entry = data.shift()
-    return time_seriesDB.findOneAndUpdate(
-      {town: entry.town, flat_type: entry.flat_type},
-      {time_series: entry.time_series},
-      {upsert: true}
-    ).exec(err => {
-      if (err) throw err
-    }).then(() => updateOneTS(data))
+    return db.time_seriesOLD
+      .findOne({town: entry.town, flat_type: entry.flat_type}).exec()
+      .then(old => {
+        entry.time_series.month = old.time_series.month.concat(entry.time_series.month)
+        entry.time_series.count = old.time_series.count.concat(entry.time_series.count)
+        entry.time_series.min = old.time_series.min.concat(entry.time_series.min)
+        entry.time_series.max = old.time_series.max.concat(entry.time_series.max)
+        entry.time_series.median = old.time_series.median.concat(entry.time_series.median)
+        entry.time_series.mean = old.time_series.mean.concat(entry.time_series.mean)
+        entry.time_series.ci95 = old.time_series.ci95.concat(entry.time_series.ci95)
+        return db.time_series.findOneAndUpdate(
+          {town: entry.town, flat_type: entry.flat_type},
+          {time_series: entry.time_series},
+          {upsert: true}
+        ).exec()
+      })
+      .then(() => updateOneTS(data))
   }
   return updateOneTS(data)
 }
@@ -147,7 +157,7 @@ function updateHMdb (pkg) {
   function updateOneHM (data) {
     if (!data.length) return 'Heat maps updated'
     const entry = data.shift()
-    return heatmapDB.findOneAndUpdate(
+    return db.heatmap.findOneAndUpdate(
       {flat_type: entry.flat_type, month: entry.month},
       {dataPoints: entry.dataPoints},
       {upsert: true}
@@ -159,7 +169,7 @@ function updateHMdb (pkg) {
   function updateOneAddress (data) {
     if (!data.length) return 'Address book updated'
     const entry = data.shift()
-    return new AddressDB(entry).save(err => {
+    return new db.Address(entry).save(err => {
       if (err) throw err
     }).then(() => updateOneAddress(data))
   }
@@ -209,7 +219,7 @@ function splitTask (src) {
 }
 
 function updateMeta (info) {
-  return meta.findOneAndUpdate({}, info.meta)
+  return db.meta.findOneAndUpdate({}, info.meta)
     .exec(err => {
       if (err) throw err
     }).then(() => info.msg)
@@ -225,5 +235,6 @@ Promise.all([
   .then(console.log)
   .catch(console.error)
   .then(function () {
+    db.mongoose.disconnect()
     console.log('Total time taken:', Date.now() - start)
   })

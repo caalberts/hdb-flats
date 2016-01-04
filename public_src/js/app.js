@@ -2,54 +2,53 @@ import Plot from './plot.js'
 import Heatmap from './heatmap.js'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
+window.PouchDB = require('pouchdb')
+
 export class App {
   constructor () {
-    this.chartNav = document.querySelector('.navbar-right')
-    this.chartTitle = document.querySelector('.chart-title')
+    this.chartNav = document.querySelector('.selectors')
+    this.chartTitle = document.getElementById('chart-title')
     this.chartContainer = document.getElementById('chart-container')
     this.chartDetail = document.getElementById('chart-detail')
-    this.dataCache = JSON.parse(window.sessionStorage.getItem('meta'))
-  }
-
-  static getMeta () {
-    const url = window.location.protocol + '//' + window.location.host + '/list'
-    const headers = { Accept: 'application/json' }
-    return window.fetch(url, headers).then(res => res.json()).then(meta => {
-      window.sessionStorage.setItem('meta', JSON.stringify({
-        townList: meta.townList,
-        flatList: meta.flatList,
-        monthList: meta.monthList
-      }))
-    })
   }
 
   createSelections (text, ...dropdowns) {
     const navbarText = document.createElement('p')
-    navbarText.classList.add('navbar-text')
+    navbarText.classList.add('selectors-item')
     navbarText.textContent = text
     this.chartNav.appendChild(navbarText)
 
     const form = document.createElement('form')
-    form.className = 'navbar-form form-inline'
 
     dropdowns.forEach(dropdown => {
       const selector = document.createElement('select')
       selector.setAttribute('id', dropdown.selector)
-      selector.className = 'form-control'
+      selector.classList.add('selectors-item')
       dropdown.options.forEach(item => {
         const option = document.createElement('option')
         option.textContent = item
         if (item === dropdown.defaultOption) option.setAttribute('selected', '')
-        selector.appendChild(option)
+        selector.add(option)
       })
-      selector.addEventListener('change', () => this.drawChart())
+      selector.addEventListener('change', event => this.drawChart())
       form.appendChild(selector)
     })
     this.chartNav.appendChild(form)
   }
 
-  showLoader (element) {
-    element.classList.add('loading')
+  createButtons () {
+    const prevButton = document.createElement('button')
+    prevButton.setAttribute('id', 'prev-month')
+    prevButton.textContent = '<'
+    prevButton.addEventListener('click', event => this.prevChart())
+    this.chartContainer.appendChild(prevButton)
+
+    const nextButton = document.createElement('button')
+    nextButton.setAttribute('id', 'next-month')
+    nextButton.textContent = '>'
+    nextButton.disabled = true
+    nextButton.addEventListener('click', event => this.nextChart())
+    this.chartContainer.appendChild(nextButton)
   }
 }
 
@@ -66,18 +65,19 @@ export class TimeSeries extends App {
     this.chartContainer.appendChild(this.plotDiv)
 
     this.plot = new Plot(
-      this.townSelection.options[this.townSelection.selectedIndex].text,
-      this.chartSelection.options[this.chartSelection.selectedIndex].text,
-      this.plotDiv
+      this.townSelection.options[this.townSelection.selectedIndex].value,
+      this.chartSelection.options[this.chartSelection.selectedIndex].value,
+      this.plotDiv,
+      this.chartContainer
     )
 
     this.drawChart()
   }
 
   drawForm () {
-    const text = 'Choose the town and data you wish to see'
+    const text = 'Choose town & chart type'
     const towns = {
-      options: this.dataCache.townList,
+      options: window.meta.townList,
       selector: 'select-town',
       defaultOption: 'Ang Mo Kio'
     }
@@ -90,18 +90,16 @@ export class TimeSeries extends App {
   }
 
   drawChart () {
-    this.showLoader(document.querySelector('main'))
     removeChildren(this.chartDetail)
 
-    this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].text
-    this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].text
+    this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
+    this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
 
-    this.chartTitle.textContent =
-      this.plot.chartType +
-      ' of HDB Resale Price in ' +
-      capitalizeFirstLetters(this.plot.town.toLowerCase())
+    this.chartTitle.innerHTML = this.plot.chartType === 'Average'
+      ? 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+      : 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
 
-    this.plot.plotChart()
+    this.plot.plotChart(this.plot.town)
   }
 }
 
@@ -110,35 +108,55 @@ export class Maps extends App {
     super()
 
     this.drawForm()
-
-    this.typeSelection = document.getElementById('select-type')
     this.monthSelection = document.getElementById('select-month')
+    this.prevButton = document.getElementById('prev-month')
+    this.nextButton = document.getElementById('next-month')
 
     this.mapDiv = document.createElement('div')
     this.mapDiv.setAttribute('id', 'map')
     this.chartContainer.appendChild(this.mapDiv)
 
     this.heatmap = new Heatmap(
-      this.monthSelection.options[this.monthSelection.selectedIndex].text,
-      this.mapDiv
+      this.monthSelection.options[this.monthSelection.selectedIndex].value,
+      this.mapDiv,
+      this.chartContainer
     )
+
     this.drawChart()
   }
 
   drawForm () {
-    const text = 'Choose the month'
+    const text = 'Choose month'
     const months = {
-      options: this.dataCache.monthList,
+      options: window.meta.monthList,
       selector: 'select-month',
       defaultOption: '2015-09'
     }
     this.createSelections(text, months)
+    this.createButtons()
   }
 
   drawChart () {
-    this.showLoader(document.querySelector('main'))
-    this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].text
-    this.chartTitle.textContent = 'Hottest Areas in ' + getMonthYear(this.heatmap.month)
-    this.heatmap.plotHeatmap()
+    this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
+    this.chartTitle.textContent = 'Property Hotspots in ' + getMonthYear(this.heatmap.month)
+    this.withinMonthRange(this.monthSelection.selectedIndex)
+    this.heatmap.plotHeatmap(this.heatmap.month)
+  }
+
+  prevChart () {
+    this.monthSelection.selectedIndex--
+    this.drawChart()
+  }
+
+  nextChart () {
+    this.monthSelection.selectedIndex++
+    this.drawChart()
+  }
+
+  withinMonthRange (idx) {
+    this.prevButton.disabled = false
+    this.nextButton.disabled = false
+    if (idx === 0) this.prevButton.disabled = true
+    if (idx === window.meta.monthList.length - 1) this.nextButton.disabled = true
   }
 }

@@ -1,54 +1,88 @@
 /* global Plotly */
 import 'whatwg-fetch'
-import _ from 'lodash'
+import sortByOrder from 'lodash.sortbyorder'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotDiv) {
+  constructor (town, type, plotDiv, container) {
     this.town = town
     this.chartType = type
-    this.plotSpace = plotDiv
-    this.dataCache = JSON.parse(window.sessionStorage.getItem('plotData')) || {}
+    this.plotDiv = plotDiv
+    this.chartContainer = container
+    this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
       autosize: true,
-      // width: 1000,
-      // height: 600,
+      height: 500,
       margin: {
         l: 50,
         r: 20,
-        b: 50,
         t: 50,
+        b: 50,
         pad: 10
+      }
+    }
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      this.layout.width = 500
+      this.layout.legend = {
+        x: 0.08,
+        y: 0.92,
+        xanchor: 'left',
+        yanchor: 'top'
+      }
+    } else {
+      this.layout.width = 700
+      this.layout.legend = {
+        y: 0.5,
+        yanchor: 'middle'
       }
     }
   }
 
-  plotChart () {
-    document.querySelector('#plot-space').classList.add('chart-loading')
-    this.getChartData().then(datasets => {
-      Plotly.newPlot(this.plotSpace, datasets, this.layout)
-      this.plotSpace.on('plotly_click', click => {
-        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+  plotChart (town) {
+    this.db.get(town)
+      .then(doc => {
+        this.renderData(doc)
+        if (doc.lastUpdate < window.meta.lastUpdate) {
+          this.getData(town).then(datasets => {
+            doc['Average'] = datasets[0]
+            doc['Min, Max & Median'] = datasets[1]
+            doc.lastUpdate = window.meta.lastUpdate
+            this.db.put(doc)
+              .then(console.log.bind(console))
+              .catch(console.error.bind(console))
+            this.renderData(doc)
+          })
+        }
       })
-      document.querySelector('.loading').classList.remove('loading')
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
-    })
+      .catch(() => {
+        this.chartContainer.classList.add('loading')
+        this.plotDiv.classList.add('chart-loading')
+        this.getData(town).then(datasets => {
+          const doc = {
+            '_id': town,
+            'lastUpdate': window.meta.lastUpdate,
+            'Average': datasets[0],
+            'Min, Max & Median': datasets[1]
+          }
+          this.db.put(doc)
+            .then(console.log.bind(console))
+            .catch(console.error.bind(console))
+          this.renderData(doc)
+        })
+      })
   }
 
-  getChartData () {
-    let storage = JSON.parse(window.sessionStorage.getItem(this.town))
-    if (storage) return Promise.resolve(storage[this.chartType])
-
-    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + this.town
+  getData (town) {
+    console.log('retrieving data from MongoDB')
+    const url = window.location.protocol + '//' + window.location.host + '/time_series?town=' + town
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
-        _.sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
+        sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             const dataset = {
-              town: result.town,
               name: result.flat_type,
               x: result.time_series.month,
               error_y: {
@@ -77,26 +111,31 @@ export default class Plot {
         })
         return datasets
       }
-      storage = {
-        'Average': prepareData('Average'),
-        'Min, Max & Median': prepareData('Min, Max & Median')
-      }
-      window.sessionStorage.setItem(this.town, JSON.stringify(storage))
-      return storage[this.chartType]
+      return [prepareData('Average'), prepareData('Min, Max & Median')]
     })
+  }
+
+  renderData (dataObj) {
+    if (dataObj._id !== this.town) console.warn('overlapping queries')
+    else {
+      this.chartContainer.classList.remove('loading')
+      this.plotDiv.classList.remove('chart-loading')
+      Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
+      this.plotDiv.on('plotly_click', click => {
+        this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
+      })
+    }
   }
 
   listAllTransactions (town, type, date) {
     this.chartDetail = document.getElementById('chart-detail')
     const table = document.createElement('table')
-    table.className = 'table table-striped'
-    table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
-    tableTitle.textContent =
-      'Resale Transactions for ' + capitalizeFirstLetters(type.toLowerCase()) +
-      ' Flats in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
-      ' in ' + getMonthYear(date)
+    tableTitle.innerHTML =
+      'Transactions Records for ' + capitalizeFirstLetters(type) +
+      ' Flats <span>in ' + capitalizeFirstLetters(this.town) +
+      ' in ' + getMonthYear(date) + '</span>'
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
     const headers = [
@@ -131,17 +170,16 @@ export default class Plot {
 
     window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
-        if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
         tbody.setAttribute('id', 'table-body')
-        _.sortByOrder(json.result.records, record => record.resale_price, 'desc')
+        sortByOrder(json.result.records, record => +record.resale_price, 'desc')
           .forEach((transaction, index) => {
             const row = document.createElement('tr')
             row.classList.add('table-striped')
             let rowData = [
               index + 1,
               transaction.block.trim(),
-              capitalizeFirstLetters(transaction.street_name.trim().toLowerCase()),
+              capitalizeFirstLetters(transaction.street_name.trim()),
               transaction.storey_range.trim().toLowerCase(),
               99 - (+transaction.month.slice(0, 4)) + (+transaction.lease_commence_date),
               transaction.floor_area_sqm,
@@ -160,6 +198,8 @@ export default class Plot {
 
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
+
+        window.scrollTo(0, 600)
       })
   }
 }

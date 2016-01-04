@@ -2,9 +2,11 @@
 import 'whatwg-fetch'
 
 export default class Heatmap {
-  constructor (month, plotId) {
+  constructor (month, mapDiv, container) {
     this.month = month
-    this.mapDiv = plotId
+    this.mapDiv = mapDiv
+    this.chartContainer = container
+    this.db = new window.PouchDB('hdbresale')
 
     const map = new google.maps.Map(this.mapDiv, {
       center: new google.maps.LatLng(1.352083, 103.819836),
@@ -17,36 +19,64 @@ export default class Heatmap {
     this.heatmap.setMap(map)
   }
 
-  getData () {
-    let storage = JSON.parse(window.sessionStorage.getItem(this.month))
-    if (storage) return Promise.resolve(storage)
+  plotHeatmap (month) {
+    this.db.get(month)
+      .then(doc => {
+        this.renderData(doc)
+        if (doc.lastUpdate < window.meta.lastUpdate) {
+          this.getData(month).then(dataPoints => {
+            doc.dataPoints = dataPoints
+            doc.lastUpdate = window.meta.lastUpdate
+            this.db.put(doc)
+              .then(console.log.bind(console))
+              .catch(console.error.bind(console))
+            this.renderData(doc)
+          })
+        }
+      })
+      .catch(() => {
+        this.chartContainer.classList.add('loading')
+        this.mapDiv.classList.add('chart-loading')
+        this.getData(month).then(dataPoints => {
+          const doc = {
+            '_id': month,
+            'lastUpdate': window.meta.lastUpdate,
+            'dataPoints': dataPoints
+          }
+          this.db.put(doc)
+            .then(console.log.bind(console))
+            .catch(console.error.bind(console))
+          this.renderData(doc)
+        })
+      })
+  }
 
+  getData (month) {
     this.heatmap.setData([])
-    const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + this.month
+    console.log('retrieving data from MongoDB')
+    const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + month
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
-      let dataset = []
-      results.forEach(result => dataset = dataset.concat(result.dataPoints))
-      dataset.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
-      storage = dataset
-      window.sessionStorage.setItem(this.month, JSON.stringify(storage))
-      return storage
+      let dataPoints = []
+      results.forEach(result => dataPoints = dataPoints.concat(result.dataPoints))
+      dataPoints.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
+      return dataPoints
     })
   }
 
-  plotHeatmap () {
-    document.querySelector('#map').classList.add('chart-loading')
-    this.getData().then(dataset => {
-      if (dataset.length === 0) console.warn('no data')
-      const ticks = dataset.map(tick => {
+  renderData (dataObj) {
+    if (dataObj._id !== this.month) console.warn('overlapping queries')
+    else if (dataObj.dataPoints.length === 0) console.warn('no data')
+    else {
+      const ticks = dataObj.dataPoints.map(tick => {
         return {
           location: new google.maps.LatLng(tick.lat, tick.lng),
           weight: tick.weight
         }
       })
-      document.querySelector('.loading').classList.remove('loading')
-      document.querySelector('.chart-loading').classList.remove('chart-loading')
+      this.chartContainer.classList.remove('loading')
+      this.mapDiv.classList.remove('chart-loading')
       this.heatmap.setData(ticks)
-    })
+    }
   }
 }

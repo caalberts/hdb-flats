@@ -1,48 +1,72 @@
+@require 'chart-table'
+
 html, body
   margin 0
   padding 0
-  font-family Helvetica, sans-serif
+  font-family 'Oxygen', Helvetica, Arial, sans-serif
 
 body
   display flex
   flex-direction column
 
+h1, h2
+  text-align center
+
+span
+  white-space: nowrap
+
 nav
-  padding 0 2vw
+  position fixed
+  width 100%
   top 0
-  background darkslategrey
+  background-color darkslategrey
   display flex
   flex-direction row
   justify-content space-between
-  flex-wrap wrap
   color white
+  z-index 1
+  box-sizing border-box
 
 nav ul
-  padding 0
+  margin 0
+  padding 1em 2vw
+  background-color darkslategrey
   list-style none
   display flex
   flex-direction row
+  justify-content space-around
 
-nav ul li
-  margin-right 1em
+.selectors
+  padding 1em 2vw
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+  align-items center
 
-nav ul li a
+form
+  display inline-block
+  color black
+
+.nav-item
+  margin 0 1em
+  padding 0.25em 0
+
+.nav-item a
   text-decoration none
   color white
 
-nav ul li a.active
-  font-weight bold
+.nav-item a.active
+  font-weight bolder
 
-.selectors
-  display flex
-  flex-direction row
-  align-items center
-
-.navbar-form .form-control
-  margin-left 1em
+.selectors-item
+  margin 0 0.5em
+  padding 0.25em 0
 
 main
-  padding 2em 2vw
+  margin-top 4em
+  margin-bottom 2.1em
+  padding 0 2vw
   display flex
   flex-direction column
 
@@ -53,45 +77,101 @@ main > div
   flex-direction column
   align-items center
 
-#chart-title
-  text-align center
-
-#chart-detail
-  width 100%
-
-#chart-detail > table
-  width 100%
-  border-spacing 0
-
-#chart-detail > table > tr
-  display flex
-  justify-content space-around
-
-#chart-detail th, #chart-detail td
-  text-align center
-  padding 0.5em
-
-#chart-detail thead
-  background darkslategrey
-  color white
-
-#chart-detail tr:nth-child(even)
-  background lightgrey
+#chart-container
+  position relative
+  min-height 500px
 
 #map
   width 100%
-  height 500px
-
-.loading::before
-  content url('../img/spin.svg')
-  z-index 1
-  position absolute
-  width 100%
-  left 0
-  top 50%
-  display flex
-  justify-content center
-  opacity 0.9
+  height 70vh
+  min-height 500px
 
 .chart-loading
   opacity 0.5
+
+.loading::after
+  content url('../img/spin.svg')
+  position absolute
+  width 100%
+  height 100%
+  left: 0
+  top: 0
+  display flex
+  justify-content center
+  align-items center
+  opacity 0.9
+
+#prev-month, #next-month
+  position absolute
+  width 7vh
+  height 7vh
+  min-width 50px
+  min-height 50px
+  z-index 1
+  top 31.5vh
+  border none
+  background-color lightslategrey
+  opacity 0.5
+  color white
+
+#prev-month
+  left 0
+
+#next-month
+  right 0
+
+footer
+  position fixed
+  bottom 0
+  width 100%
+  padding 0.5em
+  display flex
+  justify-content space-around
+  flex-wrap wrap
+  background-color darkgrey
+  box-sizing border-box
+
+.footer-text
+  margin 0.5em
+  font-size 0.6em
+
+footer a
+  text-decoration none
+
+.terms
+  position fixed
+  top 0
+  z-index 1
+  background white
+  margin 20vh 5vw 0
+  padding 5vw
+  display flex
+  flex-direction column
+  align-items center
+  border 2px solid darkslategrey
+
+.terms p
+  align-self flex-start
+
+.terms.hidden
+  display none
+
+@media (max-width: 900px)
+  main
+    margin-top 11em
+  h1
+  h2
+    font-size 1.4em
+  nav
+    flex-direction column
+    background-color white
+  nav ul
+    font-size 1.5em
+  .selectors
+    color black
+
+@media (max-height: 600px)
+  footer
+    position relative
+  main
+    margin-bottom 0
