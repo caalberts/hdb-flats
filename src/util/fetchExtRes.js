@@ -3,8 +3,8 @@ import fetch from 'node-fetch'
 export function fetchData () {
   const batchSize = 10000
   const resID = [
-    'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
-    'e119f1a2-e528-4535-adaf-2872b60dbf0a',
+    // 'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
+    // 'e119f1a2-e528-4535-adaf-2872b60dbf0a',
     '8d2112ca-726e-4394-9b50-3cdf5404e790'
   ]
 

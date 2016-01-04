@@ -1,29 +1,29 @@
-@media screen and (max-width: 760px)
-  #chart-detail
-    width 100%
-  #chart-detail > table
-    width 100%
-    border-spacing 0
-  #chart-detail table,
-  #chart-detail thead,
-  #chart-detail tbody,
-  #chart-detail th,
-  #chart-detail td,
-  #chart-detail tr
-    display block
+#chart-detail
+  width 100%
+#chart-detail > table
+  width 100%
+  border-spacing 0
+#chart-detail thead
+  background darkslategrey
+  color white
+#chart-detail th
+#chart-detail td
+  text-align center
+  padding 0.5em
+#chart-detail tr:nth-child(even)
+  background lightgrey
+
+@media screen and (max-width: 750px)
   #chart-detail thead tr
     display none
-  #chart-detail tr
+  #chart-detail tbody tr
     display flex
     flex-direction column
-    border-bottom darkslategrey
   #chart-detail tr:nth-child(odd)
     background lightgrey
   #chart-detail tr:nth-child(even)
     background none
   #chart-detail td
-    border none
-    padding 0.5em
     display flex
     justify-content flex-start
   #chart-detail td:before
@@ -45,23 +45,7 @@
 	#chart-detail td:nth-of-type(7):before
     content: "Resale Price (SGD)"
 
-@media screen and (min-width: 760px)
-  #chart-detail
-    width 100%
-  #chart-detail > table
-    width 100%
-    border-spacing 0
-  #chart-detail > table > tr
-    display flex
-    justify-content space-around
-  #chart-detail th, #chart-detail td
-    text-align center
-    padding 0.5em
-  #chart-detail thead
-    background darkslategrey
-    color white
-  #chart-detail tr:nth-child(even)
-    background lightgrey
+@media screen and (min-width: 751px)
   #chart-detail td:nth-of-type(1):before
     content ""
   #chart-detail td:nth-of-type(2):before

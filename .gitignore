@@ -5,3 +5,5 @@ config.js
 *.log
 *.log.*
 data/
+iron.json
+iron.worker

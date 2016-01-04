@@ -130,14 +130,12 @@ export default class Plot {
   listAllTransactions (town, type, date) {
     this.chartDetail = document.getElementById('chart-detail')
     const table = document.createElement('table')
-    table.className = 'table table-striped'
-    table.setAttribute('id', 'transactions-table')
 
     const tableTitle = document.createElement('h2')
-    tableTitle.textContent =
-      'Resale Transactions for ' + capitalizeFirstLetters(type.toLowerCase()) +
-      ' Flats in ' + capitalizeFirstLetters(this.town.toLowerCase()) +
-      ' in ' + getMonthYear(date)
+    tableTitle.innerHTML =
+      'Transactions Records for ' + capitalizeFirstLetters(type) +
+      ' Flats <span>in ' + capitalizeFirstLetters(this.town) +
+      ' in ' + getMonthYear(date) + '</span>'
     const thead = document.createElement('thead')
     const tr = document.createElement('tr')
     const headers = [
@@ -172,7 +170,6 @@ export default class Plot {
 
     window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
-        if (document.getElementById('table-body')) document.getElementById('table-body').remove()
         const tbody = document.createElement('tbody')
         tbody.setAttribute('id', 'table-body')
         sortByOrder(json.result.records, record => +record.resale_price, 'desc')
@@ -182,7 +179,7 @@ export default class Plot {
             let rowData = [
               index + 1,
               transaction.block.trim(),
-              capitalizeFirstLetters(transaction.street_name.trim().toLowerCase()),
+              capitalizeFirstLetters(transaction.street_name.trim()),
               transaction.storey_range.trim().toLowerCase(),
               99 - (+transaction.month.slice(0, 4)) + (+transaction.lease_commence_date),
               transaction.floor_area_sqm,
@@ -202,8 +199,7 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 570)
-        else window.scrollTo(0, 600)
+        window.scrollTo(0, 600)
       })
   }
 }

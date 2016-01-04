@@ -12,6 +12,9 @@ body
 h1, h2
   text-align center
 
+span
+  white-space: nowrap
+
 nav
   position fixed
   width 100%
@@ -62,6 +65,7 @@ form
 
 main
   margin-top 4em
+  margin-bottom 2.1em
   padding 0 2vw
   display flex
   flex-direction column
@@ -75,9 +79,6 @@ main > div
 
 #chart-container
   position relative
-
-#chart-container
-  position relative
   min-height 500px
 
 #map
@@ -88,9 +89,8 @@ main > div
 .chart-loading
   opacity 0.5
 
-.loading::before
+.loading::after
   content url('../img/spin.svg')
-  z-index 1
   position absolute
   width 100%
   height 100%
@@ -103,12 +103,12 @@ main > div
 
 #prev-month, #next-month
   position absolute
-  width 8vh
-  height 8vh
+  width 7vh
+  height 7vh
   min-width 50px
   min-height 50px
   z-index 1
-  top 31vh
+  top 31.5vh
   border none
   background-color lightslategrey
   opacity 0.5
@@ -169,3 +169,9 @@ footer a
     font-size 1.5em
   .selectors
     color black
+
+@media (max-height: 600px)
+  footer
+    position relative
+  main
+    margin-bottom 0
