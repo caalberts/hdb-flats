@@ -35,21 +35,6 @@ export class App {
     })
     this.chartNav.appendChild(form)
   }
-
-  createButtons () {
-    const prevButton = document.createElement('button')
-    prevButton.setAttribute('id', 'prev-month')
-    prevButton.textContent = '<'
-    prevButton.addEventListener('click', event => this.prevChart())
-    this.chartContainer.appendChild(prevButton)
-
-    const nextButton = document.createElement('button')
-    nextButton.setAttribute('id', 'next-month')
-    nextButton.textContent = '>'
-    nextButton.disabled = true
-    nextButton.addEventListener('click', event => this.nextChart())
-    this.chartContainer.appendChild(nextButton)
-  }
 }
 
 export class TimeSeries extends App {
@@ -109,8 +94,6 @@ export class Maps extends App {
 
     this.drawForm()
     this.monthSelection = document.getElementById('select-month')
-    this.prevButton = document.getElementById('prev-month')
-    this.nextButton = document.getElementById('next-month')
 
     this.mapDiv = document.createElement('div')
     this.mapDiv.setAttribute('id', 'map')
@@ -122,7 +105,31 @@ export class Maps extends App {
       this.chartContainer
     )
 
+    this.createButtons()
     this.drawChart()
+  }
+
+  createButtons () {
+    this.centerMap = document.createElement('i')
+    this.centerMap.setAttribute('id', 'reset-map')
+    this.centerMap.className = 'fa fa-crosshairs button'
+    this.chartContainer.appendChild(this.centerMap)
+    this.centerMap.addEventListener('click', event => this.heatmap.resetMap())
+
+    this.prevButton = document.createElement('button')
+    this.prevButton.setAttribute('id', 'prev-month')
+    this.prevButton.classList.add('button')
+    this.prevButton.textContent = '<'
+    this.prevButton.addEventListener('click', event => this.prevChart())
+    this.chartContainer.appendChild(this.prevButton)
+
+    this.nextButton = document.createElement('button')
+    this.nextButton.setAttribute('id', 'next-month')
+    this.nextButton.classList.add('button')
+    this.nextButton.textContent = '>'
+    this.nextButton.disabled = true
+    this.nextButton.addEventListener('click', event => this.nextChart())
+    this.chartContainer.appendChild(this.nextButton)
   }
 
   drawForm () {
@@ -133,7 +140,6 @@ export class Maps extends App {
       defaultOption: '2015-09'
     }
     this.createSelections(text, months)
-    this.createButtons()
   }
 
   drawChart () {

@@ -1,6 +1,8 @@
 /* global google */
 import 'whatwg-fetch'
 
+const mapCenter = new google.maps.LatLng(1.352083, 103.819836)
+
 export default class Heatmap {
   constructor (month, mapDiv, container) {
     this.month = month
@@ -9,7 +11,7 @@ export default class Heatmap {
     this.db = new window.PouchDB('hdbresale')
 
     this.map = new google.maps.Map(this.mapDiv, {
-      center: new google.maps.LatLng(1.352083, 103.819836),
+      center: mapCenter,
       zoom: 11
     })
 
@@ -17,13 +19,6 @@ export default class Heatmap {
       radius: 7
     })
     this.heatmap.setMap(this.map)
-    this.centerMap = document.createElement('i')
-    this.centerMap.className = 'fa fa-crosshairs reset-map'
-    this.mapDiv.appendChild(this.centerMap)
-    this.centerMap.addEventListener('click', event => {
-      event.preventDefault()
-      this.resetMap(new google.maps.LatLng(1.352083, 103.819836))
-    })
   }
 
   plotHeatmap (month) {
@@ -87,8 +82,8 @@ export default class Heatmap {
     }
   }
 
-  resetMap (location) {
-    this.map.setCenter(location)
+  resetMap () {
+    this.map.setCenter(mapCenter)
     this.map.setZoom(11)
   }
 }
