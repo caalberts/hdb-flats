@@ -1,9 +1,11 @@
 export function removeChildren (elem) {
-  Array.from(elem.children).forEach(child => child.remove())
+  Array.from(elem.children).forEach(child => elem.removeChild(child))
 }
 
 export function capitalizeFirstLetters (phrase) {
   return phrase
+    .toLowerCase()
+    .replace('/', ' / ')
     .split(' ')
     .map(word => word[0].toUpperCase() + word.slice(1))
     .join(' ')
