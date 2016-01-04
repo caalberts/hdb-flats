@@ -1,5 +1,7 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
+import marked from 'marked'
+import 'whatwg-fetch'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 window.PouchDB = require('pouchdb')
@@ -158,5 +160,15 @@ export class Maps extends App {
     this.nextButton.disabled = false
     if (idx === 0) this.prevButton.disabled = true
     if (idx === window.meta.monthList.length - 1) this.nextButton.disabled = true
+  }
+}
+
+export class About extends App {
+  constructor () {
+    super()
+    window.fetch('/getReadme', { Accept: 'application/json' }).then(res => res.json())
+      .then(content => {
+        document.querySelector('main').innerHTML = marked(content.md)
+      })
   }
 }
