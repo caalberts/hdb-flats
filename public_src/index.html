@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.6, maximum-scale=0.6">
     <script>
-      if (window.matchMedia('(min-device-width: 500px)').matches) {
+      if (
+        window.matchMedia('(min-device-width: 500px)').matches &&
+        window.matchMedia('(min-device-height: 500px)').matches
+      ) {
         document.querySelector('meta[name="viewport"]')
           .setAttribute('content','width=device-width, initial-scale=1, maximum-scale=1');
       }
