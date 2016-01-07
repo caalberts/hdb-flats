@@ -2,16 +2,24 @@ import Plot from './plot.js'
 import Heatmap from './heatmap.js'
 import marked from 'marked'
 import 'whatwg-fetch'
-import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
+import { appendChildren,
+         removeChildren,
+         capitalizeFirstLetters,
+         getMonthYear } from './helpers.js'
 
 window.PouchDB = require('pouchdb')
 
 export class App {
   constructor () {
+    removeChildren(document.querySelector('main'))
+    removeChildren(document.querySelector('.selectors'))
+    this.chartTitle = document.createElement('h1')
+    this.chartTitle.id = 'chart-title'
+    this.chartContainer = document.createElement('div')
+    this.chartContainer.id = 'chart-container'
+    this.chartDetail = document.createElement('div')
+    this.chartDetail.id = 'chart-detail'
     this.chartNav = document.querySelector('.selectors')
-    this.chartTitle = document.getElementById('chart-title')
-    this.chartContainer = document.getElementById('chart-container')
-    this.chartDetail = document.getElementById('chart-detail')
   }
 
   createSelections (text, ...dropdowns) {
@@ -37,11 +45,16 @@ export class App {
     })
     this.chartNav.appendChild(form)
   }
+
+  appendChartElements () {
+    appendChildren('main', this.chartTitle, this.chartContainer, this.chartDetail)
+  }
 }
 
 export class TimeSeries extends App {
   constructor () {
     super()
+    this.appendChartElements()
 
     this.drawForm()
     this.townSelection = document.getElementById('select-town')
@@ -93,6 +106,7 @@ export class TimeSeries extends App {
 export class Maps extends App {
   constructor () {
     super()
+    this.appendChartElements()
 
     this.drawForm()
     this.monthSelection = document.getElementById('select-month')
@@ -174,7 +188,10 @@ export class About extends App {
     super()
     window.fetch('/getReadme', { Accept: 'application/json' }).then(res => res.json())
       .then(content => {
-        document.querySelector('main').innerHTML = marked(content.md)
+        const about = document.createElement('section')
+        about.className = 'about'
+        about.innerHTML = marked(content.md)
+        appendChildren('main', about)
       })
   }
 }

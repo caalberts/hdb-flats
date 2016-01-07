@@ -1,15 +1,12 @@
 import 'whatwg-fetch'
 Array.from = require('array-from')
 import { TimeSeries, Maps, About } from './app.js'
-import { removeChildren, getMonthYear } from './helpers.js'
+import { getMonthYear } from './helpers.js'
 
 Array.from(document.querySelectorAll('.nav-item.route')).forEach(nav => {
   nav.addEventListener('click', event => {
     event.preventDefault()
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
-    removeChildren(document.getElementById('chart-container'))
-    removeChildren(document.getElementById('chart-detail'))
-    removeChildren(document.querySelector('.selectors'))
     route()
   })
 })
