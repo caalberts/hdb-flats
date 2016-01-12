@@ -13,7 +13,8 @@ export default class {
       lastUpdate: Date,
       townList: [String],
       flatList: [String],
-      monthList: [String]
+      monthList: [String],
+      old_monthList: [String]
     }))
 
     this.time_series = this.mongoose.model('time_series', new this.mongoose.Schema({

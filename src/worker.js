@@ -212,7 +212,7 @@ function splitTask (src) {
         'lastUpdate': new Date(),
         'townList': townList,
         'flatList': flatList,
-        'monthList': monthList
+        'monthList': src[0].old_monthList.concat(monthList)
       }
     }
   })
