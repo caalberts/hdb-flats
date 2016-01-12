@@ -37,6 +37,7 @@ export default class Heatmap {
         }
       })
       .catch(() => {
+        this.heatmap.setData([])
         this.chartContainer.classList.add('loading')
         this.mapDiv.classList.add('chart-loading')
         this.getData(month).then(dataPoints => {
@@ -54,7 +55,6 @@ export default class Heatmap {
   }
 
   getData (month) {
-    this.heatmap.setData([])
     console.log('retrieving data from MongoDB')
     const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + month
     const headers = { Accept: 'application/json' }
