@@ -4,11 +4,12 @@ import sortByOrder from 'lodash.sortbyorder'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotDiv, container) {
+  constructor (town, type, plotDiv, container, loadingScreen) {
     this.town = town
     this.chartType = type
     this.plotDiv = plotDiv
     this.chartContainer = container
+    this.loadingScreen = loadingScreen
     this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
@@ -56,7 +57,7 @@ export default class Plot {
         }
       })
       .catch(() => {
-        this.chartContainer.classList.add('loading')
+        this.loadingScreen.className = 'fa fa-spinner fa-pulse'
         this.plotDiv.classList.add('chart-loading')
         this.getData(town).then(datasets => {
           const doc = {
@@ -118,7 +119,7 @@ export default class Plot {
   renderData (dataObj) {
     if (dataObj._id !== this.town) console.warn('overlapping queries')
     else {
-      this.chartContainer.classList.remove('loading')
+      this.loadingScreen.className = 'fa'
       this.plotDiv.classList.remove('chart-loading')
       Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
       this.plotDiv.on('plotly_click', click => {

@@ -4,10 +4,11 @@ import 'whatwg-fetch'
 const mapCenter = new google.maps.LatLng(1.352083, 103.819836)
 
 export default class Heatmap {
-  constructor (month, mapDiv, container) {
+  constructor (month, mapDiv, container, loadingScreen) {
     this.month = month
     this.mapDiv = mapDiv
     this.chartContainer = container
+    this.loadingScreen = loadingScreen
     this.db = new window.PouchDB('hdbresale')
 
     this.map = new google.maps.Map(this.mapDiv, {
@@ -38,7 +39,7 @@ export default class Heatmap {
       })
       .catch(() => {
         this.heatmap.setData([])
-        this.chartContainer.classList.add('loading')
+        this.loadingScreen.className = 'fa fa-spinner fa-pulse'
         this.mapDiv.classList.add('chart-loading')
         this.getData(month).then(dataPoints => {
           const doc = {
@@ -76,7 +77,7 @@ export default class Heatmap {
           weight: tick.weight
         }
       })
-      this.chartContainer.classList.remove('loading')
+      this.loadingScreen.className = 'fa'
       this.mapDiv.classList.remove('chart-loading')
       this.heatmap.setData(ticks)
     }

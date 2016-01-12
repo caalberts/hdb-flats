@@ -19,6 +19,8 @@ export class App {
     this.chartContainer.id = 'chart-container'
     this.chartDetail = document.createElement('div')
     this.chartDetail.id = 'chart-detail'
+    this.loadingScreen = document.createElement('i')
+    this.loadingScreen.id = 'loading'
     this.chartNav = document.querySelector('.selectors')
   }
 
@@ -63,12 +65,14 @@ export class TimeSeries extends App {
     this.plotDiv = document.createElement('div')
     this.plotDiv.setAttribute('id', 'plot-space')
     this.chartContainer.appendChild(this.plotDiv)
+    this.chartContainer.appendChild(this.loadingScreen)
 
     this.plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].value,
       this.chartSelection.options[this.chartSelection.selectedIndex].value,
       this.plotDiv,
-      this.chartContainer
+      this.chartContainer,
+      this.loadingScreen
     )
 
     this.drawChart()
@@ -114,11 +118,13 @@ export class Maps extends App {
     this.mapDiv = document.createElement('div')
     this.mapDiv.setAttribute('id', 'map')
     this.chartContainer.appendChild(this.mapDiv)
+    this.chartContainer.appendChild(this.loadingScreen)
 
     this.heatmap = new Heatmap(
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
       this.mapDiv,
-      this.chartContainer
+      this.chartContainer,
+      this.loadingScreen
     )
 
     this.createButtons()
