@@ -38,8 +38,8 @@ function route () {
       return new TimeSeries()
     case '/maps':
       return new Maps()
-    case '/about':
-      return new About()
+    // case '/about':
+    //   return new About()
   }
 }
 
