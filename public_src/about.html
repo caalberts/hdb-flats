@@ -1,95 +1,85 @@
-<!DOCTYPE html>
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
-  <link rel="stylesheet" href="css/about.css">
-  <script src="js/iframeResizer.contentWindow.min.js"></script>
-</head>
-<body>
-  <section>
-    <h1>About this Project</h1>
+<section class="about">
+  <h1>About this Project</h1>
 
-    <p>
-      With Singapore rolling out its
-      <a href="http://www.smartnation-forbes.com/" target="_parent">Smart Nation Vision</a>
-      and the recent launch of IDA's new <a href="https://data.gov.sg/" target="_parent">open data portal</a>,
-      budding web developers <a href="https://github.com/caalberts" target="_parent">Albert Salim</a>
-      and <a href="https://github.com/yongjun21" target="_parent">Yong Jun</a>
-      embarked on building our first data visualization project.
-    </p>
+  <p>
+    With Singapore rolling out its
+    <a href="http://www.smartnation-forbes.com/" target="_parent">Smart Nation Vision</a>
+    and the recent launch of IDA's new <a href="https://data.gov.sg/" target="_parent">open data portal</a>,
+    budding web developers <a href="https://github.com/caalberts" target="_parent">Albert Salim</a>
+    and <a href="https://github.com/yongjun21" target="_parent">Yong Jun</a>
+    embarked on building our first data visualization project.
+  </p>
 
-    <p>
-      The two of us took a public dataset, the
-      <a href="https://data.gov.sg/dataset/resale-flat-prices" target="_parent">HDB Resale Flat Prices</a>,
-      and made use of the latest web technology to present data in the most visual and
-      accessible manner to help public better understand trends in the HDB resale market.
-      Our design is for the user to explore at the data from 2 perspectives: time and space.
-      Thus data is presented is 2 forms:
-    </p>
+  <p>
+    The two of us took a public dataset, the
+    <a href="https://data.gov.sg/dataset/resale-flat-prices" target="_parent">HDB Resale Flat Prices</a>,
+    and made use of the latest web technology to present data in the most visual and
+    accessible manner to help public better understand trends in the HDB resale market.
+    Our design is for the user to explore at the data from 2 perspectives: time and space.
+    Thus data is presented is 2 forms:
+  </p>
 
-    <ol type="i">
-      <li>A time series chart showing historical price trends</li>
-      <li>A heat map showing the hottest locations for HDB resale in Singapore.</li>
-    </ol>
+  <ol type="i">
+    <li>A time series chart showing historical price trends</li>
+    <li>A heat map showing the hottest locations for HDB resale in Singapore.</li>
+  </ol>
 
-    <p>
-      We hope the marriage of data and web can make data interesting to the average man on the street.
-      And hopefully public will become more aware of the availability of these open data
-      and how they can be tapped to make life better for everyone.
-      This is our contribution as web developers to the Smart Nation Movement.
-    </p>
-  </section>
+  <p>
+    We hope the marriage of data and web can make data interesting to the average man on the street.
+    And hopefully public will become more aware of the availability of these open data
+    and how they can be tapped to make life better for everyone.
+    This is our contribution as web developers to the Smart Nation Movement.
+  </p>
+</section>
 
-  <section>
-    <h1>How it works</h1>
+<section class="about">
+  <h1>How it works</h1>
 
-    <div class="img-ctn">
-      <img src="./img/Average_Screenshot.png" alt="Image not loaded"/>
-      <img src="./img/MMM_Screenshot.png" alt="Image not loaded" />
-    </div>
+  <div class="img-ctn">
+    <img src="./img/Average_Screenshot.png" alt="Image not loaded"/>
+    <img src="./img/MMM_Screenshot.png" alt="Image not loaded" />
+  </div>
 
-    <ul>
-      <li>The <b>Charts</b> tab opens a time-series chart of historical resale prices.</li>
-      <li>User can toggle between two modes: <b>Average</b> & <b>Min, Max & Median</b>.</li>
-      <li>User chooses the <b>town</b> and returned chart is a set of time-series broken down by <b>flat types</b>.</li>
-    </ul>
+  <ul>
+    <li>The <b>Charts</b> tab opens a time-series chart of historical resale prices.</li>
+    <li>User can toggle between two modes: <b>Average</b> & <b>Min, Max & Median</b>.</li>
+    <li>User chooses the <b>town</b> and returned chart is a set of time-series broken down by <b>flat types</b>.</li>
+  </ul>
 
-    <h3>Average</h3>
-    <p>
-      Markers represent average transaction price in that month while the error bars represent
-      the uncertainty around this average value based on the number of data points available.
-      To calculate this uncertainty, we used 95% t-confidence interval.
-    </p>
+  <h3>Average</h3>
+  <p>
+    Markers represent average transaction price in that month while the error bars represent
+    the uncertainty around this average value based on the number of data points available.
+    To calculate this uncertainty, we used 95% t-confidence interval.
+  </p>
 
-    <h3>Min, Max & Median</h3>
-    <p>
-      Markers represent median transaction price while top and bottom error bars connect
-      median price respectively to the highest and lowest transacted prices.
-    </p>
-  </section>
+  <h3>Min, Max & Median</h3>
+  <p>
+    Markers represent median transaction price while top and bottom error bars connect
+    median price respectively to the highest and lowest transacted prices.
+  </p>
+</section>
 
-  <section>
-    <div class="img-ctn">
-      <img src="./img/Heatmap_Screenshot.png" alt="Image not loaded" />
-    </div>
+<section class="about">
+  <div class="img-ctn">
+    <img src="./img/Heatmap_Screenshot.png" alt="Image not loaded" />
+  </div>
 
-    <h3>Heatmap</h3>
-    <p>
-      The <b>Maps</b> tab opens a geographical heat map of resale transactions organized by month.
-      Red spots indicates areas where there's either:
-    </p>
-    <ol type="i">
-      <li>a concentration of transactions or</li>
-      <li>existence of data points with higher than average transaction prices</li>
-    </ol>
+  <h3>Heatmap</h3>
+  <p>
+    The <b>Maps</b> tab opens a geographical heat map of resale transactions organized by month.
+    Red spots indicates areas where there's either:
+  </p>
+  <ol type="i">
+    <li>a concentration of transactions or</li>
+    <li>existence of data points with higher than average transaction prices</li>
+  </ol>
 
-    <h3>Navigation</h3>
-    <ul>
-      <li>To select a particular month, either use the drop down or</li>
-      <li>Click on the buttons on the sides to scroll to previous month or next month.</li>
-      <li>Pan and pinch to explore.</li>
-      <li>Click on button at the bottom will re-center the map.</li>
-    </ul>
-  </section>
-  <footer></footer>
-</body>
+  <h3>Navigation</h3>
+  <ul>
+    <li>To select a particular month, either use the drop down or</li>
+    <li>Click on the buttons on the sides to scroll to previous month or next month.</li>
+    <li>Pan and pinch to explore.</li>
+    <li>Click on button at the bottom will re-center the map.</li>
+  </ul>
+</section>

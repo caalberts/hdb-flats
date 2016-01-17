@@ -9,17 +9,11 @@ body
   display flex
   flex-direction column
 
-h1, h2
+#chart-title, h2
   text-align center
 
 span
   white-space: nowrap
-
-iframe
-  border none
-  width: 100%
-  max-width 1060px
-  margin 0 auto
 
 nav
   position fixed
@@ -144,6 +138,19 @@ main > div
   top 31.5vh
   right 0
 
+section.about
+  max-width 1000px
+  width 90vw
+  margin 0 auto 60px
+  padding 0 3vw
+  text-align justify
+
+.img-ctn
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+
 footer
   position fixed
   bottom 0
@@ -183,9 +190,10 @@ footer a
 @media (max-width: 900px)
   main
     margin-top 6em
-  h1
+  #chart-title
     margin-top 3.67em
-  h1, h2
+    font-size 1.4em
+  h2
     font-size 1.4em
   nav
     flex-direction column
