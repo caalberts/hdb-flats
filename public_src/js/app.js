@@ -194,7 +194,7 @@ export class About extends App {
     super()
     const about = document.createElement('iframe')
     about.className = 'about'
-    about.src = '/about.html'
+    about.src = 'about.html'
     appendChildren('main', about)
     iframeResizer({}, about)
   }
