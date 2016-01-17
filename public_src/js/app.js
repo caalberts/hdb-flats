@@ -1,6 +1,6 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
-import marked from 'marked'
+import {iframeResizer} from 'iframe-resizer'
 import 'whatwg-fetch'
 import { appendChildren,
          removeChildren,
@@ -192,12 +192,10 @@ export class Maps extends App {
 export class About extends App {
   constructor () {
     super()
-    window.fetch('/getReadme', { Accept: 'application/json' }).then(res => res.json())
-      .then(content => {
-        const about = document.createElement('section')
-        about.className = 'about'
-        about.innerHTML = marked(content.md)
-        appendChildren('main', about)
-      })
+    const about = document.createElement('iframe')
+    about.className = 'about'
+    about.src = '/about.html'
+    appendChildren('main', about)
+    iframeResizer({}, about)
   }
 }

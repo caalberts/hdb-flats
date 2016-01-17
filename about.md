@@ -10,9 +10,7 @@ In this project, Yong Jun & Albert wanted to work on a public dataset and presen
 ## Charts Tab
 <!-- Build a div replica of the Charts tab here-->
 
-![time_series_avg](/img/Average_Screenshot.png)
-
-![time_series_mmm](/img/MMM_Screenshot.png)
+![time_series_avg](/img/Average_Screenshot.png) ![time_series_mmm](/img/MMM_Screenshot.png)
 
 <!-- Use display: inline-block for the two screenshots-->
 

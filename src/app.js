@@ -47,14 +47,6 @@ app.get('/heatmap', function (req, res) {
   })
 })
 
-app.get('/getReadme', function (req, res) {
-  fs.readFile(path.join(__dirname, '../about.md'), 'utf8', (err, data) => {
-    if (err) console.error(err)
-    const readme = { md: data }
-    res.json(readme)
-  })
-})
-
 app.use(fallback('index.html', { root }))
 
 export default app
