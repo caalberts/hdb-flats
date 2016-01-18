@@ -16,8 +16,8 @@ Besides making **Mr Data** a better ~~man~~ data, **Ms Web** does have a few tri
 
  #### Charts Tab
  <!-- Build a div replica of the Charts tab here-->
- ![time_series_avg](public_src/img/Average_Screenshot.png)
- ![time_series_mmm](public_src/img/MMM_Screenshot.png)
+ ![time_series_avg](public/img/Average_Screenshot.png)
+ ![time_series_mmm](public/img/MMM_Screenshot.png)
  <!-- Use display: inline-block for the two screenshots-->
 
 The **Charts** tab opens a time-series chart of historical resale prices . User can toggle between two modes: **Average** & **Min, Max & Median**. User chooses the **town** and returned chart is a set of time-series broken down by **flat types**.
@@ -30,7 +30,7 @@ Markers represent median transaction price while top and bottom error bars conne
 
 #### Maps Tab
  <!-- Build a div replica of the Maps tab here-->
-![heatmap](public_src/img/Heatmap_Screenshot.png)
+![heatmap](public/img/Heatmap_Screenshot.png)
 
 The **Maps** tab opens a geographical heat map of resale transactions organized by month. Red spots indicates areas where there's either *1)* a concentration of transactions or *2)* existence of data points with higher than average transaction prices.
 

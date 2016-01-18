@@ -1,6 +1,7 @@
 import express from 'express'
 import fallback from 'express-history-api-fallback'
 import path from 'path'
+import fs from 'fs'
 import InitDB from './util/InitDB.js'
 
 const app = express()
@@ -46,8 +47,12 @@ app.get('/heatmap', function (req, res) {
   })
 })
 
-app.get('/about', function (req, res) {
-  res.sendFile(root + '/about.html')
+app.get('/getReadme', function (req, res) {
+  fs.readFile(path.join(__dirname, '../about.md'), 'utf8', (err, data) => {
+    if (err) console.error(err)
+    const readme = { md: data }
+    res.json(readme)
+  })
 })
 
 app.use(fallback('index.html', { root }))

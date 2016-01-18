@@ -1,5 +1,9 @@
+export function appendChildren (element, ...children) {
+  children.forEach(child => document.querySelector(element).appendChild(child))
+}
+
 export function removeChildren (elem) {
-  Array.from(elem.children).forEach(child => elem.removeChild(child))
+  if (elem) Array.from(elem.children).forEach(child => elem.removeChild(child))
 }
 
 export function capitalizeFirstLetters (phrase) {
