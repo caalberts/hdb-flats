@@ -1,7 +1,6 @@
 import express from 'express'
 import fallback from 'express-history-api-fallback'
 import path from 'path'
-import fs from 'fs'
 import InitDB from './util/InitDB.js'
 
 const app = express()

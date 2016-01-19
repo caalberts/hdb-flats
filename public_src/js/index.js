@@ -40,6 +40,8 @@ function route () {
       return new Maps()
     case '/about':
       return new About()
+    default:
+      return new About()
   }
 }
 
