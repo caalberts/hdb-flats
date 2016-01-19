@@ -200,7 +200,7 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 590)
+        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 580)
         else window.scrollTo(0, 600)
       })
   }
