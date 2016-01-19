@@ -1,6 +1,8 @@
 # Home Value Appreciation
 #### A Web Visualization Project [![Build Status](https://travis-ci.org/yongjun21/hdb-resale.svg?branch=master)](https://travis-ci.org/yongjun21/hdb-resale) [![Dependency Status](https://gemnasium.com/yongjun21/hdb-resale.svg)](https://gemnasium.com/yongjun21/hdb-resale)
 
+#### Deployed at: [https://hdbresale.daburu.xyz](https://hdbresale.daburu.xyz)
+
 [![Screenshot](./public_src/img/Heatmap_Screenshot.png)](https://hdbresale.daburu.xyz/)
 
 ## Introduction
@@ -20,6 +22,7 @@ Below is an overview of the tools and frameworks used in our application stack:
 [![Project Stack](./public_src/img/CodePen.png)](http://codepen.io/yongjun21/pen/GomBjv)
 
 Our application stack is broken down to 3 layers:
+
 1. Pre-computation layer
 2. Server layer
 3. Application layer
