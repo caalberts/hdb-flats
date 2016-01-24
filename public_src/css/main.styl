@@ -9,8 +9,19 @@ body
   display flex
   flex-direction column
 
-#chart-title, h2
+#chart-title, #chart-detail-title
   text-align center
+
+#chart-detail-title
+  margin-top 0
+
+#chart-detail-title::before
+  content " "
+  display block
+  height 64px
+  margin-top -64px
+  margin-bottom 0.83em
+  visibility hidden
 
 span
   white-space: nowrap
@@ -70,15 +81,15 @@ main
   flex-direction column
 
 main > div
-  margin 0 auto 1em
+  margin 0 auto
   width 96vw
-  display flex
-  flex-direction column
-  align-items center
 
 #chart-container
   position relative
   min-height 500px
+  display flex
+  flex-direction column
+  align-items center
 
 #map
   width 100%
@@ -190,9 +201,13 @@ footer a
     margin-top 6em
   #chart-title
     margin-top 4.33em
-    font-size 1.4em
-  h2
-    font-size 1.4em
+    font-size 1.33em
+  #chart-detail-title
+    font-size 1.33em
+  #chart-detail-title::before
+    height 183px
+    margin-top -183px
+
   nav
     flex-direction column
     background-color white

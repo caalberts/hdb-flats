@@ -133,6 +133,7 @@ export default class Plot {
     const table = document.createElement('table')
 
     const tableTitle = document.createElement('h2')
+    tableTitle.id = 'chart-detail-title'
     tableTitle.innerHTML =
       'Transactions Records for ' + capitalizeFirstLetters(type) +
       ' Flats <span>in ' + capitalizeFirstLetters(this.town) +
@@ -200,8 +201,7 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 580)
-        else window.scrollTo(0, 600)
+        document.getElementById('chart-detail-title').scrollIntoView()
       })
   }
 }
