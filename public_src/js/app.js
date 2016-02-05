@@ -158,7 +158,7 @@ export class Maps extends App {
     const months = {
       options: window.meta.monthList,
       selector: 'select-month',
-      defaultOption: '2015-09'
+      defaultOption: window.meta.monthList[window.meta.monthList.length - 1]
     }
     this.createSelections(text, months)
   }

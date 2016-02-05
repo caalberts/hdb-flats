@@ -8,7 +8,7 @@
     "start-server": "node dist/server.js",
     "build": "npm run clean && mkdir public && mkdir public/js && mkdir public/css && npm run build-all",
     "build-all": "npm run build-src & npm run build-html & npm run build-css & npm run build-img & npm run build-js",
-    "build-src": "babel src --out-dir dist --presets es2015",
+    "build-src": "babel src --out-dir dist",
     "build-html": "cp public_src/*.html public/",
     "build-css": "stylus public_src/css/main.styl --include-css -o public/css/",
     "build-img": "cp -r public_src/img public/img",
