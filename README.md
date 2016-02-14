@@ -1,5 +1,6 @@
-# Home Value Appreciation
-#### A Web Visualization Project [![Build Status](https://travis-ci.org/yongjun21/hdb-resale.svg?branch=master)](https://travis-ci.org/yongjun21/hdb-resale) [![Dependency Status](https://gemnasium.com/yongjun21/hdb-resale.svg)](https://gemnasium.com/yongjun21/hdb-resale)
+# Visualization of HDB Resale Market
+
+[![Build Status](https://travis-ci.org/yongjun21/hdb-resale.svg?branch=master)](https://travis-ci.org/yongjun21/hdb-resale) [![Dependency Status](https://gemnasium.com/yongjun21/hdb-resale.svg)](https://gemnasium.com/yongjun21/hdb-resale)
 
 #### Deployed at: [https://hdbresale.daburu.xyz](https://hdbresale.daburu.xyz)
 

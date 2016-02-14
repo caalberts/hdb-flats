@@ -3,8 +3,8 @@ Array.from = require('array-from')
 import { TimeSeries, Maps, About } from './app.js'
 import { getMonthYear } from './helpers.js'
 
-Array.from(document.querySelectorAll('.nav-item.route')).forEach(nav => {
-  nav.addEventListener('click', event => {
+Array.from(document.querySelectorAll('.route')).forEach(a => {
+  a.addEventListener('click', event => {
     event.preventDefault()
     window.history.pushState(null, '', event.target.textContent.toLowerCase())
     route()
@@ -26,7 +26,7 @@ window.onload = function () {
 }
 
 function route () {
-  Array.from(document.querySelectorAll('.nav-item a')).forEach(a => {
+  Array.from(document.querySelectorAll('.route')).forEach(a => {
     a.classList.remove('active')
     if (a.pathname === window.location.pathname) a.classList.add('active')
   })
