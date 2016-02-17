@@ -1,0 +1,10 @@
+runtime "node"
+stack "node-4.1"
+exec "dist/worker.js"
+dir "dist/util/"
+dir "node_modules/"
+file "package.json"
+set_env "HDBRESALE_MONGODB_USER", ENV["HDBRESALE_MONGODB_USER"]
+set_env "HDBRESALE_MONGODB_PASSWORD", ENV["HDBRESALE_MONGODB_PASSWORD"]
+set_env "HDBRESALE_MONGODB_URL", ENV["HDBRESALE_MONGODB_URL"]
+set_env "GOOGLEMAPS_SERVER_KEY", ENV["GOOGLEMAPS_SERVER_KEY"]

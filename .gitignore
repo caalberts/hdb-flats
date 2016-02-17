@@ -6,4 +6,3 @@ config.js
 *.log.*
 data/
 iron.json
-iron.worker
