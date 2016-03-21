@@ -159,14 +159,12 @@ export default class Plot {
     table.appendChild(thead)
 
     const resID = [
-      'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
-      'e119f1a2-e528-4535-adaf-2872b60dbf0a',
-      '8d2112ca-726e-4394-9b50-3cdf5404e790'
+      '8c00bf08-9124-479e-aeca-7cc411d884c4',
+      '83b2fc37-ce8c-4df4-968b-370fd818138b'
     ]
     date = date.slice(0, 7)
     const resource =
-      date < '2005-01' ? resID[0]
-      : date < '2012-03' ? resID[1] : resID[2]
+      date < '2012-03' ? resID[0] : resID[1]
     const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource +
       '&q={"town":"' + town + '","flat_type":"' + type + '","month":"' + date + '"}'
 
