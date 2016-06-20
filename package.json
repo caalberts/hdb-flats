@@ -54,7 +54,7 @@
   "devDependencies": {
     "babel-istanbul": "^0.6.0",
     "chai": "^3.4.1",
-    "codecov.io": "^0.1.6",
+    "codecov.io": "^0.1.7",
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0",
     "nodemon": "^1.8.1",
