@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/caalberts/hdb-flats.git"
+    "url": "https://github.com/yongjun21/hdb-resale.git"
   },
   "author": "Yong Jun, Albert",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/caalberts/hdb-flats/issues"
+    "url": "https://github.com/yongjun21/hdb-resale/issues"
   },
-  "homepage": "https://github.com/caalberts/hdb-flats#readme",
+  "homepage": "https://github.com/yongjun21/hdb-resale#readme",
   "dependencies": {
     "array-from": "^2.0.2",
     "babel-cli": "^6.4.0",

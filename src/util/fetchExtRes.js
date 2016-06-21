@@ -37,7 +37,7 @@ export function geocode (block, street) {
         .then(res => res.json())
         .then(data => {
           if (data.status !== 'OK') throw new Error(data.status)
-          let postalCode = data.results[0].address_components.find(el => el.types.includes('postal_code'))
+          let postalCode = data.results[0].address_components.find(el => el.types.indexOf('postal_code') > -1)
           let lng = data.results[0].geometry.location.lng
           let lat = data.results[0].geometry.location.lat
           postalCode = postalCode ? postalCode.short_name : null
