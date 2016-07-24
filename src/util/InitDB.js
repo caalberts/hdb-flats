@@ -27,7 +27,9 @@ export default class {
         max: [Number],
         median: [Number],
         mean: [Number],
-        ci95: [Number]
+        ci95: [Number],
+        loess: [Number],
+        loessError: [Number]
       }
     }))
 
@@ -46,6 +48,7 @@ export default class {
     }))
 
     this.Address = this.mongoose.model('address', new this.mongoose.Schema({
+      town: String,
       street: String,
       block: String,
       postalCode: Number,

@@ -64,7 +64,8 @@ export default class Plot {
             '_id': town,
             'lastUpdate': window.meta.lastUpdate,
             'Average': datasets[0],
-            'Min, Max & Median': datasets[1]
+            'Min, Max & Median': datasets[1],
+            'Smoothed': datasets[2]
           }
           this.db.put(doc)
             .then(console.log.bind(console))
@@ -81,38 +82,73 @@ export default class Plot {
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
+        const datasets_defer = []
         sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
-            const dataset = {
-              name: result.flat_type,
-              x: result.time_series.month,
-              error_y: {
-                type: 'data',
-                visible: true,
-                thickness: 1,
-                width: 0
-              },
-              type: 'scatter',
-              mode: 'markers',
-              marker: {
-                size: 3
+            if (chartType === 'Smoothed' && result.time_series.month.length > 100) {
+              const dataset = {
+                name: result.flat_type,
+                x: result.time_series.month,
+                y: result.time_series.loess,
+                type: 'scatter',
+                mode: 'lines',
+                line: {color: 'rgba(0, 0, 0, 0.1)'},
+                showlegend: false
               }
-            }
-            if (chartType === 'Average') {
-              dataset.y = result.time_series.mean
-              dataset.error_y.array = result.time_series.ci95
+              const fill_x = []
+              const fill_y = []
+              for (let i = 0; i < result.time_series.month.length; i++) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i] + result.time_series.loessError[i])
+              }
+              for (let i = result.time_series.month.length - 1; i > -1; i--) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i] - result.time_series.loessError[i])
+              }
+              fill_x.push(result.time_series.month[0])
+              fill_y.push(result.time_series.loess[0] + result.time_series.loessError[0])
+              const dataset_fill = {
+                name: result.flat_type,
+                x: fill_x,
+                y: fill_y,
+                type: 'scatter',
+                line: {width: 1},
+                fill: 'tozerox'
+              }
+              datasets.push(dataset_fill)
+              datasets_defer.push(dataset)
             } else {
-              dataset.y = result.time_series.median
-              dataset.error_y.symmetric = false
-              dataset.error_y.array = result.time_series.max
-              dataset.error_y.arrayminus = result.time_series.min
+              const dataset = {
+                name: result.flat_type,
+                x: result.time_series.month,
+                error_y: {
+                  type: 'data',
+                  visible: true,
+                  thickness: 1,
+                  width: 0
+                },
+                type: 'scatter',
+                mode: 'markers',
+                marker: {
+                  size: 3
+                }
+              }
+              if (chartType === 'Average') {
+                dataset.y = result.time_series.mean
+                dataset.error_y.array = result.time_series.ci95
+              } else {
+                dataset.y = result.time_series.median
+                dataset.error_y.symmetric = false
+                dataset.error_y.array = result.time_series.max
+                dataset.error_y.arrayminus = result.time_series.min
+              }
+              datasets.push(dataset)
             }
-            datasets.push(dataset)
           }
         })
-        return datasets
+        return datasets.concat(datasets_defer)
       }
-      return [prepareData('Average'), prepareData('Min, Max & Median')]
+      return [prepareData('Average'), prepareData('Min, Max & Median'), prepareData('Smoothed')]
     })
   }
 

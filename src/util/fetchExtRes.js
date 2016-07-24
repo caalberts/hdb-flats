@@ -28,12 +28,13 @@ export function fetchData () {
     .then(recordSet => recordSet.reduce((combined, records) => combined.concat(records), []))
 }
 
-export function geocode (block, street) {
-  const url = 'https://maps.googleapis.com/maps/api/geocode/json?address="' +
-    block + street + ' SINGAPORE"&key=' + process.env.GOOGLEMAPS_SERVER_KEY
+export function geocode (block, street, town) {
+  const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+    block + ' ' + street.replace(/\'/, '') + ' SINGAPORE&key=' + process.env.GOOGLEMAPS_SERVER_KEY
 
   return new Promise((resolve, reject) => {
-    setTimeout(resolve, 150, fetch(url)
+    setTimeout(resolve, 150,
+      fetch(url)
         .then(res => res.json())
         .then(data => {
           if (data.status !== 'OK') throw new Error(data.status)
@@ -44,6 +45,7 @@ export function geocode (block, street) {
           lng = lng === 103.819836 ? null : lng
           lat = lat === 1.352083 ? null : lat
           return {
+            'town': town,
             'street': street,
             'block': block,
             'postalCode': postalCode,

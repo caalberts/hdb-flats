@@ -85,9 +85,9 @@ export class TimeSeries extends App {
       defaultOption: 'Ang Mo Kio'
     }
     const charts = {
-      options: ['Average', 'Min, Max & Median'],
+      options: ['Average', 'Min, Max & Median', 'Smoothed'],
       selector: 'select-chart',
-      defaultOption: 'Average'
+      defaultOption: 'Smoothed'
     }
     this.createSelections(text, towns, charts)
   }
@@ -98,9 +98,13 @@ export class TimeSeries extends App {
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
     this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
 
-    this.chartTitle.innerHTML = this.plot.chartType === 'Average'
-      ? 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
-      : 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
+    if (this.plot.chartType === 'Smoothed') {
+      this.chartTitle.innerHTML = 'Historical Trend of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+    } else if (this.plot.chartType === 'Average') {
+      this.chartTitle.innerHTML = 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+    } else {
+      this.chartTitle.innerHTML = 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
+    }
 
     this.plot.plotChart(this.plot.town)
   }
