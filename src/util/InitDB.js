@@ -27,7 +27,7 @@ export default class {
         max: [Number],
         median: [Number],
         mean: [Number],
-        ci95: [Number],
+        std: [Number],
         loess: [Number],
         loessError: [Number]
       }
@@ -43,7 +43,7 @@ export default class {
         max: [Number],
         median: [Number],
         mean: [Number],
-        ci95: [Number]
+        std: [Number]
       }
     }))
 

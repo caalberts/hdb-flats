@@ -40,7 +40,7 @@ export function processData ({data, meta}) {
         let max = []
         let median = []
         let mean = []
-        let ci95 = []
+        let std = []
         Object.keys(byMonth).sort().forEach(mth => {
           month.push(mth)
           count.push(byMonth[mth].length)
@@ -49,25 +49,18 @@ export function processData ({data, meta}) {
           max.push(math.max(resale_price))
           median.push(math.median(resale_price))
           mean.push(math.mean(resale_price))
-          ci95.push(math.std(resale_price))
+          std.push(math.std(resale_price))
         })
         if (month.length) {
           min = math.subtract(median, min)
           max = math.subtract(max, median)
           mean = math.multiply(math.round(math.divide(mean, 1000)), 1000)
-          ci95 = math.dotDivide(ci95, math.sqrt(count))
-          ci95 = math.dotMultiply(ci95, count.map(n => n > 2 ? jStat.studentt.inv(0.975, n - 1) : 0))
-          ci95 = math.multiply(math.round(math.divide(ci95, 100)), 100)
+          std = math.multiply(math.round(math.divide(std, 100)), 100)
         }
         processed.push({
           'town': town,
           'flat_type': flat,
-          'time_series': {
-            'month': month,
-            'count': count,
-            'min': min, 'max': max, 'median': median,
-            'mean': mean, 'ci95': ci95
-          }
+          'time_series': {month, count, min, max, median, mean, std}
         })
       })
     })
@@ -78,13 +71,12 @@ export function processData ({data, meta}) {
 }
 
 const z = jStat.normal.inv(0.95, 0, 1)
-export function smoothData (y, x, w, ci95) {
+export function smoothData (y, x, w, std) {
   if (y.length < 30) return {}
   const fit = new Loess({y, x, w}, {span: 0.3})
   const predict = fit.predict()
 
-  const se = math.dotDivide(ci95, w.map(n => n > 2 ? jStat.studentt.inv(0.975, n - 1) : 1))
-  const variance = math.dotMultiply(math.square(se), w)
+  const variance = math.square(std)
   const halfwidth = predict.weights.map((weight, idx) => {
     const V1 = math.sum(weight)
     const V2 = math.multiply(weight, weight)
@@ -111,14 +103,14 @@ export function updateTimeSeries ({data, meta}) {
         const max = old.time_series.max.concat(entry.time_series.max)
         const median = old.time_series.median.concat(entry.time_series.median)
         const mean = old.time_series.mean.concat(entry.time_series.mean)
-        const ci95 = old.time_series.ci95.concat(entry.time_series.ci95)
+        const std = old.time_series.std.concat(entry.time_series.std)
 
-        entry.time_series = {month, count, min, max, median, mean, ci95}
+        entry.time_series = {month, count, min, max, median, mean, std}
         Object.assign(entry.time_series, smoothData(
           mean,
           month.map(mth => meta.monthList.indexOf(mth)),
           count,
-          ci95
+          std
         ))
 
         return db.time_series.findOneAndUpdate(

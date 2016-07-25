@@ -86,15 +86,6 @@ export default class Plot {
         sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             if (chartType === 'Smoothed' && result.time_series.month.length > 100) {
-              const dataset = {
-                name: result.flat_type,
-                x: result.time_series.month,
-                y: result.time_series.loess,
-                type: 'scatter',
-                mode: 'lines',
-                line: {color: 'rgba(0, 0, 0, 0.1)'},
-                showlegend: false
-              }
               const fill_x = []
               const fill_y = []
               for (let i = 0; i < result.time_series.month.length; i++) {
@@ -103,20 +94,25 @@ export default class Plot {
               }
               for (let i = result.time_series.month.length - 1; i > -1; i--) {
                 fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i])
+              }
+              for (let i = 0; i < result.time_series.month.length; i++) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i])
+              }
+              for (let i = result.time_series.month.length - 1; i > -1; i--) {
+                fill_x.push(result.time_series.month[i])
                 fill_y.push(result.time_series.loess[i] - result.time_series.loessError[i])
               }
-              fill_x.push(result.time_series.month[0])
-              fill_y.push(result.time_series.loess[0] + result.time_series.loessError[0])
-              const dataset_fill = {
+              const dataset = {
                 name: result.flat_type,
                 x: fill_x,
                 y: fill_y,
                 type: 'scatter',
                 line: {width: 1},
-                fill: 'tozerox'
+                fill: 'tozeroy'
               }
-              datasets.push(dataset_fill)
-              datasets_defer.push(dataset)
+              datasets.push(dataset)
             } else {
               const dataset = {
                 name: result.flat_type,
@@ -135,7 +131,7 @@ export default class Plot {
               }
               if (chartType === 'Average') {
                 dataset.y = result.time_series.mean
-                dataset.error_y.array = result.time_series.ci95
+                dataset.error_y.array = result.time_series.std
               } else {
                 dataset.y = result.time_series.median
                 dataset.error_y.symmetric = false
