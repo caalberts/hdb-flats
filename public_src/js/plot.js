@@ -82,7 +82,7 @@ export default class Plot {
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
-        const datasets_defer = []
+        const datasets_reserve = []
         sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
             if (chartType === 'Smoothed' && result.time_series.month.length > 100) {
@@ -113,6 +113,19 @@ export default class Plot {
                 fill: 'tozeroy'
               }
               datasets.push(dataset)
+              const secondary_dataset = {
+                x: result.time_series.month,
+                y: result.time_series.median,
+                type: 'scatter',
+                mode: 'markers',
+                marker: {
+                  size: 1.5,
+                  color: 'black'
+                },
+                hoverinfo: 'none',
+                showlegend: false
+              }
+              datasets_reserve.push(secondary_dataset)
             } else {
               const dataset = {
                 name: result.flat_type,
@@ -142,7 +155,7 @@ export default class Plot {
             }
           }
         })
-        return datasets.concat(datasets_defer)
+        return datasets.concat(datasets_reserve)
       }
       return [prepareData('Average'), prepareData('Min, Max & Median'), prepareData('Smoothed')]
     })

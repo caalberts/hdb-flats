@@ -38,7 +38,7 @@ export class App {
       dropdown.options.forEach(item => {
         const option = document.createElement('option')
         option.textContent = item
-        if (item === dropdown.defaultOption) option.setAttribute('selected', '')
+        if (item === dropdown.defaultOption) option.setAttribute('selected', true)
         selector.add(option)
       })
       selector.addEventListener('change', event => this.drawChart())
@@ -117,6 +117,7 @@ export class Maps extends App {
 
     this.drawForm()
     this.monthSelection = document.getElementById('select-month')
+    this.flatSelection = document.getElementById('select-flat')
 
     this.mapDiv = document.createElement('div')
     this.mapDiv.setAttribute('id', 'map')
@@ -125,6 +126,7 @@ export class Maps extends App {
 
     this.heatmap = new Heatmap(
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
+      this.flatSelection.options[this.flatSelection.selectedIndex].value,
       this.mapDiv,
       this.chartContainer,
       this.loadingScreen
@@ -158,20 +160,26 @@ export class Maps extends App {
   }
 
   drawForm () {
-    const text = 'Choose month'
+    const text = 'Choose month & flat type'
+    const flats = {
+      options: ['ALL', '3 ROOM', '4 ROOM', '5 ROOM'],
+      selector: 'select-flat',
+      defaultOption: 'ALL'
+    }
     const months = {
       options: window.meta.monthList,
       selector: 'select-month',
       defaultOption: window.meta.monthList[window.meta.monthList.length - 1]
     }
-    this.createSelections(text, months)
+    this.createSelections(text, months, flats)
   }
 
   drawChart () {
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
+    this.heatmap.flat = this.flatSelection.options[this.flatSelection.selectedIndex].value
     this.chartTitle.textContent = 'Property Hotspots in ' + getMonthYear(this.heatmap.month)
     this.withinMonthRange(this.monthSelection.selectedIndex)
-    this.heatmap.plotHeatmap(this.heatmap.month)
+    this.heatmap.plotHeatmap(this.heatmap.month, this.heatmap.flat)
   }
 
   prevChart () {

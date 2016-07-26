@@ -4,8 +4,9 @@ import 'whatwg-fetch'
 const mapCenter = new google.maps.LatLng(1.352083, 103.819836)
 
 export default class Heatmap {
-  constructor (month, mapDiv, container, loadingScreen) {
+  constructor (month, flat, mapDiv, container, loadingScreen) {
     this.month = month
+    this.flat = flat
     this.mapDiv = mapDiv
     this.chartContainer = container
     this.loadingScreen = loadingScreen
@@ -22,7 +23,7 @@ export default class Heatmap {
     this.heatmap.setMap(this.map)
   }
 
-  plotHeatmap (month) {
+  plotHeatmap (month, flat) {
     this.db.get(month)
       .then(doc => {
         this.renderData(doc)
@@ -60,27 +61,41 @@ export default class Heatmap {
     const url = window.location.protocol + '//' + window.location.host + '/heatmap?month=' + month
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
-      let dataPoints = []
-      results.forEach(result => dataPoints = dataPoints.concat(result.dataPoints))
-      dataPoints.forEach(dataPoint => dataPoint.weight = Math.pow(dataPoint.weight, 1.5))
+      let dataPoints = {}
+      for (let result of results) {
+        result.dataPoints.forEach(pt => { pt.weight = Math.pow(pt.weight, 1.5) })
+        dataPoints[result.flat_type] = result.dataPoints
+      }
       return dataPoints
     })
   }
 
   renderData (dataObj) {
-    if (dataObj._id !== this.month) console.warn('overlapping queries')
-    else if (dataObj.dataPoints.length === 0) console.warn('no data')
-    else {
-      const ticks = dataObj.dataPoints.map(tick => {
-        return {
-          location: new google.maps.LatLng(tick.lat, tick.lng),
-          weight: tick.weight
-        }
-      })
-      this.loadingScreen.className = 'fa'
-      this.mapDiv.classList.remove('chart-loading')
-      this.heatmap.setData(ticks)
+    if (dataObj._id !== this.month) {
+      console.warn('overlapping queries')
+      return
     }
+
+    let dataPoints = []
+    if (this.flat !== 'ALL') {
+      dataPoints = dataObj.dataPoints[this.flat]
+    } else {
+      for (let flat in dataObj.dataPoints) {
+        dataPoints = dataPoints.concat(dataObj.dataPoints[flat])
+      }
+    }
+    if (dataPoints.length === 0) {
+      console.warn('no data')
+      return
+    }
+
+    const ticks = dataPoints.map(tick => ({
+      location: new google.maps.LatLng(tick.lat, tick.lng),
+      weight: tick.weight
+    }))
+    this.loadingScreen.className = 'fa'
+    this.mapDiv.classList.remove('chart-loading')
+    this.heatmap.setData(ticks)
   }
 
   resetMap () {
