@@ -1,5 +1,4 @@
 import 'whatwg-fetch'
-Array.from = require('array-from')
 import { TimeSeries, Maps, About } from './app.js'
 import { getMonthYear } from './helpers.js'
 

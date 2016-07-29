@@ -9,20 +9,6 @@ import {fetchData, geocode} from './util/fetchExtRes.js'
 const start = Date.now()
 export const db = new InitDB()
 
-export function getMeta () {
-  return db.meta.findOne().exec((err) => {
-    if (err) throw err
-    console.log('Retrieved meta data')
-  })
-}
-
-export function getAddressBook () {
-  return db.Address.find().exec((err) => {
-    if (err) throw err
-    console.log('Address book loaded')
-  })
-}
-
 export function processData ({data, meta}) {
   console.log('Processing time-series data')
   const processed = []
@@ -260,8 +246,8 @@ export function closeConnection () {
 }
 
 Promise.all([
-  getMeta(),
-  getAddressBook(),
+  db.getMeta(),
+  db.getAddressBook(),
   fetchData()
 ]).then(splitTask)
   .then(updateMeta)

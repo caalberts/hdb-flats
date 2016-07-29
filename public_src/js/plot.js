@@ -168,19 +168,20 @@ export default class Plot {
       this.plotDiv.classList.remove('chart-loading')
       Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
       this.plotDiv.on('plotly_click', click => {
+        if (!click.points[0].data.name) return
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
     }
   }
 
-  listAllTransactions (town, type, date) {
+  listAllTransactions (town, flat_type, date) {
     this.chartDetail = document.getElementById('chart-detail')
     const table = document.createElement('table')
 
     const tableTitle = document.createElement('h2')
     tableTitle.id = 'chart-detail-title'
     tableTitle.innerHTML =
-      'Transactions Records for ' + capitalizeFirstLetters(type) +
+      'Transactions Records for ' + capitalizeFirstLetters(flat_type) +
       ' Flats <span>in ' + capitalizeFirstLetters(this.town) +
       ' in ' + getMonthYear(date) + '</span>'
     const thead = document.createElement('thead')
@@ -189,8 +190,9 @@ export default class Plot {
       '#',
       'Block',
       'Street Name',
+      'Flat Type',
       'Storey Range',
-      'Remaining Lease (years)',
+      'Lease Commence',
       'Floor Area (sqm)',
       'Resale Price (SGD)'
     ]
@@ -207,11 +209,12 @@ export default class Plot {
       '8c00bf08-9124-479e-aeca-7cc411d884c4',
       '83b2fc37-ce8c-4df4-968b-370fd818138b'
     ]
-    date = date.slice(0, 7)
+    const month = date.slice(0, 7)
     const resource =
-      date < '2012-03' ? resID[0] : resID[1]
-    const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource +
-      '&q={"town":"' + town + '","flat_type":"' + type + '","month":"' + date + '"}'
+      month < '2012-03' ? resID[0] : resID[1]
+    const filters = {town, flat_type, month}
+    const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' +
+      resource + '&filters=' + JSON.stringify(filters)
 
     window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
@@ -225,8 +228,9 @@ export default class Plot {
               index + 1,
               transaction.block.trim(),
               capitalizeFirstLetters(transaction.street_name.trim()),
+              transaction.flat_type.trim(),
               transaction.storey_range.trim().toLowerCase(),
-              99 - (+transaction.month.slice(0, 4)) + (+transaction.lease_commence_date),
+              transaction.lease_commence_date,
               transaction.floor_area_sqm,
               (+transaction.resale_price).toLocaleString()
             ]

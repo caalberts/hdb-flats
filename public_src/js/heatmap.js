@@ -1,5 +1,7 @@
 /* global google */
 import 'whatwg-fetch'
+import sortByOrder from 'lodash.sortbyorder'
+import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 const mapCenter = new google.maps.LatLng(1.352083, 103.819836)
 
@@ -14,11 +16,17 @@ export default class Heatmap {
 
     this.map = new google.maps.Map(this.mapDiv, {
       center: mapCenter,
-      zoom: 11
+      zoom: 11,
+      draggableCursor: 'pointer',
+      scrollwheel: false
     })
 
     this.heatmap = new google.maps.visualization.HeatmapLayer({
       radius: 7
+    })
+    this.map.addListener('click', e => {
+      const target = e.latLng
+      this.listAllTransactions(target.lat(), target.lng(), this.month, this.flat)
     })
     this.heatmap.setMap(this.map)
   }
@@ -101,5 +109,110 @@ export default class Heatmap {
   resetMap () {
     this.map.setCenter(mapCenter)
     this.map.setZoom(11)
+  }
+
+  listAllTransactions (lat, lng, month, flat_type) {
+    const url = window.location.protocol + '//' + window.location.host + '/nearby'
+    window.fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({lat, lng, radius: 500})
+    }).then(res => res.json()).then(json => {
+      if (!json.length) {
+        removeChildren(this.chartDetail)
+        console.log('No result around selected location')
+        return
+      }
+
+      const resID = [
+        '8c00bf08-9124-479e-aeca-7cc411d884c4',
+        '83b2fc37-ce8c-4df4-968b-370fd818138b'
+      ]
+      const resource =
+        month < '2012-03' ? resID[0] : resID[1]
+      Promise.all(json.map(street_name => {
+        const filters = {street_name, month}
+        if (flat_type !== 'ALL') Object.assign(filters, {flat_type})
+        const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' +
+          resource + '&filters=' + JSON.stringify(filters)
+        return window.fetch(dataURL, { Accept: 'application/json' })
+          .then(data => data.json())
+      }))
+      .then(results => results.reduce((records, res) => {
+        if (res.result && res.result.records) {
+          return records.concat(res.result.records)
+        } else {
+          return records
+        }
+      }, []))
+      .then(records => {
+        if (!json.length) {
+          removeChildren(this.chartDetail)
+          console.log('No result around selected location')
+          return
+        }
+        this.chartDetail = document.getElementById('chart-detail')
+        const table = document.createElement('table')
+
+        const tableTitle = document.createElement('h2')
+        tableTitle.id = 'chart-detail-title'
+        tableTitle.innerHTML =
+          'Transactions Records in ' + getMonthYear(month) + ' around selected location'
+        const thead = document.createElement('thead')
+        const tr = document.createElement('tr')
+        const headers = [
+          '#',
+          'Block',
+          'Street Name',
+          'Flat Type',
+          'Storey Range',
+          'Lease Commence',
+          'Floor Area (sqm)',
+          'Resale Price (SGD)'
+        ]
+
+        headers.forEach(header => {
+          const th = document.createElement('th')
+          th.textContent = header
+          tr.appendChild(th)
+        })
+        thead.appendChild(tr)
+        table.appendChild(thead)
+        const tbody = document.createElement('tbody')
+        tbody.setAttribute('id', 'table-body')
+        sortByOrder(records, record => +record.resale_price, 'desc')
+          .forEach((transaction, index) => {
+            const row = document.createElement('tr')
+            row.classList.add('table-striped')
+            let rowData = [
+              index + 1,
+              transaction.block.trim(),
+              capitalizeFirstLetters(transaction.street_name.trim()),
+              transaction.flat_type.trim(),
+              transaction.storey_range.trim().toLowerCase(),
+              transaction.lease_commence_date,
+              transaction.floor_area_sqm,
+              (+transaction.resale_price).toLocaleString()
+            ]
+            rowData.map(data => {
+              const td = document.createElement('td')
+              td.textContent = data
+              return td
+            }).forEach(td => row.appendChild(td))
+            tbody.appendChild(row)
+          })
+        table.appendChild(tbody)
+
+        removeChildren(this.chartDetail)
+
+        this.chartDetail.appendChild(tableTitle)
+        this.chartDetail.appendChild(table)
+
+        document.getElementById('chart-detail-title').scrollIntoView()
+      })
+    })
   }
 }

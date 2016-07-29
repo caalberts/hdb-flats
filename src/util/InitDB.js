@@ -62,4 +62,18 @@ export default class {
       dataPoints: [{lng: Number, lat: Number, weight: Number}]
     }))
   }
+
+  getMeta () {
+    return this.meta.findOne().exec((err) => {
+      if (err) throw err
+      console.log('Retrieved meta data')
+    })
+  }
+
+  getAddressBook () {
+    return this.Address.find().exec((err) => {
+      if (err) throw err
+      console.log('Address book loaded')
+    })
+  }
 }
