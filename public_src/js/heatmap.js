@@ -70,10 +70,12 @@ export default class Heatmap {
     const headers = { Accept: 'application/json' }
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       let dataPoints = {}
-      for (let result of results) {
-        result.dataPoints.forEach(pt => { pt.weight = Math.pow(pt.weight, 1.5) })
+      results.forEach(result => {
+        result.dataPoints.forEach(pt => {
+          pt.weight = Math.pow(pt.weight, 1.5)
+        })
         dataPoints[result.flat_type] = result.dataPoints
-      }
+      })
       return dataPoints
     })
   }
@@ -131,8 +133,7 @@ export default class Heatmap {
         '8c00bf08-9124-479e-aeca-7cc411d884c4',
         '83b2fc37-ce8c-4df4-968b-370fd818138b'
       ]
-      const resource =
-        month < '2012-03' ? resID[0] : resID[1]
+      const resource = month < '2012-03' ? resID[0] : resID[1]
       Promise.all(json.map(street_name => {
         const filters = {street_name, month}
         if (flat_type !== 'ALL') Object.assign(filters, {flat_type})

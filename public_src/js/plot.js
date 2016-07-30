@@ -210,8 +210,7 @@ export default class Plot {
       '83b2fc37-ce8c-4df4-968b-370fd818138b'
     ]
     const month = date.slice(0, 7)
-    const resource =
-      month < '2012-03' ? resID[0] : resID[1]
+    const resource = month < '2012-03' ? resID[0] : resID[1]
     const filters = {town, flat_type, month}
     const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' +
       resource + '&filters=' + JSON.stringify(filters)
