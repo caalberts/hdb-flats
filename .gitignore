@@ -1,9 +1,6 @@
-coverage/
 dist/
 public/
-config.js
 *.log
 *.log.*
-data/
 iron.json
-iron.worker
+about-story.md

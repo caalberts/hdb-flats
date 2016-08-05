@@ -1,15 +1,26 @@
 import Plot from './plot.js'
 import Heatmap from './heatmap.js'
-import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
+import 'whatwg-fetch'
+import { appendChildren,
+         removeChildren,
+         capitalizeFirstLetters,
+         getMonthYear } from './helpers.js'
 
 window.PouchDB = require('pouchdb')
 
 export class App {
   constructor () {
+    removeChildren(document.querySelector('main'))
+    removeChildren(document.querySelector('.selectors'))
+    this.chartTitle = document.createElement('h1')
+    this.chartTitle.id = 'chart-title'
+    this.chartContainer = document.createElement('div')
+    this.chartContainer.id = 'chart-container'
+    this.chartDetail = document.createElement('div')
+    this.chartDetail.id = 'chart-detail'
+    this.loadingScreen = document.createElement('i')
+    this.loadingScreen.id = 'loading'
     this.chartNav = document.querySelector('.selectors')
-    this.chartTitle = document.getElementById('chart-title')
-    this.chartContainer = document.getElementById('chart-container')
-    this.chartDetail = document.getElementById('chart-detail')
   }
 
   createSelections (text, ...dropdowns) {
@@ -27,7 +38,7 @@ export class App {
       dropdown.options.forEach(item => {
         const option = document.createElement('option')
         option.textContent = item
-        if (item === dropdown.defaultOption) option.setAttribute('selected', '')
+        if (item === dropdown.defaultOption) option.setAttribute('selected', true)
         selector.add(option)
       })
       selector.addEventListener('change', event => this.drawChart())
@@ -35,11 +46,16 @@ export class App {
     })
     this.chartNav.appendChild(form)
   }
+
+  appendChartElements () {
+    appendChildren('main', this.chartTitle, this.chartContainer, this.chartDetail)
+  }
 }
 
 export class TimeSeries extends App {
   constructor () {
     super()
+    this.appendChartElements()
 
     this.drawForm()
     this.townSelection = document.getElementById('select-town')
@@ -48,12 +64,14 @@ export class TimeSeries extends App {
     this.plotDiv = document.createElement('div')
     this.plotDiv.setAttribute('id', 'plot-space')
     this.chartContainer.appendChild(this.plotDiv)
+    this.chartContainer.appendChild(this.loadingScreen)
 
     this.plot = new Plot(
       this.townSelection.options[this.townSelection.selectedIndex].value,
       this.chartSelection.options[this.chartSelection.selectedIndex].value,
       this.plotDiv,
-      this.chartContainer
+      this.chartContainer,
+      this.loadingScreen
     )
 
     this.drawChart()
@@ -67,9 +85,9 @@ export class TimeSeries extends App {
       defaultOption: 'Ang Mo Kio'
     }
     const charts = {
-      options: ['Average', 'Min, Max & Median'],
+      options: ['Average', 'Min, Max & Median', 'Smoothed'],
       selector: 'select-chart',
-      defaultOption: 'Average'
+      defaultOption: 'Smoothed'
     }
     this.createSelections(text, towns, charts)
   }
@@ -80,9 +98,13 @@ export class TimeSeries extends App {
     this.plot.town = this.townSelection.options[this.townSelection.selectedIndex].value
     this.plot.chartType = this.chartSelection.options[this.chartSelection.selectedIndex].value
 
-    this.chartTitle.innerHTML = this.plot.chartType === 'Average'
-      ? 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
-      : 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
+    if (this.plot.chartType === 'Smoothed') {
+      this.chartTitle.innerHTML = 'Historical Trend of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+    } else if (this.plot.chartType === 'Average') {
+      this.chartTitle.innerHTML = 'Historical Average of HDB Resale Prices <span>in ' + capitalizeFirstLetters(this.plot.town) + '</span>'
+    } else {
+      this.chartTitle.innerHTML = 'Range of Transacted Prices in ' + capitalizeFirstLetters(this.plot.town) + ' <span>(Min, Max & Median)</span>'
+    }
 
     this.plot.plotChart(this.plot.town)
   }
@@ -91,18 +113,23 @@ export class TimeSeries extends App {
 export class Maps extends App {
   constructor () {
     super()
+    this.appendChartElements()
 
     this.drawForm()
     this.monthSelection = document.getElementById('select-month')
+    this.flatSelection = document.getElementById('select-flat')
 
     this.mapDiv = document.createElement('div')
     this.mapDiv.setAttribute('id', 'map')
     this.chartContainer.appendChild(this.mapDiv)
+    this.chartContainer.appendChild(this.loadingScreen)
 
     this.heatmap = new Heatmap(
       this.monthSelection.options[this.monthSelection.selectedIndex].value,
+      this.flatSelection.options[this.flatSelection.selectedIndex].value,
       this.mapDiv,
-      this.chartContainer
+      this.chartContainer,
+      this.loadingScreen
     )
 
     this.createButtons()
@@ -133,20 +160,26 @@ export class Maps extends App {
   }
 
   drawForm () {
-    const text = 'Choose month'
+    const text = 'Choose month & flat type'
+    const flats = {
+      options: ['ALL', '3 ROOM', '4 ROOM', '5 ROOM'],
+      selector: 'select-flat',
+      defaultOption: 'ALL'
+    }
     const months = {
       options: window.meta.monthList,
       selector: 'select-month',
-      defaultOption: '2015-09'
+      defaultOption: window.meta.monthList[window.meta.monthList.length - 1]
     }
-    this.createSelections(text, months)
+    this.createSelections(text, months, flats)
   }
 
   drawChart () {
     this.heatmap.month = this.monthSelection.options[this.monthSelection.selectedIndex].value
+    this.heatmap.flat = this.flatSelection.options[this.flatSelection.selectedIndex].value
     this.chartTitle.textContent = 'Property Hotspots in ' + getMonthYear(this.heatmap.month)
     this.withinMonthRange(this.monthSelection.selectedIndex)
-    this.heatmap.plotHeatmap(this.heatmap.month)
+    this.heatmap.plotHeatmap(this.heatmap.month, this.heatmap.flat)
   }
 
   prevChart () {
@@ -164,5 +197,13 @@ export class Maps extends App {
     this.nextButton.disabled = false
     if (idx === 0) this.prevButton.disabled = true
     if (idx === window.meta.monthList.length - 1) this.nextButton.disabled = true
+  }
+}
+
+export class About extends App {
+  constructor () {
+    super()
+    window.fetch('/about.html').then(res => res.text())
+      .then(html => document.querySelector('main').innerHTML = html)
   }
 }

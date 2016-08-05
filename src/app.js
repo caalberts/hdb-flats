@@ -1,14 +1,21 @@
 import express from 'express'
 import fallback from 'express-history-api-fallback'
+import bodyParser from 'body-parser'
 import path from 'path'
 import InitDB from './util/InitDB.js'
+import {toSVY, eucliDist2} from './util/geometry'
 
 const app = express()
 const root = path.join(__dirname, '../public')
 
 const db = new InitDB()
+const addressCache = {lastUpdate: Date.now()}
+db.getAddressBook().then(docs => {
+  addressCache.data = docs
+})
 
 app.use(express.static(root))
+app.use(bodyParser.json())
 
 app.get('/list', function (req, res) {
   db.meta.findOne().exec((err, docs) => {
@@ -46,8 +53,26 @@ app.get('/heatmap', function (req, res) {
   })
 })
 
-app.get('/about', function (req, res) {
-  res.sendFile(root + '/about.html')
+app.post('/nearby', function (req, res) {
+  if (!addressCache.data) res.json([])
+  else {
+    const {lat, lng, radius} = req.body
+    const point = toSVY(lat, lng)
+    const r2 = Math.pow(radius, 2)
+    const nearbyStreets = addressCache.data
+      .filter(a => eucliDist2(toSVY(a.lat, a.lng), point) < r2)
+      .reduce((streets, a) => {
+        streets[a.street] = true
+        return streets
+      }, {})
+    res.json(Object.keys(nearbyStreets))
+    if (Date.now() - addressCache.lastUpdate > 24 * 60 * 60 * 1000) {
+      db.getAddressBook.then(docs => {
+        addressCache.lastUpdate = Date.now()
+        addressCache.data = docs
+      })
+    }
+  }
 })
 
 app.use(fallback('index.html', { root }))

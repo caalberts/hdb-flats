@@ -4,11 +4,12 @@ import sortByOrder from 'lodash.sortbyorder'
 import { removeChildren, capitalizeFirstLetters, getMonthYear } from './helpers.js'
 
 export default class Plot {
-  constructor (town, type, plotDiv, container) {
+  constructor (town, type, plotDiv, container, loadingScreen) {
     this.town = town
     this.chartType = type
     this.plotDiv = plotDiv
     this.chartContainer = container
+    this.loadingScreen = loadingScreen
     this.db = new window.PouchDB('hdbresale')
     this.layout = {
       hovermode: 'closest',
@@ -56,14 +57,15 @@ export default class Plot {
         }
       })
       .catch(() => {
-        this.chartContainer.classList.add('loading')
+        this.loadingScreen.className = 'fa fa-spinner fa-pulse'
         this.plotDiv.classList.add('chart-loading')
         this.getData(town).then(datasets => {
           const doc = {
             '_id': town,
             'lastUpdate': window.meta.lastUpdate,
             'Average': datasets[0],
-            'Min, Max & Median': datasets[1]
+            'Min, Max & Median': datasets[1],
+            'Smoothed': datasets[2]
           }
           this.db.put(doc)
             .then(console.log.bind(console))
@@ -80,60 +82,106 @@ export default class Plot {
     return window.fetch(url, headers).then(res => res.json()).then(results => {
       function prepareData (chartType) {
         const datasets = []
+        const datasets_reserve = []
         sortByOrder(results, result => result.flat_type, 'desc').forEach(result => {
           if (result.time_series.month.length > 0) {
-            const dataset = {
-              name: result.flat_type,
-              x: result.time_series.month,
-              error_y: {
-                type: 'data',
-                visible: true,
-                thickness: 1,
-                width: 0
-              },
-              type: 'scatter',
-              mode: 'markers',
-              marker: {
-                size: 3
+            if (chartType === 'Smoothed' && result.time_series.month.length > 100) {
+              const fill_x = []
+              const fill_y = []
+              for (let i = 0; i < result.time_series.month.length; i++) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i] + result.time_series.loessError[i])
               }
-            }
-            if (chartType === 'Average') {
-              dataset.y = result.time_series.mean
-              dataset.error_y.array = result.time_series.ci95
+              for (let i = result.time_series.month.length - 1; i > -1; i--) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i])
+              }
+              for (let i = 0; i < result.time_series.month.length; i++) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i])
+              }
+              for (let i = result.time_series.month.length - 1; i > -1; i--) {
+                fill_x.push(result.time_series.month[i])
+                fill_y.push(result.time_series.loess[i] - result.time_series.loessError[i])
+              }
+              const dataset = {
+                name: result.flat_type,
+                x: fill_x,
+                y: fill_y,
+                type: 'scatter',
+                line: {width: 1},
+                fill: 'tozeroy'
+              }
+              datasets.push(dataset)
+              const secondary_dataset = {
+                x: result.time_series.month,
+                y: result.time_series.median,
+                type: 'scatter',
+                mode: 'markers',
+                marker: {
+                  size: 1.5,
+                  color: 'black'
+                },
+                hoverinfo: 'none',
+                showlegend: false
+              }
+              datasets_reserve.push(secondary_dataset)
             } else {
-              dataset.y = result.time_series.median
-              dataset.error_y.symmetric = false
-              dataset.error_y.array = result.time_series.max
-              dataset.error_y.arrayminus = result.time_series.min
+              const dataset = {
+                name: result.flat_type,
+                x: result.time_series.month,
+                error_y: {
+                  type: 'data',
+                  visible: true,
+                  thickness: 1,
+                  width: 0
+                },
+                type: 'scatter',
+                mode: 'markers',
+                marker: {
+                  size: 3
+                }
+              }
+              if (chartType === 'Average') {
+                dataset.y = result.time_series.mean
+                dataset.error_y.array = result.time_series.std
+              } else {
+                dataset.y = result.time_series.median
+                dataset.error_y.symmetric = false
+                dataset.error_y.array = result.time_series.max
+                dataset.error_y.arrayminus = result.time_series.min
+              }
+              datasets.push(dataset)
             }
-            datasets.push(dataset)
           }
         })
-        return datasets
+        return datasets.concat(datasets_reserve)
       }
-      return [prepareData('Average'), prepareData('Min, Max & Median')]
+      return [prepareData('Average'), prepareData('Min, Max & Median'), prepareData('Smoothed')]
     })
   }
 
   renderData (dataObj) {
     if (dataObj._id !== this.town) console.warn('overlapping queries')
     else {
-      this.chartContainer.classList.remove('loading')
+      this.loadingScreen.className = 'fa'
       this.plotDiv.classList.remove('chart-loading')
       Plotly.newPlot(this.plotDiv, dataObj[this.chartType], this.layout)
       this.plotDiv.on('plotly_click', click => {
+        if (!click.points[0].data.name) return
         this.listAllTransactions(this.town, click.points[0].data.name, click.points[0].x)
       })
     }
   }
 
-  listAllTransactions (town, type, date) {
+  listAllTransactions (town, flat_type, date) {
     this.chartDetail = document.getElementById('chart-detail')
     const table = document.createElement('table')
 
     const tableTitle = document.createElement('h2')
+    tableTitle.id = 'chart-detail-title'
     tableTitle.innerHTML =
-      'Transactions Records for ' + capitalizeFirstLetters(type) +
+      'Transactions Records for ' + capitalizeFirstLetters(flat_type) +
       ' Flats <span>in ' + capitalizeFirstLetters(this.town) +
       ' in ' + getMonthYear(date) + '</span>'
     const thead = document.createElement('thead')
@@ -142,8 +190,9 @@ export default class Plot {
       '#',
       'Block',
       'Street Name',
+      'Flat Type',
       'Storey Range',
-      'Remaining Lease (years)',
+      'Lease Commence',
       'Floor Area (sqm)',
       'Resale Price (SGD)'
     ]
@@ -157,16 +206,14 @@ export default class Plot {
     table.appendChild(thead)
 
     const resID = [
-      'a3f3ad06-5c05-4177-929f-bb9fffccebdd',
-      'e119f1a2-e528-4535-adaf-2872b60dbf0a',
-      '8d2112ca-726e-4394-9b50-3cdf5404e790'
+      '8c00bf08-9124-479e-aeca-7cc411d884c4',
+      '83b2fc37-ce8c-4df4-968b-370fd818138b'
     ]
-    date = date.slice(0, 7)
-    const resource =
-      date < '2005-01' ? resID[0]
-      : date < '2012-03' ? resID[1] : resID[2]
-    const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' + resource +
-      '&q={"town":"' + town + '","flat_type":"' + type + '","month":"' + date + '"}'
+    const month = date.slice(0, 7)
+    const resource = month < '2012-03' ? resID[0] : resID[1]
+    const filters = {town, flat_type, month}
+    const dataURL = 'https://data.gov.sg/api/action/datastore_search?resource_id=' +
+      resource + '&filters=' + JSON.stringify(filters)
 
     window.fetch(dataURL, { Accept: 'application/json' }).then(data => data.json())
       .then(json => {
@@ -180,8 +227,9 @@ export default class Plot {
               index + 1,
               transaction.block.trim(),
               capitalizeFirstLetters(transaction.street_name.trim()),
+              transaction.flat_type.trim(),
               transaction.storey_range.trim().toLowerCase(),
-              99 - (+transaction.month.slice(0, 4)) + (+transaction.lease_commence_date),
+              transaction.lease_commence_date,
               transaction.floor_area_sqm,
               (+transaction.resale_price).toLocaleString()
             ]
@@ -199,8 +247,7 @@ export default class Plot {
         this.chartDetail.appendChild(tableTitle)
         this.chartDetail.appendChild(table)
 
-        if (window.matchMedia('(max-width: 900px)').matches) window.scrollTo(0, 580)
-        else window.scrollTo(0, 600)
+        document.getElementById('chart-detail-title').scrollIntoView()
       })
   }
 }
