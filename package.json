@@ -57,7 +57,7 @@
     "codecov.io": "^0.1.6",
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0",
-    "nodemon": "^1.8.1",
+    "nodemon": "^1.11.0",
     "standard": "^5.4.1",
     "supertest": "^1.1.0",
     "watch-spawn": "^1.0.6",
