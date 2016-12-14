@@ -52,7 +52,7 @@
     "whatwg-fetch": "^0.10.1"
   },
   "devDependencies": {
-    "babel-istanbul": "^0.6.0",
+    "babel-istanbul": "^0.12.0",
     "chai": "^3.4.1",
     "codecov.io": "^0.1.6",
     "mocha": "^2.3.4",
